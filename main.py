@@ -1371,7 +1371,7 @@ with open("./channels/networks/grpc", "w", encoding="utf-8") as file:
 
 
 readme = '''## Introduction
-The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
+The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks (Hystria, Tuic, Reality, and Juicity are in preview)configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collectorr?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collectorr?label=License&color=yellow)
