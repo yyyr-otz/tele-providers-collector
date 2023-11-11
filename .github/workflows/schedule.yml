@@ -2,7 +2,7 @@ name: Execute On Schedule
 
 on:
   schedule:
-    - cron: '30 * * * *' # Executes at 30 minutes past the hour.
+    - cron: '0 */1 * * *'
     
 jobs:
   build:
@@ -27,10 +27,10 @@ jobs:
           
       - name: Commit Files
         run: |
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M %Z')" --allow-empty)
+          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date '+%Y-%m-%d %H:%M %Z')" --allow-empty)
           
       - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
@@ -42,10 +42,10 @@ jobs:
         run: |
           git checkout --orphan latest_branch
           git rm -r -f __pycache__
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
-          git commit -am "Updated $(TZ='Asia/Tehran' date '+%Y-%m-%d %H:%M %Z')"
+          git commit -am "Updated $(TZ='Asia/Beijing' date '+%Y-%m-%d %H:%M %Z')"
           git branch -D main
           git branch -m main
           git push -f origin main
