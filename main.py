@@ -51,7 +51,7 @@ with open('./last update', 'r') as file:
 
 # Write the current date and time update
 with open('./last update', 'w') as file:
-    current_datetime_update = datetime.now(tz = timezone(timedelta(hours = 3, minutes = 30)))
+    current_datetime_update = datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
     file.write(f'{current_datetime_update}')
 
 print(f"Latest Update: {last_update_datetime.strftime('%a, %d %b %Y %X %Z')}\nCurrent Update: {current_datetime_update.strftime('%a, %d %b %Y %X %Z')}")
@@ -157,14 +157,14 @@ def tg_message_time(div_message):
     message_datetime_tag = div_message_info.find('time')
     message_datetime = message_datetime_tag.get('datetime')
 
-    # Change message datetime type into object and convert into Iran datetime
+    # Change message datetime type into object and convert into Beijing datetime
     datetime_object = datetime.fromisoformat(message_datetime)
-    datetime_object = datetime.astimezone(datetime_object, tz = timezone(timedelta(hours = 3, minutes = 30)))
+    datetime_object = datetime.astimezone(datetime_object, tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
 
-    # Retrieve now datetime based on Iran timezone
-    datetime_now = datetime.now(tz = timezone(timedelta(hours = 3, minutes = 30)))
+    # Retrieve now datetime based on Beijing timezone
+    datetime_now = datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
 
-    # Return datetime object, current datetime based on Iran datetime and delta datetime
+    # Return datetime object, current datetime based on Beijing datetime and delta datetime
     return datetime_object, datetime_now, datetime_now - datetime_object
 
 
@@ -1023,9 +1023,9 @@ def create_title(title, port):
     return reality_config_title, vless_config_title, vmess_config_title, trojan_config_title, shadowsocks_config_title
 
 
-# Define update date and time based on Iran timezone and calendar
-datetime_update = jdatetime.datetime.now(tz = timezone(timedelta(hours = 3, minutes = 30)))
-datetime_update_str = datetime_update.strftime("\U0001F504 LATEST-UPDATE \U0001F4C5 %a-%d-%B-%Y \U0001F551 %H:%M").upper()
+# Define update date and time based on Beijing timezone and calendar
+datetime_update = jdatetime.datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
+datetime_update_str = datetime_update.strftime("\U0001F504 LATEST-UPDATE \U0001F4C5 %a %m月%d日 \U0001F551 %H:%M").upper()
 # Define update time based on protocol type
 reality_update, vless_update, vmess_update, trojan_update, shadowsocks_update = create_title(datetime_update_str, port = 1080)
 
@@ -1373,49 +1373,49 @@ with open("./channels/networks/grpc", "w", encoding="utf-8") as file:
 readme = '''## Introduction
 The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
 
-![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/soroushmirzaei/telegram-configs-collector?label=Last%20Commit&color=%2338914b)
-![GitHub](https://img.shields.io/github/license/soroushmirzaei/telegram-configs-collector?label=License&color=yellow)
-![GitHub Repo stars](https://img.shields.io/github/stars/soroushmirzaei/telegram-configs-collector?label=Stars&color=red)
-![GitHub forks](https://img.shields.io/github/forks/soroushmirzaei/telegram-configs-collector?label=Forks&color=blue)
-[![Execute On Schedule](https://github.com/soroushmirzaei/telegram-configs-collector/actions/workflows/schedule.yml/badge.svg)](https://github.com/soroushmirzaei/telegram-configs-collector/actions/workflows/schedule.yml)
-[![Execute On Push](https://github.com/soroushmirzaei/telegram-configs-collector/actions/workflows/push.yml/badge.svg)](https://github.com/soroushmirzaei/telegram-configs-collector/actions/workflows/push.yml)
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collectorr?label=Last%20Commit&color=%2338914b)
+![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collectorr?label=License&color=yellow)
+![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collectorr?label=Stars&color=red)
+![GitHub forks](https://img.shields.io/github/forks/yyyr-otz/tele-providers-collectorr?label=Forks&color=blue)
+[![Execute On Schedule](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/schedule.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/schedule.yml)
+[![Execute On Push](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/push.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/push.yml)
 
 ## Protocol Type Subscription Links
 Configuration subscription links based on protocol type and splitted based on Telegram channels and subscription links
 | **Protocol Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
-| **Juicity Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/juicity) |
-| **Hysteria Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/hysteria) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/hysteria) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/hysteria) |
-| **Tuic Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/tuic) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/tuic) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/tuic) |
-| **Reality Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/reality) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/reality) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/reality) |
-| **Vless Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/vless) |
-| **Vmess Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/vmess) |
-| **Trojan Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/trojan) |
-| **Shadowsocks Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/protocols/shadowsocks) |
-| **Mixed Type Configurations** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/mixed) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/channels) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/subscribe) |
+| **Juicity Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/juicity) |
+| **Hysteria Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/hysteria) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/hysteria) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/hysteria) |
+| **Tuic Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/tuic) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/tuic) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/tuic) |
+| **Reality Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/reality) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/reality) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/reality) |
+| **Vless Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/vless) |
+| **Vmess Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/vmess) |
+| **Trojan Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/trojan) |
+| **Shadowsocks Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/shadowsocks) |
+| **Mixed Type Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/mixed) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/channels) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/subscribe) |
 
 ## Network Type Subscription Links
 Configuration subscription links based on network type and splitted based on Telegram channels and subscription links
 | **Network Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
-| **Google Remote Procedure Call (GRPC)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/networks/grpc) |
-| **Hypertext Transfer Protocol (HTTP)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/networks/http) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/networks/http) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/networks/http) |
-| **WebSocket Protocol (WS)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/networks/ws) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/networks/ws) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/networks/ws) |
- | **Transmission Control Protocol (TCP)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/networks/tcp) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/networks/tcp) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/networks/tcp) |
+| **Google Remote Procedure Call (GRPC)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/networks/grpc) |
+| **Hypertext Transfer Protocol (HTTP)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/networks/http) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/networks/http) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/networks/http) |
+| **WebSocket Protocol (WS)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/networks/ws) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/networks/ws) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/networks/ws) |
+ | **Transmission Control Protocol (TCP)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/networks/tcp) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/networks/tcp) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/networks/tcp) |
 
 ## Security Type Subscription Links
 Configuration subscription links based on security type and splitted based on Telegram channels and subscription links
 | **Security Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
-| **Transport Layer Security (TLS)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/security/tls) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/security/tls) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/security/tls) |
-| **Non Transport Layer Security (Non-TLS)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/security/non-tls) |
+| **Transport Layer Security (TLS)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/security/tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/security/tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/security/tls) |
+| **Non Transport Layer Security (Non-TLS)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/security/non-tls) |
 
 ## Internet Protocol Type Subscription Links
 Configuration subscription links based on internet protocol type and splitted based on Telegram channels and subscription links
 | **Internet Protocol Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
-| **Internet Protocol Version 4 (IPV4)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/layers/ipv4) |
-| **Internet Protocol Version 6 (IPV6)** | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/channels/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/subscribe/layers/ipv6) |
+| **Internet Protocol Version 4 (IPV4)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/layers/ipv4) |
+| **Internet Protocol Version 6 (IPV6)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/layers/ipv6) |
 
 ## Country Subscription Links
 Configuration subscription links based on country for the services that the accounts would be banned  if the location is changed, such as social media and artificial intelligence services'''
