@@ -1,4 +1,4 @@
-## Introduction
+## Forked From  [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector)
 The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collector?label=Last%20Commit&color=%2338914b)
