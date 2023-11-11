@@ -1,6 +1,4 @@
 ## Forked From  [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector)
-The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
-
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collector?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collector?label=License&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collector?label=Stars&color=red)
@@ -9,7 +7,6 @@ The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks configurati
 [![Execute On Push](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/push.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/push.yml)
 
 ## Protocol Type Subscription Links
-Configuration subscription links based on protocol type and splitted based on Telegram channels and subscription links
 | **Protocol Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
 | **Juicity Configurations [Preview]** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/channels/protocols/juicity) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/subscribe/protocols/juicity) |
@@ -23,7 +20,6 @@ Configuration subscription links based on protocol type and splitted based on Te
 | **Mixed Type Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/splitted/mixed) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/splitted/channels) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/splitted/subscribe) |
 
 ## Network Type Subscription Links
-Configuration subscription links based on network type and splitted based on Telegram channels and subscription links
 | **Network Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
 | **Google Remote Procedure Call (GRPC)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/channels/networks/grpc) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/subscribe/networks/grpc) |
@@ -39,14 +35,12 @@ Configuration subscription links based on security type and splitted based on Te
 | **Non Transport Layer Security (Non-TLS)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/channels/security/non-tls) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/subscribe/security/non-tls) |
 
 ## Internet Protocol Type Subscription Links
-Configuration subscription links based on internet protocol type and splitted based on Telegram channels and subscription links
 | **Internet Protocol Type** | **Mixed Configurations** | **Telegram Channels** | **Subscription Links** |
 |:---:|:---:|:---:|:---:|
 | **Internet Protocol Version 4 (IPV4)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/channels/layers/ipv4) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/subscribe/layers/ipv4) |
 | **Internet Protocol Version 6 (IPV6)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/channels/layers/ipv6) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/subscribe/layers/ipv6) |
 
 ## Country Subscription Links
-Configuration subscription links based on country for the services that the accounts would be banned  if the location is changed, such as social media and artificial intelligence services
 | **Code** | **Country Name** | **Subscription Link** | **Code** | **Country Name** | **Subscription Link** |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | AL | Albania | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/countries/al/mixed) | AR | Argentina | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/main/countries/ar/mixed) |
