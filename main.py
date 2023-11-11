@@ -83,7 +83,6 @@ def find_matches(text_content):
     # Initialize configuration type patterns
     pattern_telegram_user = r'(?:@)(\w{4,})'
     pattern_url = r'(?i)\b((?:https?:(?:/{1,3}|[a-z0-9%])|[a-z0-9.\-]+[.](?:com|net|org|edu|gov|mil|aero|asia|biz|cat|coop|info|int|jobs|mobi|museum|name|post|pro|tel|travel|xxx|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cs|cu|cv|cx|cy|cz|dd|de|dj|dk|dm|do|dz|ec|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|Ja|sk|sl|sm|sn|so|sr|ss|st|su|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)/)(?:[^\s()<>{}\[\]]+|\([^\s()]*?\([^\s()]+\)[^\s()]*?\)|\([^\s]+?\))+(?:\([^\s()]*?\([^\s()]+\)[^\s()]*?\)|\([^\s]+?\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’])|(?:(?<!@)[a-z0-9]+(?:[.\-][a-z0-9]+)*[.](?:com|net|org|edu|gov|mil|aero|asia|biz|cat|coop|info|int|jobs|mobi|museum|name|post|pro|tel|travel|xxx|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cs|cu|cv|cx|cy|cz|dd|de|dj|dk|dm|do|dz|ec|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|Ja|sk|sl|sm|sn|so|sr|ss|st|su|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)\b/?(?!@)))'
-    pattern_shadowsocks = r"(?<![\w-])(ss://[^\s<>#]+)"
     pattern_trojan = r"(?<![\w-])(trojan://[^\s<>#]+)"
     pattern_vmess = r"(?<![\w-])(vmess://[^\s<>#]+)"
     pattern_vless = r"(?<![\w-])(vless://(?:(?!=reality)[^\s<>#])+(?=[\s<>#]))"
@@ -96,7 +95,6 @@ def find_matches(text_content):
     # Find all matches of patterns in text
     matches_usersname = re.findall(pattern_telegram_user, text_content, re.IGNORECASE)
     matches_url = re.findall(pattern_url, text_content, re.IGNORECASE)
-    matches_shadowsocks = re.findall(pattern_shadowsocks, text_content, re.IGNORECASE)
     matches_trojan = re.findall(pattern_trojan, text_content, re.IGNORECASE)
     matches_vmess = re.findall(pattern_vmess, text_content, re.IGNORECASE)
     matches_vless = re.findall(pattern_vless, text_content, re.IGNORECASE)
@@ -109,9 +107,6 @@ def find_matches(text_content):
     # Iterate over matches to subtract titles
     for index, element in enumerate(matches_vmess):
         matches_vmess[index] = re.sub(r"#[^#]+$", "", html.unescape(element))
-
-    for index, element in enumerate(matches_shadowsocks):
-        matches_shadowsocks[index] = (re.sub(r"#[^#]+$", "", html.unescape(element))+ f"#SHADOWSOCKS")
 
     for index, element in enumerate(matches_trojan):
         matches_trojan[index] = (re.sub(r"#[^#]+$", "", html.unescape(element))+ f"#TROJAN")
@@ -134,7 +129,6 @@ def find_matches(text_content):
     for index, element in enumerate(matches_juicity):
         matches_juicity[index] = (re.sub(r"#[^#]+$", "", html.unescape(element))+ f"#JUICITY")
 
-    matches_shadowsocks = [x for x in matches_shadowsocks if "…" not in x]
     matches_trojan = [x for x in matches_trojan if "…" not in x]
     matches_vmess = [x for x in matches_vmess if "…" not in x]
     matches_vless = [x for x in matches_vless if "…" not in x]
@@ -147,7 +141,7 @@ def find_matches(text_content):
     # Extend hysteria versions
     matches_hysteria.extend(matches_hysteria_ver2)
     
-    return matches_usersname, matches_url, matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity
+    return matches_usersname, matches_url, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity
 
 
 def tg_message_time(div_message):
@@ -218,7 +212,6 @@ print(f"\nTotal New Messages From {last_update_datetime.strftime('%a, %d %b %Y %
 # Initial arrays for protocols
 array_usernames = list()
 array_url = list()
-array_shadowsocks = list()
 array_trojan = list()
 array_vmess = list()
 array_vless = list()
@@ -234,12 +227,11 @@ for channel_user, message in channel_messages_array:
         config_text_content = tg_message_text(message, 'config')
         # Iterate over each message to extract configuration protocol types and subscription links
         matches_username, matches_url, _ , _ , _ , _ , _ , _ , _ , _ = find_matches(url_text_content)
-        _ , _ , matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
+        _ , _ , matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
 
         # Extend protocol type arrays and subscription link array
         array_usernames.extend([element.lower() for element in matches_username if len(element) >= 5])
         array_url.extend(matches_url)
-        array_shadowsocks.extend(matches_shadowsocks)
         array_trojan.extend(matches_trojan)
         array_vmess.extend(matches_vmess)
         array_vless.extend(matches_vless)
@@ -266,8 +258,8 @@ for channel_user, messages in channel_check_messages_array:
             config_text_content = tg_message_text(message, 'config')
             # Iterate over each message to extract configuration protocol types and subscription links
             matches_username, matches_url, _ , _ , _ , _ , _ , _ , _ , _ = find_matches(url_text_content)
-            _ , _ , matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
-            total_config = total_config + len(matches_shadowsocks) + len(matches_trojan) + len(matches_vmess) + len(matches_vless) + len(matches_reality) + len(matches_tuic) + len(matches_hysteria) + len(matches_juicity)
+            _ , _ , matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
+            total_config = total_config + len(matches_trojan) + len(matches_vmess) + len(matches_vless) + len(matches_reality) + len(matches_tuic) + len(matches_hysteria) + len(matches_juicity)
 
         except Exception as exc:
             continue
@@ -338,7 +330,6 @@ print(f"\nTotal New Messages From New Channels {last_update_datetime.strftime('%
 
 
 # Initial arrays for protocols
-new_array_shadowsocks = list()
 new_array_trojan = list()
 new_array_vmess = list()
 new_array_vless = list()
@@ -363,13 +354,12 @@ for channel, messages in new_channel_messages:
             config_text_content = tg_message_text(message, 'config')
             # Iterate over each message to extract configuration protocol types and subscription links
             matches_username, matches_url, _ , _ , _ , _ , _ , _ , _ , _ = find_matches(url_text_content)
-            _ , _ , matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
-            total_config = total_config + len(matches_shadowsocks) + len(matches_trojan) + len(matches_vmess) + len(matches_vless) + len(matches_reality) + len(matches_tuic) + len(matches_hysteria) + len(matches_juicity)
+            _ , _ , matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = find_matches(config_text_content)
+            total_config = total_config + len(matches_trojan) + len(matches_vmess) + len(matches_vless) + len(matches_reality) + len(matches_tuic) + len(matches_hysteria) + len(matches_juicity)
 
             # Extend protocol type arrays and subscription link array
             new_array_usernames.update([element.lower() for element in matches_username if len(element) >= 5])
             new_array_url.update(matches_url)
-            new_array_shadowsocks.extend(matches_shadowsocks)
             new_array_trojan.extend(matches_trojan)
             new_array_vmess.extend(matches_vmess)
             new_array_vless.extend(matches_vless)
@@ -427,7 +417,6 @@ for channel, messages in new_channel_messages:
 
 
 # Extend new configurations into list previous ones
-array_shadowsocks.extend(new_array_shadowsocks)
 array_trojan.extend(new_array_trojan)
 array_vmess.extend(new_array_vmess)
 array_vless.extend(new_array_vless)
@@ -519,7 +508,7 @@ for url in url_subscription_links:
 new_url_subscription_links = list(new_url_subscription_links)
 
 
-accept_chars = ['sub', 'subscribe', 'token', 'workers', 'worker', 'dev', 'txt', 'vmess', 'vless', 'reality', 'trojan', 'shadowsocks']
+accept_chars = ['sub', 'subscribe', 'token', 'workers', 'worker', 'dev', 'txt', 'vmess', 'vless', 'reality', 'trojan',]
 avoid_chars = ['github', 'githubusercontent', 'gist', 'git', 'google', 'play', 'apple', 'microsoft']
 
 new_subscription_links = set()
@@ -609,7 +598,6 @@ new_subscription_urls = set()
 
 matches_usernames = list()
 matches_url = list()
-matches_shadowsocks = list()
 matches_trojan = list()
 matches_vmess = list()
 matches_vless = list()
@@ -620,7 +608,6 @@ matches_juicity = list()
 
 raw_matches_usernames = list()
 raw_matches_url = list()
-raw_matches_shadowsocks = list()
 raw_matches_trojan = list()
 raw_matches_vmess = list()
 raw_matches_vless = list()
@@ -631,7 +618,6 @@ raw_matches_juicity = list()
 
 channel_matches_usernames = list()
 channel_matches_url = list()
-channel_matches_shadowsocks = list()
 channel_matches_trojan = list()
 channel_matches_vmess = list()
 channel_matches_vless = list()
@@ -650,7 +636,6 @@ for url_link, content in array_links_content_decoded:
 
     matches_usernames.extend(match_user)
     matches_url.extend(match_url)
-    matches_shadowsocks.extend(match_socks)
     matches_trojan.extend(match_trojan)
     matches_vmess.extend(match_vmess)
     matches_vless.extend(match_vless)
@@ -666,7 +651,6 @@ for url_link, content in raw_array_links_content_decoded:
 
     raw_matches_usernames.extend(match_user)
     raw_matches_url.extend(match_url)
-    raw_matches_shadowsocks.extend(match_socks)
     raw_matches_trojan.extend(match_trojan)
     raw_matches_vmess.extend(match_vmess)
     raw_matches_vless.extend(match_vless)
@@ -682,7 +666,6 @@ for url_link, content in channel_array_links_content_decoded:
 
     channel_matches_usernames.extend(match_user)
     channel_matches_url.extend(match_url)
-    channel_matches_shadowsocks.extend(match_socks)
     channel_matches_trojan.extend(match_trojan)
     channel_matches_vmess.extend(match_vmess)
     channel_matches_vless.extend(match_vless)
@@ -702,15 +685,6 @@ def remove_duplicate_modified(array_configuration):
 
     for config in array_configuration:
         try:
-            if config.startswith('ss'):
-                pattern = r"ss://(?P<id>[^@]+)@\[?(?P<ip>[a-zA-Z0-9\.:-]+?)\]?:(?P<port>[0-9]+)/?#?(?P<title>(?<=#).*)?"
-                shadowsocks_match = re.match(pattern, config, flags=re.IGNORECASE)
-                ip = shadowsocks_match.group("ip")
-                port = shadowsocks_match.group("port")
-                id = shadowsocks_match.group("id")
-                non_title_config = f"SS-{ip}:{port}"
-                country_config_dict[non_title_config] = config
-
 
             if config.startswith('trojan'):
                 pattern = r"trojan://(?P<id>[^@]+)@\[?(?P<ip>[a-zA-Z0-9\.:-]+?)\]?:(?P<port>[0-9]+)/?\??(?P<params>[^#]+)?#?(?P<title>(?<=#).*)?"
@@ -825,7 +799,6 @@ def remove_duplicate(shadow_array, trojan_array, vmess_array, vless_array, reali
 
 def modify_config(shadow_array, trojan_array, vmess_array, vless_array, reality_array, tuic_array, hysteria_array, check_port_connection = True):
     # Checkout connectivity and modify title and protocol type address and resolve IP address
-    shadow_array, shadow_tls_array, shadow_non_tls_array, shadow_tcp_array, shadow_ws_array, shadow_http_array, shadow_grpc_array = check_modify_config(array_configuration = shadow_array, protocol_type = "SHADOWSOCKS", check_connection = check_port_connection)
     trojan_array, trojan_tls_array, trojan_non_tls_array, trojan_tcp_array, trojan_ws_array, trojan_http_array, trojan_grpc_array = check_modify_config(array_configuration = trojan_array, protocol_type = "TROJAN", check_connection = check_port_connection)
     vmess_array, vmess_tls_array, vmess_non_tls_array, vmess_tcp_array, vmess_ws_array, vmess_http_array, vmess_grpc_array = check_modify_config(array_configuration = vmess_array, protocol_type = "VMESS", check_connection = check_port_connection)
     vless_array, vless_tls_array, vless_non_tls_array, vless_tcp_array, vless_ws_array, vless_http_array, vless_grpc_array = check_modify_config(array_configuration = vless_array, protocol_type = "VLESS", check_connection = check_port_connection)
@@ -860,7 +833,7 @@ def modify_config(shadow_array, trojan_array, vmess_array, vless_array, reality_
 
 
 # Remove Duplicate Configurations
-configs_list_array = [array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria]
+configs_list_array = [array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria]
 array_removed_duplicate_list_configurations = list()
 
 for array in configs_list_array:
@@ -870,24 +843,23 @@ for array in configs_list_array:
     array_removed_duplicate_list_configurations.append(array)
 
 # Dedicate removed array of the list of elements
-array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria = array_removed_duplicate_list_configurations
+array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria = array_removed_duplicate_list_configurations
 
 
 # Remove duplicate configurations of telegram channels and subscription links contents
-array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity = remove_duplicate(array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity)
-matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = remove_duplicate(matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity)
-raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity = remove_duplicate(raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity)
-channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity = remove_duplicate(channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity)
+array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity = remove_duplicate(array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity)
+matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = remove_duplicate(matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity)
+raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity = remove_duplicate(raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity)
+channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity = remove_duplicate(channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity)
 
 # Checkout connectivity and modify title and protocol type address and resolve IP address
-array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality,  array_tuic, array_hysteria, array_tls, array_non_tls, array_tcp, array_ws, array_http, array_grpc = modify_config(array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria)
-matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_tls, matches_non_tls, matches_tcp, matches_ws, matches_http, matches_grpc = modify_config(matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria)
-raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_tls, raw_matches_non_tls, raw_matches_tcp, raw_matches_ws, raw_matches_http, raw_matches_grpc = modify_config(raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, check_port_connection = False)
-channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_tls, channel_matches_non_tls, channel_matches_tcp, channel_matches_ws, channel_matches_http, channel_matches_grpc = modify_config(channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, check_port_connection = True)
+array_trojan, array_vmess, array_vless, array_reality,  array_tuic, array_hysteria, array_tls, array_non_tls, array_tcp, array_ws, array_http, array_grpc = modify_config(array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria)
+matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_tls, matches_non_tls, matches_tcp, matches_ws, matches_http, matches_grpc = modify_config(matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria)
+raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_tls, raw_matches_non_tls, raw_matches_tcp, raw_matches_ws, raw_matches_http, raw_matches_grpc = modify_config(raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, check_port_connection = False)
+channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_tls, channel_matches_non_tls, channel_matches_tcp, channel_matches_ws, channel_matches_http, channel_matches_grpc = modify_config(channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, check_port_connection = True)
 
 
 # Extend channel subscription links contents to telegram channel contents
-array_shadowsocks_channels = array_shadowsocks
 array_trojan_channels = array_trojan
 array_vmess_channels = array_vmess
 array_vless_channels = array_vless
@@ -896,7 +868,6 @@ array_tuic_channels = array_tuic
 array_hysteria_channels = array_hysteria
 array_juicity_channels = array_juicity
 
-array_shadowsocks_channels.extend(channel_matches_shadowsocks)
 array_trojan_channels.extend(channel_matches_trojan)
 array_vmess_channels.extend(channel_matches_vmess)
 array_vless_channels.extend(channel_matches_vless)
@@ -906,8 +877,8 @@ array_hysteria_channels.extend(channel_matches_hysteria)
 array_juicity_channels.extend(channel_matches_juicity)
 
 # Remove duplicate configurations after modifying telegram channels and subscription links contents
-array_shadowsocks_channels, array_trojan_channels, array_vmess_channels, array_vless_channels, array_reality_channels, array_tuic_channels, array_hysteria_channels, array_juicity_channels = remove_duplicate(array_shadowsocks_channels, array_trojan_channels, array_vmess_channels, array_vless_channels, array_reality_channels, array_tuic_channels, array_hysteria_channels, array_juicity_channels, vmess_decode_dedup = False)
-channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity = remove_duplicate(channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity, vmess_decode_dedup = False)
+array_trojan_channels, array_vmess_channels, array_vless_channels, array_reality_channels, array_tuic_channels, array_hysteria_channels, array_juicity_channels = remove_duplicate(array_trojan_channels, array_vmess_channels, array_vless_channels, array_reality_channels, array_tuic_channels, array_hysteria_channels, array_juicity_channels, vmess_decode_dedup = False)
+channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity = remove_duplicate(channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria, channel_matches_juicity, vmess_decode_dedup = False)
 
 # Extend channel subscription links contents to telegram channel contents based on networks and security
 array_tls_channels = array_tls
@@ -933,7 +904,6 @@ array_grpc_channels = list(set(array_grpc_channels))
 
 
 # Extend subscription links contents to telegram channel contents
-array_shadowsocks.extend(matches_shadowsocks)
 array_trojan.extend(matches_trojan)
 array_vmess.extend(matches_vmess)
 array_vless.extend(matches_vless)
@@ -943,9 +913,9 @@ array_hysteria.extend(matches_hysteria)
 array_juicity.extend(matches_juicity)
 
 # Remove duplicate configurations after modifying telegram channels and subscription links contents
-array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity = remove_duplicate(array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity, vmess_decode_dedup = False)
-matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = remove_duplicate(matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity, vmess_decode_dedup = False)
-raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity = remove_duplicate(raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity, vmess_decode_dedup = False)
+array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity = remove_duplicate(rray_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, array_juicity, vmess_decode_dedup = False)
+matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity = remove_duplicate(matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, matches_juicity, vmess_decode_dedup = False)
+raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity = remove_duplicate(raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, raw_matches_juicity, vmess_decode_dedup = False)
 
 # Extend subscription links contents to telegram channel contents
 array_tls.extend(matches_tls)
@@ -972,7 +942,7 @@ raw_matches_grpc = list(set(raw_matches_grpc))
 
 
 # Remove Duplicate Configurations
-array_list_configurations = [array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria]
+array_list_configurations = [array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria]
 array_removed_duplicate_list_configurations = list()
 
 for array in array_list_configurations:
@@ -982,11 +952,11 @@ for array in array_list_configurations:
     array_removed_duplicate_list_configurations.append(array)
 
 # Dedicate removed array of the list of elements 
-array_shadowsocks, array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_shadowsocks, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_shadowsocks, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_shadowsocks, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria = array_removed_duplicate_list_configurations
+array_trojan, array_vmess, array_vless, array_reality, array_tuic, array_hysteria, matches_trojan, matches_vmess, matches_vless, matches_reality, matches_tuic, matches_hysteria, raw_matches_trojan, raw_matches_vmess, raw_matches_vless, raw_matches_reality, raw_matches_tuic, raw_matches_hysteria, channel_matches_trojan, channel_matches_vmess, channel_matches_vless, channel_matches_reality, channel_matches_tuic, channel_matches_hysteria = array_removed_duplicate_list_configurations
 
 
 # Combine all configurations into one mixed configuration array and shuffle
-array_mixed = array_shadowsocks + array_trojan + array_vmess + array_vless + array_reality
+array_mixed = array_trojan + array_vmess + array_vless + array_reality
 array_mixed = config_sort(array_mixed)
 
 # Define chunk size for splitted arrays
@@ -1017,22 +987,20 @@ def create_title(title, port):
     vmess_config_title = base64.b64encode(vmess_config_title.encode('utf-8')).decode('utf-8')
     vmess_config_title = f'vmess://{vmess_config_title}'
     trojan_config_title = f"trojan://{uuid}@127.0.0.1:{port}?security=tls&type=tcp#{title}"
-    shadowsocs_uuid = base64.b64encode(f"none:{uuid}".encode('utf-8')).decode('utf-8')
-    shadowsocks_config_title = f"ss://{shadowsocs_uuid}@127.0.0.1:{port}#{title}"
 
-    return reality_config_title, vless_config_title, vmess_config_title, trojan_config_title, shadowsocks_config_title
+    return reality_config_title, vless_config_title, vmess_config_title, trojan_config_title
 
 
 # Define update date and time based on Beijing timezone and calendar
 datetime_update = jdatetime.datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
 datetime_update_str = datetime_update.strftime("\U0001F504 LATEST-UPDATE \U0001F4C5 %a %m月%d日 \U0001F551 %H:%M").upper()
 # Define update time based on protocol type
-reality_update, vless_update, vmess_update, trojan_update, shadowsocks_update = create_title(datetime_update_str, port = 1080)
+reality_update, vless_update, vmess_update, trojan_update = create_title(datetime_update_str, port = 1080)
 
 # Define develooper sign
 dev_sign = "\U0001F468\U0001F3FB\u200D\U0001F4BB SOROUSH-MIRZAEI \U0001F4CC FLLW-CNTCT-SYDSRSMRZ"
 # Define develooper based on protocol type
-reality_dev_sign, vless_dev_sign, vmess_dev_sign, trojan_dev_sign, shadowsocks_dev_sign = create_title(dev_sign, port = 8080)
+reality_dev_sign, vless_dev_sign, vmess_dev_sign, trojan_dev_sign = create_title(dev_sign, port = 8080)
 
 
 # Save configurations based on splitted and chunks
@@ -1082,7 +1050,7 @@ with open("./splitted/mixed", "w", encoding="utf-8") as file:
 
 
 # Decode vmess configs to change title and remove duplicate
-all_subscription_matches = matches_shadowsocks + matches_trojan + matches_vmess + matches_vless + matches_reality
+all_subscription_matches = matches_trojan + matches_vmess + matches_vless + matches_reality
 all_subscription_matches = list(set(all_subscription_matches))
 all_subscription_matches = config_sort(all_subscription_matches)
 
@@ -1106,7 +1074,7 @@ with open("./splitted/subscribe", "w", encoding="utf-8") as file:
 
 
 # Decode vmess configs to change title and remove duplicate
-all_channel_matches = array_shadowsocks_channels + array_trojan_channels + array_vmess_channels + array_vless_channels + array_reality_channels
+all_channel_matches = array_trojan_channels + array_vmess_channels + array_vless_channels + array_reality_channels
 all_channel_matches = list(set(all_channel_matches))
 all_channel_matches = config_sort(all_channel_matches)
 
@@ -1130,13 +1098,11 @@ with open("./splitted/channels", "w", encoding="utf-8") as file:
 
 
 # Adds update time into protocol type lists
-array_shadowsocks = config_sort(array_shadowsocks)
 array_trojan = config_sort(array_trojan)
 array_vmess = config_sort(array_vmess)
 array_vless = config_sort(array_vless)
 array_reality = config_sort(array_reality)
 
-array_shadowsocks.insert(0, shadowsocks_update)
 array_trojan.insert(0, trojan_update)
 array_vmess.insert(0, vmess_update)
 array_vless.insert(0, vless_update)
@@ -1145,7 +1111,6 @@ array_tuic.insert(0, vless_update)
 array_hysteria.insert(0, vless_update)
 array_juicity.insert(0, vless_update)
 
-array_shadowsocks.append(shadowsocks_dev_sign)
 array_trojan.append(trojan_dev_sign)
 array_vmess.append(vmess_dev_sign)
 array_vless.append(vless_dev_sign)
@@ -1155,8 +1120,6 @@ array_hysteria.append(vless_dev_sign)
 array_juicity.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./protocols/shadowsocks", "w", encoding="utf-8") as file:
-    file.write(base64.b64encode("\n".join(array_shadowsocks).encode("utf-8")).decode("utf-8"))
 with open("./protocols/trojan", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_trojan).encode("utf-8")).decode("utf-8"))
 with open("./protocols/vmess", "w", encoding="utf-8") as file:
@@ -1210,13 +1173,11 @@ with open("./networks/grpc", "w", encoding="utf-8") as file:
 
 
 # Adds update time into protocol type lists
-raw_matches_shadowsocks = config_sort(raw_matches_shadowsocks)
 raw_matches_trojan = config_sort(raw_matches_trojan)
 raw_matches_vmess = config_sort(raw_matches_vmess)
 raw_matches_vless = config_sort(raw_matches_vless)
 raw_matches_reality = config_sort(raw_matches_reality)
 
-raw_matches_shadowsocks.insert(0, shadowsocks_update)
 raw_matches_trojan.insert(0, trojan_update)
 raw_matches_vmess.insert(0, vmess_update)
 raw_matches_vless.insert(0, vless_update)
@@ -1225,7 +1186,6 @@ raw_matches_tuic.insert(0, vless_update)
 raw_matches_hysteria.insert(0, vless_update)
 raw_matches_juicity.insert(0, vless_update)
 
-raw_matches_shadowsocks.append(shadowsocks_dev_sign)
 raw_matches_trojan.append(trojan_dev_sign)
 raw_matches_vmess.append(vmess_dev_sign)
 raw_matches_vless.append(vless_dev_sign)
@@ -1235,8 +1195,6 @@ raw_matches_hysteria.append(vless_dev_sign)
 raw_matches_juicity.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./subscribe/protocols/shadowsocks", "w", encoding="utf-8") as file:
-    file.write(base64.b64encode("\n".join(raw_matches_shadowsocks).encode("utf-8")).decode("utf-8"))
 with open("./subscribe/protocols/trojan", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_trojan).encode("utf-8")).decode("utf-8"))
 with open("./subscribe/protocols/vmess", "w", encoding="utf-8") as file:
@@ -1291,13 +1249,11 @@ with open("./subscribe/networks/grpc", "w", encoding="utf-8") as file:
 
 
 # Adds update time into protocol type lists
-array_shadowsocks_channels = config_sort(array_shadowsocks_channels)
 array_trojan_channels = config_sort(array_trojan_channels)
 array_vmess_channels = config_sort(array_vmess_channels)
 array_vless_channels = config_sort(array_vless_channels)
 array_reality_channels = config_sort(array_reality_channels)
 
-array_shadowsocks_channels.insert(0, shadowsocks_update)
 array_trojan_channels.insert(0, trojan_update)
 array_vmess_channels.insert(0, vmess_update)
 array_vless_channels.insert(0, vless_update)
@@ -1306,7 +1262,6 @@ array_tuic_channels.insert(0, vless_update)
 array_hysteria_channels.insert(0, vless_update)
 array_juicity_channels.insert(0, vless_update)
 
-array_shadowsocks_channels.append(shadowsocks_dev_sign)
 array_trojan_channels.append(trojan_dev_sign)
 array_vmess_channels.append(vmess_dev_sign)
 array_vless_channels.append(vless_dev_sign)
@@ -1316,8 +1271,6 @@ array_hysteria_channels.append(vless_dev_sign)
 array_juicity_channels.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./channels/protocols/shadowsocks", "w", encoding="utf-8") as file:
-    file.write(base64.b64encode("\n".join(array_shadowsocks_channels).encode("utf-8")).decode("utf-8"))
 with open("./channels/protocols/trojan", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_trojan_channels).encode("utf-8")).decode("utf-8"))
 with open("./channels/protocols/vmess", "w", encoding="utf-8") as file:
@@ -1371,8 +1324,7 @@ with open("./channels/networks/grpc", "w", encoding="utf-8") as file:
 
 
 readme = '''## Introduction
-The script aggregates Vmess, Vless, Reality, Trojan, and ShadowSocks (Hystria, Tuic, Reality, and Juicity are in preview)configurations from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port, and respective country.
-
+forked from [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector) ,but no ss 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collectorr?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collectorr?label=License&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collectorr?label=Stars&color=red)
@@ -1391,7 +1343,6 @@ Configuration subscription links based on protocol type and splitted based on Te
 | **Vless Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/vless) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/vless) |
 | **Vmess Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/vmess) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/vmess) |
 | **Trojan Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/trojan) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/trojan) |
-| **Shadowsocks Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/channels/protocols/shadowsocks) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/subscribe/protocols/shadowsocks) |
 | **Mixed Type Configurations** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/mixed) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/channels) | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/tele-providers-collectorr/main/splitted/subscribe) |
 
 ## Network Type Subscription Links
