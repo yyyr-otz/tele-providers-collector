@@ -992,12 +992,12 @@ def create_title(title, port):
 
 # Define update date and time based on Beijing timezone and calendar
 datetime_update = jdatetime.datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
-datetime_update_str = datetime_update.strftime("\U0001F504 LATEST-UPDATE \U0001F4C5 %a %m月%d日 \U0001F551 %H:%M").upper()
+datetime_update_str = datetime_update.strftime("\U0001F504 更新时间 \U0001F4C5 %a %m月%d日 \U0001F551 %H:%M").upper()
 # Define update time based on protocol type
 reality_update, vless_update, vmess_update, trojan_update = create_title(datetime_update_str, port = 1080)
 
 # Define develooper sign
-dev_sign = "\U0001F468\U0001F3FB\u200D\U0001F4BB SOROUSH-MIRZAEI \U0001F4CC FLLW-CNTCT-SYDSRSMRZ"
+dev_sign = "\U0001F468\U0001F3FB\u200D\U0001F4BB by:yyyr 请勿用于违法用途 \U00002764\u200D\U0000FE0F"
 # Define develooper based on protocol type
 reality_dev_sign, vless_dev_sign, vmess_dev_sign, trojan_dev_sign = create_title(dev_sign, port = 8080)
 
