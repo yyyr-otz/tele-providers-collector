@@ -1323,7 +1323,8 @@ with open("./channels/networks/grpc", "w", encoding="utf-8") as file:
 
 
 readme = '''## Introduction
-forked from [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector) ,but ## no ss 
+forked from [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector) ,but no ss 
+
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collectorr?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collectorr?label=License&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collectorr?label=Stars&color=red)
