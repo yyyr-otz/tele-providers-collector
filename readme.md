@@ -1,11 +1,13 @@
 ## Introduction
-forked from [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector) ,but ## no ss 
+forked from [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector) ,but no ss 
+
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collectorr?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collectorr?label=License&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collectorr?label=Stars&color=red)
 ![GitHub forks](https://img.shields.io/github/forks/yyyr-otz/tele-providers-collectorr?label=Forks&color=blue)
 [![Execute On Schedule](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/schedule.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/schedule.yml)
 [![Execute On Push](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/push.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collectorr/actions/workflows/push.yml)
+
 
 ## Protocol Type Subscription Links
 Configuration subscription links based on protocol type and splitted based on Telegram channels and subscription links
