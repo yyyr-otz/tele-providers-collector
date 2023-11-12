@@ -2,7 +2,8 @@ name: Execute On Schedule
 
 on:
   schedule:
-    - cron: '30 * * * *'
+#    - cron: '30 * * * *'
+    - cron: '0 0 */28 * *' # 四周运行一次
     
 jobs:
   build:
