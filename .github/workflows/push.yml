@@ -31,8 +31,8 @@ jobs:
           
       - name: Commit Files
         run: |
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 
@@ -46,8 +46,8 @@ jobs:
         run: |
           git checkout --orphan latest_branch
           git rm -r -f __pycache__
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
           git commit -am "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')"
           git branch -D main
