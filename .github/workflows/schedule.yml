@@ -1,6 +1,7 @@
 name: Execute On Schedule
 
-#on:
+on:
+  workflow_dispatch:
 #  schedule:
 #    - cron: '30 * * * *'
 #    - cron: '0 0 */30 * *' # 四周运行一次
