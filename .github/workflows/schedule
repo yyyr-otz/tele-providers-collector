@@ -30,7 +30,7 @@ jobs:
           git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
           git config --local user.name "Soroush Mirzaei"
           git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date '+%m月%d日 %H:%M %Z')" --allow-empty)
+          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 
       - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
@@ -45,7 +45,7 @@ jobs:
           git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
           git config --local user.name "Soroush Mirzaei"
           git add -A
-          git commit -am "Updated $(TZ='Asia/Beijing' date '%m月%d日 %H:%M %Z')"
+          git commit -am "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')"
           git branch -D main
           git branch -m main
           git push -f origin main
