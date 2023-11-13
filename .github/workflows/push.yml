@@ -1,6 +1,6 @@
 name: Execute On Push
 
-#on:
+on:
 #  push:
 #    branches:
 #      - no-ss
@@ -31,10 +31,10 @@ jobs:
           
       - name: Commit Files
         run: |
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date '%m月%d日 %H:%M %Z')" --allow-empty)
+          git diff-index --quiet HEAD || (git commit -a -m "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 
       - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
@@ -46,10 +46,10 @@ jobs:
         run: |
           git checkout --orphan latest_branch
           git rm -r -f __pycache__
-          git config --local user.email "seyyedsoroushmirzaei@protonmail.com"
-          git config --local user.name "Soroush Mirzaei"
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
           git add -A
-          git commit -am "Updated $(TZ='Asia/Beijing' date '%m月%d日 %H:%M %Z')"
+          git commit -am "Updated $(TZ='Asia/Beijing' date +'%Y-%m-%d %H:%M %Z')"
           git branch -D no-ss
           git branch -m no-ss
           git push -f origin no-ss
