@@ -1,4 +1,7 @@
-## Forked From  [soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector)
+## 节点抓取脚本源于[soroushmirzaei/telegram-configs-collector](https://github.com/soroushmirzaei/telegram-configs-collector)
+## 订阅转换脚本源于[Toperlock/sing-box-subscribe](https://github.com/Toperlock/sing-box-subscribe)
+## 感谢两位作者
+## 原订阅链接如下，自用配置待开发
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/soroushmirzaei/telegram-configs-collector?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/soroushmirzaei/telegram-configs-collector?label=License&color=yellow)
 ![GitHub Repo stars](https://img.shields.io/github/stars/soroushmirzaei/telegram-configs-collector?label=Stars&color=red)
