@@ -1,6 +1,6 @@
 name: Execute On Push
 
-#on:
+on:
 #  push:
 #    branches:
 #      - main
