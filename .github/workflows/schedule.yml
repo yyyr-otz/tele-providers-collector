@@ -1,7 +1,7 @@
 name: Execute On Schedule
 
-on:
-  schedule:
+#on:
+#  schedule:
 #    - cron: '0 0 */60 * *' # 8周运行一次
     
 jobs:
