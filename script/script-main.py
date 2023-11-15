@@ -188,8 +188,8 @@ def tg_message_text(div_message, content_extracter):
 
 
 # Load telegram channels usernames
-telegram_channels = json_load('telegram channels.json')
-# telegram_channels = json_load('telegram channels-0.json')
+telegram_channels = json_load('./script/source/telegram channels.json')
+# telegram_channels = json_load('./script/source/telegram channels-0.json')
 
 # Initial channels messages array
 channel_messages_array = list()
@@ -456,7 +456,7 @@ telegram_channels = [channel for channel in telegram_channels if channel not in 
 telegram_channels = list(set(telegram_channels))
 telegram_channels = sorted(telegram_channels)
 
-with open('./script/telegram channels.json', 'w') as telegram_channels_file:
+with open('./script/source/telegram channels.json', 'w') as telegram_channels_file:
     json.dump(telegram_channels, telegram_channels_file, indent = 4)
 
 
@@ -518,7 +518,7 @@ for index, element in enumerate(new_url_subscription_links):
 
 
 # Load subscription links
-subscription_links = json_load('subscription links.json')
+subscription_links = json_load('./script/source/subscription links.json')
 # subscription_links.extend(new_subscription_links)
 
 # Initial links contents array decoded content array
@@ -653,7 +653,7 @@ for url_link, content in channel_array_links_content_decoded:
     channel_matches_juicity.extend(match_juicity)
 
 # Save New Subscription Links
-# with open('./script/subscription links.json', 'w') as subscription_file:
+# with open('./script/source/subscription links.json', 'w') as subscription_file:
 #    json.dump(sorted(new_subscription_urls), subscription_file, indent = 4)
 
 
