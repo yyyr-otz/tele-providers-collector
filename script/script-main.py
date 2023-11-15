@@ -75,7 +75,7 @@ with open("./script/base64/splitted/no-match", "w") as no_match_file:
 # Load and read last date and time update
 with open('./script/last update', 'r') as file:
     last_update_datetime_file = file.readline()
-    last_update_datetime = last_update_datetime_file[len1-1].split("\r")[0]
+    last_update_datetime = last_update_datetime_file.strip()
     last_update_datetime = datetime.strptime(last_update_datetime, '%Y-%m-%d %H:%M:%S.%f%z')
 # Write the current date and time update
 with open('./script/last update', 'w') as file:
