@@ -29,10 +29,10 @@ jobs:
       - name: Install Python Packages Requirements # 依赖
         run: |
           python -m pip install --upgrade pip
-          pip install -r /script/requirements-script.txt
+          pip install -r ./script/requirements-script.txt
           
       - name: Execute Python Script # 节点爬取
-        run: python /script/script.py
+        run: python ./script/script.py
 
       - name: Commit Files # 提交
         run: |
