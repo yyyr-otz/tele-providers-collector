@@ -74,9 +74,9 @@ with open("./script/base64/splitted/no-match", "w") as no_match_file:
 
 # Load and read last date and time update
 with open('./script/last update', 'r') as file:
-    last_update_datetime = file.readline()
+    last_update_datetime_file = file.readline()
+    last_update_datetime = last_update_datetime_file[len1-1].split("\r")[0]
     last_update_datetime = datetime.strptime(last_update_datetime, '%Y-%m-%d %H:%M:%S.%f%z')
-
 # Write the current date and time update
 with open('./script/last update', 'w') as file:
     current_datetime_update = datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
@@ -438,7 +438,7 @@ Traceback_file_name = "./script/Traceback/"+Traceback_time_str
 
 with open(Traceback_file_name,'w') as file:
     file.write('channels no proxy')
-    
+
 for channel in channel_without_config:
     with open(Traceback_file_name,'a') as file:
         file.write('\n{value}'.format(value = channel))
