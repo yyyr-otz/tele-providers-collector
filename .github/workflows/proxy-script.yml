@@ -1,5 +1,5 @@
-name: Execute On Schedule
-
+name: proxy_script
+run-name: ${{ github.actor }} is scripting proxies
 on:
   push:
     branches:
