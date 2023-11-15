@@ -1,0 +1,53 @@
+{
+    "subscribes":[
+        {
+            "url": "https://raw.githubusercontent.com/yyyr-otz/ymal/main/空.txt",
+            "tag": "空",
+            "enabled": false,
+            "emoji": 1,
+            "prefix": "🥰",
+            "User-Agent":""
+        },
+        {
+            "url": "https://raw.githubusercontent.com/yyyr-otz/ymal/main/CDN.txt",
+            "tag": "CDN",
+            "enabled": true,
+            "emoji": 1,
+            "prefix": "☁",
+            "User-Agent":""
+        },
+        {
+            "url": "https://raw.githubusercontent.com/vveg26/chromego_merge/main/sub/shadowrocket_base64.txt",
+            "tag": "翻墙包",
+            "enabled": true,
+            "emoji": 1,
+            "prefix": "🐑",
+            "User-Agent":""
+        },
+        {
+            "url": "https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/only-ws/raw/protocols/vless.txt",
+            "tag": "vless-collect",
+            "enabled": true,
+            "emoji": 1,
+            "prefix": "❤️",
+            "User-Agent":""
+        },
+        {
+            "url": "https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/only-ws/raw/protocols/vless-sub.txt",
+            "tag": "vless-sub",
+            "enabled": true,
+            "emoji": 1,
+            "prefix": "💘",
+            "User-Agent":""
+        }
+    ],
+    "auto_set_outbounds_dns":{
+        "proxy": "proxyDNS",
+        "direct": "directDNS"
+    },
+    "save_config_path": "./app-congfig/sbs-config.json",
+    "auto_backup": true,
+    "exclude_protocol":"ssr,trojan,vmess,ss",
+    "config_template": "",
+    "Only-nodes": false
+}

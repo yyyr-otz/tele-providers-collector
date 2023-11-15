@@ -1,0 +1,14 @@
+requests
+paramiko
+scp
+chardet
+PyYAML
+ruamel.yaml
+Flask==2.3.2
+inputimeout
+chardet
+scp
+argparse
+importlib
+base64io
+pybase64

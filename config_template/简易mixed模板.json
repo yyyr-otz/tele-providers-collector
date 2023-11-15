@@ -1,0 +1,473 @@
+{
+    "log": {
+        "level": "info",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "address": "h3://cloudflare-dns.com/dns-query",
+                "address_resolver": "dns-local",
+                "detour": "🚀 节点选择",
+                "strategy": "prefer_ipv6",
+                "tag": "dns-remote"
+            },
+            {
+                "address": "h3://dns.alidns.com/dns-query",
+                "address_resolver": "dns-local",
+                "detour": "direct",
+                "strategy": "prefer_ipv6",
+                "tag": "dns-direct"
+            },
+            {
+                "address": "rcode://success",
+                "tag": "dns-block"
+            },
+            {
+                "address": "local",
+                "detour": "direct",
+                "tag": "dns-local"
+            },
+            {
+                "tag": "fakeipDns",
+                "address": "fakeip"
+            }
+        ],
+        "rules": [
+            {
+                "domain": [
+                    "pixiv.net",
+                    "pixiv.com",
+                    "google.com",
+                    "workers.dev",
+                    "cloudfront.net",
+                    "login.docker.com",
+                    "hub.docker.com",
+                    "t.me",
+                    "tdesktop.com",
+                    "telegra.ph",
+                    "telegram.me",
+                    "telegram.org",
+                    "telesco.pe",
+                    "91.108.0.0/16",
+                    "109.239.140.0/24",
+                    "149.154.160.0/20",
+                    "2001:67c:4e8::/48",
+                    "2001:b28:f23d::/48",
+                    "2001:b28:f23f::/48"
+                ],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [],
+                "server": "dns-remote"
+            },
+            {
+                "geosite": "geolocation-!cn",
+                "server": "dns-remote"
+            },
+            {
+                "domain": [
+                    "b23.tv",
+                    "blog.mareep.net",
+                    "cdn.jsdelivr.net",
+                    "cloudflare-cn.com",
+                    "falogin.cn",
+                    "freeaday.com",
+                    "gh.con.sh",
+                    "gh.ddlc.top",
+                    "ghproxy.com",
+                    "ghps.cc",
+                    "gitmirror.com",
+                    "hub.gitmirror.com",
+                    "img.mareep.net",
+                    "ip138.com",
+                    "ipchaxun.com",
+                    "j3cx.com",
+                    "jx3box.com",
+                    "kjkkk.eu.org",
+                    "mirror.ghproxy.com",
+                    "raw.gitmirror.com",
+                    "redirect.simba.taobao.com",
+                    "testingcf.jsdelivr.net",
+                    "vfarid.github.io"
+                ],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [
+                    "cn"
+                ],
+                "server": "dns-direct"
+            },
+            {
+                "query_type": [
+                    32,
+                    33
+                ],
+                "server": "dns-block"
+            },
+            {
+                "geosite": "category-ads-all",
+                "server": "block"
+            },
+            {
+                "outbound": "any",
+                "server": "dns-direct",
+                "disable_cache": true
+            },
+            {
+                "geosite": "cn",
+                "server": "dns-direct"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "dns-direct"
+            },
+            {
+                "clash_mode": "global",
+                "server": "dns-remote"
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "fakeipDns"
+            },
+            {
+                "domain_suffix": ".lan",
+                "server": "dns-block"
+            }
+        ],
+        "fakeip": {
+            "enabled": true,
+            "inet4_range": "198.18.0.0/15",
+            "inet6_range": "fc00::/18"
+        },
+        "independent_cache": true,
+        "strategy": "ipv4_only"
+    },
+    "inbounds": [
+        {
+            "domain_strategy": "",
+            "listen": "::",
+            "listen_port": 2080,
+            "sniff": true,
+            "sniff_override_destination": false,
+            "tag": "mixed-in",
+            "type": "mixed"
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "🚀 节点选择",
+            "type": "selector",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "♻️ CDN",
+                "☝🏼 翻墙包",
+                "♻️ 翻墙包",
+                "☝🏼 merge",
+                "☝🏼 vless-collect",
+                "♻️ vless-collect",
+                "☝🏼 vless-sub",
+                "♻️ vless-sub",
+                "direct",
+                "{空}"
+            ]
+        },
+        {
+            "tag": "♻️ CDN",
+            "type": "urltest",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50,
+            "interrupt_exist_connections": false,
+            "outbounds": [
+                "{CDN}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "☝🏼 翻墙包",
+            "type": "selector",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "{翻墙包}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "♻️ 翻墙包",
+            "type": "urltest",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50,
+            "interrupt_exist_connections": false,
+            "outbounds": [
+                "{翻墙包}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "☝🏼 vless-collect",
+            "type": "selector",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "{vless-collect}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "♻️ vless-collect",
+            "type": "urltest",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50,
+            "interrupt_exist_connections": false,
+            "outbounds": [
+                "{vless-collect}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "☝🏼 vless-csub",
+            "type": "selector",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "{vless-collect}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "♻️ vless-sub",
+            "type": "urltest",
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "10m",
+            "tolerance": 50,
+            "interrupt_exist_connections": false,
+            "outbounds": [
+                "{vless-collect}",
+                "{空}",
+                "direct"
+            ]
+        },
+        {
+            "tag": "direct",
+            "type": "direct"
+        },
+        {
+            "tag": "bypass",
+            "type": "direct"
+        },
+        {
+            "tag": "block",
+            "type": "block"
+        },
+        {
+            "tag": "dns-out",
+            "type": "dns"
+        }
+    ],
+    "route": {
+        "auto_detect_interface": true,
+        "final": "🚀 节点选择",
+        "geoip": {
+            "download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.db",
+            "download_detour": "direct"
+        },
+        "geosite": {
+            "download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.db",
+            "download_detour": "direct"
+        },
+        "rules": [
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "network": "udp",
+                "outbound": "block",
+                "port": [
+                    135,
+                    137,
+                    138,
+                    139,
+                    5353
+                ]
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "domain": [
+                    "pixiv.net",
+                    "pixiv.com",
+                    "google.com",
+                    "workers.dev",
+                    "cloudfront.net",
+                    "login.docker.com",
+                    "hub.docker.com",
+                    "t.me",
+                    "tdesktop.com",
+                    "telegra.ph",
+                    "telegram.me",
+                    "telegram.org",
+                    "telesco.pe",
+                    "91.108.0.0/16",
+                    "109.239.140.0/24",
+                    "149.154.160.0/20",
+                    "2001:67c:4e8::/48",
+                    "2001:b28:f23d::/48",
+                    "2001:b28:f23f::/48"
+                ],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [],
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "domain": [
+                    "b23.tv",
+                    "blog.mareep.net",
+                    "cdn.jsdelivr.net",
+                    "cloudflare-cn.com",
+                    "falogin.cn",
+                    "freeaday.com",
+                    "gh.con.sh",
+                    "gh.ddlc.top",
+                    "ghproxy.com",
+                    "ghps.cc",
+                    "gitmirror.com",
+                    "hub.gitmirror.com",
+                    "img.mareep.net",
+                    "ip138.com",
+                    "ipchaxun.com",
+                    "j3cx.com",
+                    "jx3box.com",
+                    "kjkkk.eu.org",
+                    "mirror.ghproxy.com",
+                    "raw.gitmirror.com",
+                    "redirect.simba.taobao.com",
+                    "testingcf.jsdelivr.net",
+                    "vfarid.github.io"
+                ],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [
+                    "cn"
+                ],
+                "outbound": "bypass"
+            },
+            {
+                "geoip": [
+                    "cn",
+                    "private"
+                ],
+                "ip_cidr": [],
+                "outbound": "bypass"
+            },
+            {
+                "domain": [
+                    "clash.razord.top",
+                    "yacd.metacubex.one",
+                    "yacd.haishan.me",
+                    "d.metacubex.one"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "domain_suffix": [
+                    "sdsdiy.com",
+                    "sdspod.com",
+                    "s2bdiy.com",
+                    "hicustom.com"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "geosite": [
+                    "openai",
+                    "youtube",
+                    "google",
+                    "github",
+                    "telegram",
+                    "twitter",
+                    "facebook",
+                    "instagram",
+                    "amazon",
+                    "apple",
+                    "tiktok",
+                    "netflix",
+                    "hbo",
+                    "disney",
+                    "primevideo",
+                    "geolocation-!cn"
+                ],
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "geoip": [
+                    "google",
+                    "telegram",
+                    "twitter",
+                    "facebook",
+                    "netflix"
+                ],
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "geoip": [
+                    "private",
+                    "cn"
+                ],
+                "outbound": "direct"
+            },
+            {
+                "geosite": "cn",
+                "outbound": "direct"
+            },
+            {
+                "ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ],
+                "outbound": "block"
+            },
+            {
+                "outbound": "block",
+                "source_ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ]
+            }
+        ]
+    },
+    "experimental": {
+        "clash_api": {
+            "external_controller": "127.0.0.1:9090",
+            "external_ui_download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+            "external_ui_download_detour": "direct",
+            "external_ui": "dashboard",
+            "secret": "123456",
+            "default_mode": "rule",
+            "store_selected": true,
+            "cache_file": "",
+            "cache_id": ""
+        }
+    }
+}

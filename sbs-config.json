@@ -1,0 +1,2134 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "h3://cloudflare-dns.com/dns-query",
+        "address_resolver": "dns-local",
+        "detour": "🚀 节点选择",
+        "strategy": "prefer_ipv6",
+        "tag": "dns-remote"
+      },
+      {
+        "address": "h3://dns.alidns.com/dns-query",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "prefer_ipv6",
+        "tag": "dns-direct"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "dns-block"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      },
+      {
+        "tag": "fakeipDns",
+        "address": "fakeip"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "pixiv.net",
+          "pixiv.com",
+          "google.com",
+          "workers.dev",
+          "cloudfront.net",
+          "login.docker.com",
+          "hub.docker.com",
+          "t.me",
+          "tdesktop.com",
+          "telegra.ph",
+          "telegram.me",
+          "telegram.org",
+          "telesco.pe",
+          "91.108.0.0/16",
+          "109.239.140.0/24",
+          "149.154.160.0/20",
+          "2001:67c:4e8::/48",
+          "2001:b28:f23d::/48",
+          "2001:b28:f23f::/48"
+        ],
+        "domain_keyword": [],
+        "domain_regex": [],
+        "domain_suffix": [],
+        "geosite": [],
+        "server": "dns-remote"
+      },
+      {
+        "geosite": "geolocation-!cn",
+        "server": "dns-remote"
+      },
+      {
+        "domain": [
+          "b23.tv",
+          "blog.mareep.net",
+          "cdn.jsdelivr.net",
+          "cloudflare-cn.com",
+          "falogin.cn",
+          "freeaday.com",
+          "gh.con.sh",
+          "gh.ddlc.top",
+          "ghproxy.com",
+          "ghps.cc",
+          "gitmirror.com",
+          "hub.gitmirror.com",
+          "img.mareep.net",
+          "ip138.com",
+          "ipchaxun.com",
+          "j3cx.com",
+          "jx3box.com",
+          "kjkkk.eu.org",
+          "mirror.ghproxy.com",
+          "raw.gitmirror.com",
+          "redirect.simba.taobao.com",
+          "testingcf.jsdelivr.net",
+          "vfarid.github.io"
+        ],
+        "domain_keyword": [],
+        "domain_regex": [],
+        "domain_suffix": [],
+        "geosite": [
+          "cn"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "query_type": [
+          32,
+          33
+        ],
+        "server": "dns-block"
+      },
+      {
+        "geosite": "category-ads-all",
+        "server": "block"
+      },
+      {
+        "outbound": "any",
+        "server": "dns-direct",
+        "disable_cache": true
+      },
+      {
+        "geosite": "cn",
+        "server": "dns-direct"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "dns-direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "dns-remote"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "fakeipDns"
+      },
+      {
+        "domain_suffix": ".lan",
+        "server": "dns-block"
+      }
+    ],
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "independent_cache": true,
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "domain_strategy": "",
+      "listen": "::",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "tag": "mixed-in",
+      "type": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "♻️ CDN",
+        "☝🏼 翻墙包",
+        "♻️ 翻墙包",
+        "☝🏼 merge",
+        "☝🏼 vless-collect",
+        "♻️ vless-collect",
+        "☝🏼 vless-sub",
+        "♻️ vless-sub",
+        "direct",
+        "🥰❤️"
+      ]
+    },
+    {
+      "tag": "♻️ CDN",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "🇭🇰 ☁_HK",
+        "🇭🇰 ☁_HK2",
+        "🇭🇰 ☁_HK3",
+        "🇭🇰 ☁_HK4",
+        "🇭🇰 ☁_HK5",
+        "🇭🇰 ☁_HK6",
+        "🇭🇰 ☁_HK7",
+        "🇭🇰 ☁_HK8",
+        "🇭🇰 ☁_HK9",
+        "🇭🇰 ☁_HK10",
+        "🇭🇰 ☁_HK11",
+        "🇭🇰 ☁_HK12",
+        "🇭🇰 ☁_HK13",
+        "🇭🇰 ☁_HK14",
+        "🇭🇰 ☁_HK15",
+        "🇭🇰 ☁_HK16",
+        "🇭🇰 ☁_HK17",
+        "🇭🇰 ☁_HK18",
+        "🇭🇰 ☁_HK19",
+        "🇭🇰 ☁_HK20",
+        "🇭🇰 ☁_HK21",
+        "🇭🇰 ☁_HK22",
+        "🇭🇰 ☁_HK23",
+        "🇭🇰 ☁_HK24",
+        "🇭🇰 ☁_HK25",
+        "🇭🇰 ☁_HK26",
+        "🇭🇰 ☁_HK27",
+        "🇭🇰 ☁_HK28",
+        "🇭🇰 ☁_HK29",
+        "🇭🇰 ☁_HK30",
+        "🇭🇰 ☁_HK31",
+        "🇭🇰 ☁_HK32",
+        "🇭🇰 ☁_HK33",
+        "🇭🇰 ☁_HK34",
+        "🇭🇰 ☁_HK35",
+        "🇭🇰 ☁_HK36",
+        "🇭🇰 ☁_HK37",
+        "🇭🇰 ☁_HK38",
+        "🇭🇰 ☁_HK39",
+        "🇭🇰 ☁_HK40",
+        "🇭🇰 ☁_HK41",
+        "🇭🇰 ☁_HK42",
+        "🇭🇰 ☁_HK43",
+        "🇭🇰 ☁_HK44",
+        "🇭🇰 ☁_HK45",
+        "🇭🇰 ☁_HK46",
+        "🇭🇰 ☁_HK47",
+        "🇭🇰 ☁_HK48",
+        "🇭🇰 ☁_HK49",
+        "🇭🇰 ☁_HK50",
+        "🇭🇰 ☁_HK51",
+        "🇭🇰 ☁_HK52",
+        "🇭🇰 ☁_HK53",
+        "🇭🇰 ☁_HK54",
+        "🇭🇰 ☁_HK55",
+        "🇭🇰 ☁_HK56",
+        "🇭🇰 ☁_HK57",
+        "🇭🇰 ☁_HK58",
+        "🇭🇰 ☁_HK59",
+        "🇭🇰 ☁_HK60",
+        "🇭🇰 ☁_HK61",
+        "🇭🇰 ☁_HK62",
+        "🇭🇰 ☁_HK63",
+        "🇭🇰 ☁_HK64",
+        "🇭🇰 ☁_HK65",
+        "🇭🇰 ☁_HK66",
+        "🇭🇰 ☁_HK67",
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "☝🏼 翻墙包",
+      "type": "selector",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "🐑hysteria2_meta_0",
+        "🐑hysteria2_meta_02",
+        "🇱🇧 🐑uceOLBOy_tuic",
+        "🐑zSeAtiz1_tuic",
+        "🐑QmsZfmi5_tuic",
+        "🐑hysteria_meta_4",
+        "🐑rGo9MFxi_tuic",
+        "🐑nppIUHuv_tuic",
+        "🐑hysteria_meta_7",
+        "🐑hysteria_meta_8",
+        "🐑hysteria_meta_9",
+        "🐑hysteria_0",
+        "🐑hysteria_1",
+        "🐑hysteria_2",
+        "🐑hysteria_3",
+        "🐑hysteria2_0",
+        "🐑hysteria2_1",
+        "🐑hysteria2_2",
+        "🐑hysteria2_3",
+        "🐑vless_0",
+        "🐑vless_2",
+        "🐑vless_3",
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "♻️ 翻墙包",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "🐑hysteria2_meta_0",
+        "🐑hysteria2_meta_02",
+        "🇱🇧 🐑uceOLBOy_tuic",
+        "🐑zSeAtiz1_tuic",
+        "🐑QmsZfmi5_tuic",
+        "🐑hysteria_meta_4",
+        "🐑rGo9MFxi_tuic",
+        "🐑nppIUHuv_tuic",
+        "🐑hysteria_meta_7",
+        "🐑hysteria_meta_8",
+        "🐑hysteria_meta_9",
+        "🐑hysteria_0",
+        "🐑hysteria_1",
+        "🐑hysteria_2",
+        "🐑hysteria_3",
+        "🐑hysteria2_0",
+        "🐑hysteria2_1",
+        "🐑hysteria2_2",
+        "🐑hysteria2_3",
+        "🐑vless_0",
+        "🐑vless_2",
+        "🐑vless_3",
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "☝🏼 vless-collect",
+      "type": "selector",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "♻️ vless-collect",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "☝🏼 vless-csub",
+      "type": "selector",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "♻️ vless-sub",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false,
+      "outbounds": [
+        "🥰❤️",
+        "direct"
+      ]
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "bypass",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "🇭🇰 ☁_HK",
+      "type": "vless",
+      "server": "1.116.92.241",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK2",
+      "type": "vless",
+      "server": "8.212.41.98",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK3",
+      "type": "vless",
+      "server": "8.222.137.192",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK4",
+      "type": "vless",
+      "server": "8.222.164.209",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK5",
+      "type": "vless",
+      "server": "47.74.0.234",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK6",
+      "type": "vless",
+      "server": "47.74.18.121",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK7",
+      "type": "vless",
+      "server": "47.245.8.68",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK8",
+      "type": "vless",
+      "server": "47.245.39.28",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK9",
+      "type": "vless",
+      "server": "64.110.91.92",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK10",
+      "type": "vless",
+      "server": "101.52.222.8",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK11",
+      "type": "vless",
+      "server": "104.16.11.149",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK12",
+      "type": "vless",
+      "server": "104.16.12.103",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK13",
+      "type": "vless",
+      "server": "104.17.235.30",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK14",
+      "type": "vless",
+      "server": "104.17.236.123",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK15",
+      "type": "vless",
+      "server": "104.18.10.143",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK16",
+      "type": "vless",
+      "server": "104.18.11.23",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK17",
+      "type": "vless",
+      "server": "104.18.22.35",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK18",
+      "type": "vless",
+      "server": "104.18.37.236",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK19",
+      "type": "vless",
+      "server": "104.18.78.15",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK20",
+      "type": "vless",
+      "server": "104.21.27.124",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK21",
+      "type": "vless",
+      "server": "104.21.45.184",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK22",
+      "type": "vless",
+      "server": "104.21.52.57",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK23",
+      "type": "vless",
+      "server": "104.21.234.52",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK24",
+      "type": "vless",
+      "server": "104.21.237.78",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK25",
+      "type": "vless",
+      "server": "104.26.10.76",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK26",
+      "type": "vless",
+      "server": "104.26.10.245",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK27",
+      "type": "vless",
+      "server": "104.26.11.188",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK28",
+      "type": "vless",
+      "server": "104.26.14.124",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK29",
+      "type": "vless",
+      "server": "104.26.15.235",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK30",
+      "type": "vless",
+      "server": "158.178.241.45",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK31",
+      "type": "vless",
+      "server": "158.178.242.56",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK32",
+      "type": "vless",
+      "server": "158.178.246.169",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK33",
+      "type": "vless",
+      "server": "159.75.247.15",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK34",
+      "type": "vless",
+      "server": "162.159.34.157",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK35",
+      "type": "vless",
+      "server": "162.159.160.59",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK36",
+      "type": "vless",
+      "server": "168.138.185.28",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK37",
+      "type": "vless",
+      "server": "172.67.64.45",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK38",
+      "type": "vless",
+      "server": "172.67.66.158",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK39",
+      "type": "vless",
+      "server": "172.67.67.243",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK40",
+      "type": "vless",
+      "server": "172.67.69.40",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK41",
+      "type": "vless",
+      "server": "172.67.72.14",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK42",
+      "type": "vless",
+      "server": "172.67.72.39",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK43",
+      "type": "vless",
+      "server": "172.67.72.87",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK44",
+      "type": "vless",
+      "server": "172.67.72.102",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK45",
+      "type": "vless",
+      "server": "172.67.73.11",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK46",
+      "type": "vless",
+      "server": "172.67.73.23",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK47",
+      "type": "vless",
+      "server": "172.67.79.18",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK48",
+      "type": "vless",
+      "server": "172.67.168.131",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK49",
+      "type": "vless",
+      "server": "172.67.171.223",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK50",
+      "type": "vless",
+      "server": "172.67.194.156",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK51",
+      "type": "vless",
+      "server": "172.67.195.87",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK52",
+      "type": "vless",
+      "server": "172.67.196.178",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK53",
+      "type": "vless",
+      "server": "193.123.245.132",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK54",
+      "type": "vless",
+      "server": "198.41.212.124",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK55",
+      "type": "vless",
+      "server": "2a06:98c1:3103:84f5:3692:2785:511:dd46",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK56",
+      "type": "vless",
+      "server": "2a06:98c1:3123:31:1174:1c3b:892f:9051",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK57",
+      "type": "vless",
+      "server": "2606:4700:3007:6af5:5eb5:47f9:5be2:eff3",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK58",
+      "type": "vless",
+      "server": "2606:4700:3030:6a3d:dac3:bc64:2c0b:594c",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK59",
+      "type": "vless",
+      "server": "2606:4700:3030:ba70:4542:be2e:6405:8f4b",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK60",
+      "type": "vless",
+      "server": "2606:4700:a9::72bc:3cd6:c3b1",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK61",
+      "type": "vless",
+      "server": "2606:4700:a9:f6:efed:d818:2b09:36dc",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK62",
+      "type": "vless",
+      "server": "b1.wuxianliulianng.xyz",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK63",
+      "type": "vless",
+      "server": "b2.wuxianliulianng.xyz",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK64",
+      "type": "vless",
+      "server": "b4.wuxianliulianng.xyz",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK65",
+      "type": "vless",
+      "server": "b7.wuxianliulianng.xyz",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK66",
+      "type": "vless",
+      "server": "bb4.wuxianliulianng.xyz",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🇭🇰 ☁_HK67",
+      "type": "vless",
+      "server": "cdn.sethost.eu.org",
+      "server_port": 80,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "wrap1hk.n7p8ri7j.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "🐑hysteria2_meta_0",
+      "type": "hysteria2",
+      "server": "109.104.152.219",
+      "server_port": 34091,
+      "password": "dongtaiwang.com",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑hysteria2_meta_02",
+      "type": "hysteria2",
+      "server": "167.160.90.251",
+      "server_port": 10981,
+      "password": "i2XRv7zj1uWE",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🇱🇧 🐑uceOLBOy_tuic",
+      "type": "tuic",
+      "server": "tuic1.freeh1.xyz",
+      "server_port": 40981,
+      "uuid": "c2faac69-e1c1-4bf5-b8a8-d2ce4d834a66",
+      "password": "dongtaiwang",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑zSeAtiz1_tuic",
+      "type": "tuic",
+      "server": "tuic3.dtku47.xyz",
+      "server_port": 12255,
+      "uuid": "ed6a538a-6e66-4f21-a769-4b389bb2f3ab",
+      "password": "dongtaiwang",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑QmsZfmi5_tuic",
+      "type": "tuic",
+      "server": "108.181.24.7",
+      "server_port": 23450,
+      "uuid": "3618921b-adeb-4bd3-a2a0-f98b72a674b1",
+      "password": "dongtaiwang",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_meta_4",
+      "type": "hysteria",
+      "server": "www.dtku46.xyz",
+      "server_port": 11223,
+      "up_mbps": 50,
+      "down_mbps": 80,
+      "auth_str": "mqoE9qSoyMFa",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.dtku46.xyz",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑rGo9MFxi_tuic",
+      "type": "tuic",
+      "server": "108.181.22.205",
+      "server_port": 50987,
+      "uuid": "d6214437-e1b5-4334-9090-8f66b78bea89",
+      "password": "dongtaiwang",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑nppIUHuv_tuic",
+      "type": "tuic",
+      "server": "108.181.22.239",
+      "server_port": 19988,
+      "uuid": "485ce799-da5f-46e8-a82b-8ef322d8602f",
+      "password": "dongtaiwang.com",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_meta_7",
+      "type": "hysteria",
+      "server": "www.dtku50.xyz",
+      "server_port": 14751,
+      "up_mbps": 50,
+      "down_mbps": 80,
+      "auth_str": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_meta_8",
+      "type": "hysteria",
+      "server": "62.204.54.81",
+      "server_port": 37899,
+      "up_mbps": 50,
+      "down_mbps": 80,
+      "auth_str": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_meta_9",
+      "type": "hysteria",
+      "server": "www3.dtku49.xyz",
+      "server_port": 58693,
+      "up_mbps": 50,
+      "down_mbps": 80,
+      "auth_str": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_0",
+      "type": "hysteria",
+      "server": "109.104.152.180",
+      "server_port": 64502,
+      "up_mbps": 11,
+      "down_mbps": 55,
+      "auth_str": "kxeFKpB8fhGjP7cO7NNgXYr19ZsqKQMco612ZCfXiaJrojw571",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_1",
+      "type": "hysteria",
+      "server": "173.234.25.52",
+      "server_port": 20164,
+      "up_mbps": 11,
+      "down_mbps": 55,
+      "auth_str": "Ljg6NNEATDqP97hdAdHe1lJv7ggtKc0h7zmCCZKCX3qY0LR64F",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_2",
+      "type": "hysteria",
+      "server": "109.104.152.149",
+      "server_port": 48406,
+      "up_mbps": 11,
+      "down_mbps": 55,
+      "auth_str": "xfNhrunYJ9GvDXCTktY2bIwhc1EyeyyAbiUMx1UtBOWgI4cMVB",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.amazon.cn",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria_3",
+      "type": "hysteria",
+      "server": "51.158.54.46",
+      "server_port": 11926,
+      "up_mbps": 11,
+      "down_mbps": 55,
+      "auth_str": "Trz2alKwzCImRAXI3nXfpo1ylpHfqOL8s1vageWKoyjjvWeMVs",
+      "tls": {
+        "enabled": true,
+        "server_name": "youku.com",
+        "alpn": [
+          "h3"
+        ],
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🐑hysteria2_0",
+      "type": "hysteria2",
+      "server": "www.dtku46.xyz",
+      "server_port": 49730,
+      "password": "dongtaiwang.com",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑hysteria2_1",
+      "type": "hysteria2",
+      "server": "108.181.22.155",
+      "server_port": 37987,
+      "password": "dongtaiwang.com",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑hysteria2_2",
+      "type": "hysteria2",
+      "server": "www.dtku48.xyz",
+      "server_port": 57298,
+      "password": "dongtaiwang.com",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑hysteria2_3",
+      "type": "hysteria2",
+      "server": "108.181.22.155",
+      "server_port": 37987,
+      "password": "dongtaiwang.com",
+      "up_mbps": 10,
+      "down_mbps": 50,
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "🐑vless_0",
+      "type": "vless",
+      "server": "dongtaiwang3.com",
+      "server_port": 443,
+      "uuid": "0773256c-d020-436d-afea-6eee7cb6c872",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "xray1.freegradely.xyz",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/bodhws",
+        "headers": {
+          "Host": "xray1.freegradely.xyz"
+        }
+      }
+    },
+    {
+      "tag": "🐑vless_2",
+      "type": "vless",
+      "server": "dongtaiwang2.com",
+      "server_port": 443,
+      "uuid": "f5c180eb-fbce-49ac-9029-482eca9385c0",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "xray1.freeh1.xyz",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/gzogws",
+        "headers": {
+          "Host": "xray1.freeh1.xyz"
+        }
+      }
+    },
+    {
+      "tag": "🐑vless_3",
+      "type": "vless",
+      "server": "dongtaiwang3.com",
+      "server_port": 443,
+      "uuid": "f5c180eb-fbce-49ac-9029-482eca9385c0",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "xray1.freeh1.xyz",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/gzogws",
+        "headers": {
+          "Host": "xray1.freeh1.xyz"
+        }
+      }
+    },
+    {
+      "tag": "🥰❤️",
+      "type": "vless",
+      "server": "::",
+      "server_port": 0,
+      "uuid": "1c19d7b3-542b-4bb5-96fc-1b996e085724",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "baidu.com"
+        }
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "🚀 节点选择",
+    "geoip": {
+      "download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.db",
+      "download_detour": "direct"
+    },
+    "geosite": {
+      "download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.db",
+      "download_detour": "direct"
+    },
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "network": "udp",
+        "outbound": "block",
+        "port": [
+          135,
+          137,
+          138,
+          139,
+          5353
+        ]
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "domain": [
+          "pixiv.net",
+          "pixiv.com",
+          "google.com",
+          "workers.dev",
+          "cloudfront.net",
+          "login.docker.com",
+          "hub.docker.com",
+          "t.me",
+          "tdesktop.com",
+          "telegra.ph",
+          "telegram.me",
+          "telegram.org",
+          "telesco.pe",
+          "91.108.0.0/16",
+          "109.239.140.0/24",
+          "149.154.160.0/20",
+          "2001:67c:4e8::/48",
+          "2001:b28:f23d::/48",
+          "2001:b28:f23f::/48"
+        ],
+        "domain_keyword": [],
+        "domain_regex": [],
+        "domain_suffix": [],
+        "geosite": [],
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "domain": [
+          "b23.tv",
+          "blog.mareep.net",
+          "cdn.jsdelivr.net",
+          "cloudflare-cn.com",
+          "falogin.cn",
+          "freeaday.com",
+          "gh.con.sh",
+          "gh.ddlc.top",
+          "ghproxy.com",
+          "ghps.cc",
+          "gitmirror.com",
+          "hub.gitmirror.com",
+          "img.mareep.net",
+          "ip138.com",
+          "ipchaxun.com",
+          "j3cx.com",
+          "jx3box.com",
+          "kjkkk.eu.org",
+          "mirror.ghproxy.com",
+          "raw.gitmirror.com",
+          "redirect.simba.taobao.com",
+          "testingcf.jsdelivr.net",
+          "vfarid.github.io"
+        ],
+        "domain_keyword": [],
+        "domain_regex": [],
+        "domain_suffix": [],
+        "geosite": [
+          "cn"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "geoip": [
+          "cn",
+          "private"
+        ],
+        "ip_cidr": [],
+        "outbound": "bypass"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "sdsdiy.com",
+          "sdspod.com",
+          "s2bdiy.com",
+          "hicustom.com"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": [
+          "openai",
+          "youtube",
+          "google",
+          "github",
+          "telegram",
+          "twitter",
+          "facebook",
+          "instagram",
+          "amazon",
+          "apple",
+          "tiktok",
+          "netflix",
+          "hbo",
+          "disney",
+          "primevideo",
+          "geolocation-!cn"
+        ],
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "geoip": [
+          "google",
+          "telegram",
+          "twitter",
+          "facebook",
+          "netflix"
+        ],
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": "cn",
+        "outbound": "direct"
+      },
+      {
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "outbound": "block"
+      },
+      {
+        "outbound": "block",
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ]
+      }
+    ]
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui_download_url": "https://gh.con.sh/?q=https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "external_ui": "dashboard",
+      "secret": "123456",
+      "default_mode": "rule",
+      "store_selected": true,
+      "cache_file": "",
+      "cache_id": ""
+    }
+  }
+}

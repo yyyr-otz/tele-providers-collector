@@ -1,0 +1,67 @@
+name: Execute On Schedule
+
+on:
+  push:
+    branches:
+      - only-ws
+
+  schedule:
+    - cron: '30,0 * * * *' 
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  
+jobs:
+  proxy_script:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Repository Contents # 拉取
+        uses: actions/checkout@v4
+
+      - name: Setup Python # 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11' # Install latest python
+          
+      - name: Install Python Packages Requirements # 依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-collect
+          pip install -r requirements-convert
+          
+      - name: Execute Python Script # 节点爬取
+        run: python only-ws.py
+
+      - name: Commit Files # 提交
+        run: |
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+      
+      - name: Push Changes # 推送
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: only-ws
+        
+      - name: Clean Up Files 
+        run: |
+          git checkout --orphan latest_branch
+          git rm -r -f __pycache__
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -A
+          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          git branch -D only-ws
+          git branch -m only-ws
+          git push -f origin only-ws
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: only-ws
