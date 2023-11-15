@@ -38,13 +38,13 @@ def decode_base64(data):
 
 """
 # 遍历当前目录下所有扩展名为.txt的文件
-for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
+for b64_file in glob.glob(os.path.join(r"./script/base64/protocols/", "*")):
     print (b64_file+"开始解码")
     with open(b64_file, "rb") as b64_txt:
         raw_file = decode_base64(b64_txt.read())
         # raw_file = base64.urlsafe_b64decode(data.read())
         # 将解码后的内容写入新文件
-        raw_path = os.path.join(r"./raw/protocols/" , os.path.basename(b64_file))
+        raw_path = os.path.join(r"./script/raw/protocols/" , os.path.basename(b64_file))
         with open(raw_path, "wb") as rawf:
             rawf.write(raw_file)
             print (raw_path+"写入完成")
@@ -52,11 +52,11 @@ for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
 """
 """
 # Create the geoip-lite folder if it doesn't exist
-if not os.path.exists('./geoip-lite'):
-    os.mkdir('./geoip-lite')
+if not os.path.exists('./script/geoip-lite'):
+    os.mkdir('./script/geoip-lite')
 
-if os.path.exists('./geoip-lite/geoip-lite-country.mmdb'):
-    os.remove('./geoip-lite/geoip-lite-country.mmdb')
+if os.path.exists('./script/geoip-lite/geoip-lite-country.mmdb'):
+    os.remove('./script/geoip-lite/geoip-lite-country.mmdb')
 
 # Download the file and rename it
 url = 'https://git.io/GeoLite2-Country.mmdb'
@@ -64,21 +64,21 @@ filename = 'geoip-lite-country.mmdb'
 wget.download(url, filename)
 
 # Move the file to the geoip folder
-os.rename(filename, os.path.join('./geoip-lite', filename))
+os.rename(filename, os.path.join('./script/geoip-lite', filename))
 """
 
 # Clean up unmatched file
-with open("./base64/splitted/no-match", "w") as no_match_file:
+with open("./script/base64/splitted/no-match", "w") as no_match_file:
     no_match_file.write("#Non-Adaptive Configurations\n")
 
 """
 # Load and read last date and time update
-with open('./last update', 'r') as file:
+with open('./script/last update', 'r') as file:
     last_update_datetime = file.readline()
     last_update_datetime = datetime.strptime(last_update_datetime, '%Y-%m-%d %H:%M:%S.%f%z')
 
 # Write the current date and time update
-with open('./last update', 'w') as file:
+with open('./script/last update', 'w') as file:
     current_datetime_update = datetime.now(tz = timezone(timedelta(hours=8), 'Asia/Beijing'))
     file.write(f'{current_datetime_update}')
 
@@ -305,9 +305,9 @@ for index, tg_user in enumerate(array_usernames):
 # wget.download(url, filename)
 
 tg_username_list.update(array_usernames)
-# telegram_proxies_channel = json_load('./telegram proxies channel.json')
+# telegram_proxies_channel = json_load('./script/telegram proxies channel.json')
 # tg_username_list.update(telegram_proxies_channel)
-# os.remove('./telegram proxies channel.json')
+# os.remove('./script/telegram proxies channel.json')
 
 
 # Subtract and get new telegram channels
@@ -434,7 +434,7 @@ for channel in removed_channel_array:
 print("No Config Telegram Channels Found")
 
 Traceback_time_str = current_datetime_update.strftime('%m %d %H:%M')
-Traceback_file_name = "./Traceback/"+Traceback_time_str
+Traceback_file_name = "./script/Traceback/"+Traceback_time_str
 with open(Traceback_file_name+'.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     
@@ -456,7 +456,7 @@ telegram_channels = [channel for channel in telegram_channels if channel not in 
 telegram_channels = list(set(telegram_channels))
 telegram_channels = sorted(telegram_channels)
 
-with open('./telegram channels.json', 'w') as telegram_channels_file:
+with open('./script/telegram channels.json', 'w') as telegram_channels_file:
     json.dump(telegram_channels, telegram_channels_file, indent = 4)
 
 
@@ -653,7 +653,7 @@ for url_link, content in channel_array_links_content_decoded:
     channel_matches_juicity.extend(match_juicity)
 
 # Save New Subscription Links
-# with open('./subscription links.json', 'w') as subscription_file:
+# with open('./script/subscription links.json', 'w') as subscription_file:
 #    json.dump(sorted(new_subscription_urls), subscription_file, indent = 4)
 
 
@@ -909,12 +909,12 @@ vless_dev_sign = create_title(dev_sign, port = 8080)
 # Save configurations based on splitted and chunks 全部节点
 for i in range(0, 10):
     if i < len(chunks):
-        with open(f"./base64/splitted/mixed-{i}", "w", encoding="utf-8") as file:
+        with open(f"./script/base64/splitted/mixed-{i}", "w", encoding="utf-8") as file:
             chunks[i].insert(0, vless_update)
             chunks[i].append(vless_dev_sign)
             file.write(base64.b64encode("\n".join(chunks[i]).encode("utf-8")).decode("utf-8"))
     else:
-        with open(f"./base64/splitted/mixed-{i}", "w", encoding="utf-8") as file:
+        with open(f"./script/base64/splitted/mixed-{i}", "w", encoding="utf-8") as file:
             file.write("")
 """
 """
@@ -924,29 +924,29 @@ country_based_configs_dict = create_country(array_mixed)
 for country in country_based_configs_dict.keys():
     country_based_configs_dict[country].insert(0, vless_update)
     country_based_configs_dict[country].append(vless_dev_sign)
-    if not os.path.exists('./countries'):
-        os.mkdir('./countries')
-    if not os.path.exists(f'./countries/{country}'):
-        os.mkdir(f'./countries/{country}')
-    with open(f'./countries/{country}/mixed', "w", encoding="utf-8") as file:
+    if not os.path.exists('./script/countries'):
+        os.mkdir('./script/countries')
+    if not os.path.exists(f'./script/countries/{country}'):
+        os.mkdir(f'./script/countries/{country}')
+    with open(f'./script/countries/{country}/mixed', "w", encoding="utf-8") as file:
         file.write(base64.b64encode("\n".join(country_based_configs_dict[country]).encode("utf-8")).decode("utf-8"))
 """
 
 # Split and save mixed array based on internet protocol 全部节点-IP类型
 array_mixed_ipv4, array_mixed_ipv6 = create_internet_protocol(array_mixed)
-with open("./base64/layers/ipv4", "w", encoding="utf-8") as file:
+with open("./script/base64/layers/ipv4", "w", encoding="utf-8") as file:
     array_mixed_ipv4.insert(0, vless_update)
     array_mixed_ipv4.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_mixed_ipv4).encode("utf-8")).decode("utf-8"))
 
-with open("./base64/layers/ipv6", "w", encoding="utf-8") as file:
+with open("./script/base64/layers/ipv6", "w", encoding="utf-8") as file:
     array_mixed_ipv6.insert(0, vless_update)
     array_mixed_ipv6.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_mixed_ipv6).encode("utf-8")).decode("utf-8"))
 
 
 # Save all mixed array and subscription links content 全部节点
-with open("./base64/splitted/mixed", "w", encoding="utf-8") as file:
+with open("./script/base64/splitted/mixed", "w", encoding="utf-8") as file:
     array_mixed.insert(0, vless_update)
     array_mixed.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_mixed).encode("utf-8")).decode("utf-8"))
@@ -959,18 +959,18 @@ all_subscription_matches = config_sort(all_subscription_matches)
 
 # Split and save mixed array based on internet protocol
 array_subscription_ipv4, array_subscription_ipv6 = create_internet_protocol(all_subscription_matches)
-with open("./subscribe/base64/layers/ipv4", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/layers/ipv4", "w", encoding="utf-8") as file:
     array_subscription_ipv4.insert(0, vless_update)
     array_subscription_ipv4.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_subscription_ipv4).encode("utf-8")).decode("utf-8"))
 
-with open("./subscribe/base64/layers/ipv6", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/layers/ipv6", "w", encoding="utf-8") as file:
     array_subscription_ipv6.insert(0, vless_update)
     array_subscription_ipv6.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_subscription_ipv6).encode("utf-8")).decode("utf-8"))
 
 # Save subscription configurations file
-with open("./base64/splitted/subscribe", "w", encoding="utf-8") as file:
+with open("./script/base64/splitted/subscribe", "w", encoding="utf-8") as file:
     all_subscription_matches.insert(0, vless_update)
     all_subscription_matches.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(all_subscription_matches).encode("utf-8")).decode("utf-8"))
@@ -983,18 +983,18 @@ all_channel_matches = config_sort(all_channel_matches)
 
 # Split and save mixed array based on internet protocol
 array_channel_ipv4, array_channel_ipv6 = create_internet_protocol(all_channel_matches)
-with open("./channels/base64/layers/ipv4", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/layers/ipv4", "w", encoding="utf-8") as file:
     array_channel_ipv4.insert(0, vless_update)
     array_channel_ipv4.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_channel_ipv4).encode("utf-8")).decode("utf-8"))
 
-with open("./channels/base64/layers/ipv6", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/layers/ipv6", "w", encoding="utf-8") as file:
     array_channel_ipv6.insert(0, vless_update)
     array_channel_ipv6.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_channel_ipv6).encode("utf-8")).decode("utf-8"))
 
 # Save channel configurations file
-with open("./base64/splitted/channels", "w", encoding="utf-8") as file:
+with open("./script/base64/splitted/channels", "w", encoding="utf-8") as file:
     all_channel_matches.insert(0, vless_update)
     all_channel_matches.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(all_channel_matches).encode("utf-8")).decode("utf-8"))
@@ -1017,13 +1017,13 @@ array_hysteria.append(vless_dev_sign)
 array_juicity.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./base64/protocols/vless", "w", encoding="utf-8") as file:
+with open("./script/base64/protocols/vless", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_vless).encode("utf-8")).decode("utf-8"))
-with open("./base64/protocols/tuic", "w", encoding="utf-8") as file:
+with open("./script/base64/protocols/tuic", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tuic).encode("utf-8")).decode("utf-8"))
-with open("./base64/protocols/hysteria", "w", encoding="utf-8") as file:
+with open("./script/base64/protocols/hysteria", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_hysteria).encode("utf-8")).decode("utf-8"))
-with open("./base64/protocols/juicity", "w", encoding="utf-8") as file:
+with open("./script/base64/protocols/juicity", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_juicity).encode("utf-8")).decode("utf-8"))
 
 # Adds update time into protocol type lists 全部节点-加密类型
@@ -1043,18 +1043,18 @@ array_tcp.append(vless_dev_sign)
 array_ws.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./base64/security/tls", "w", encoding="utf-8") as file:
+with open("./script/base64/security/tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tls).encode("utf-8")).decode("utf-8"))
-with open("./base64/security/non-tls", "w", encoding="utf-8") as file:
+with open("./script/base64/security/non-tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_non_tls).encode("utf-8")).decode("utf-8"))
-with open("./base64/networks/tcp", "w", encoding="utf-8") as file:
+with open("./script/base64/networks/tcp", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tcp).encode("utf-8")).decode("utf-8"))
-with open("./base64/networks/ws", "w", encoding="utf-8") as file:
+with open("./script/base64/networks/ws", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_ws).encode("utf-8")).decode("utf-8"))
 
 # 自己搭建的v2ray-worker
 vless_sub_url = 'https://vless-sub.n7p8ri7j.workers.dev/sub/cdn.sethost.eu.org?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge'
-with open('./base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
+with open('./script/base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
     vless_sub = requests.get(vless_sub_url, allow_redirects=True)
     vless_sub_file.write(vless_sub.text)
 
@@ -1074,13 +1074,13 @@ raw_matches_hysteria.append(vless_dev_sign)
 raw_matches_juicity.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./subscribe/base64/protocols/vless", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/protocols/vless", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_vless).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/protocols/tuic", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/protocols/tuic", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_tuic).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/protocols/hysteria", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/protocols/hysteria", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_hysteria).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/protocols/juicity", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/protocols/juicity", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_juicity).encode("utf-8")).decode("utf-8"))
 """
 """ # 订阅-加密类型
@@ -1101,13 +1101,13 @@ raw_matches_tcp.append(vless_dev_sign)
 raw_matches_ws.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./subscribe/base64/security/tls", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/security/tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_tls).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/security/non-tls", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/security/non-tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_non_tls).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/networks/tcp", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/networks/tcp", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_tcp).encode("utf-8")).decode("utf-8"))
-with open("./subscribe/base64/networks/ws", "w", encoding="utf-8") as file:
+with open("./script/subscribe/base64/networks/ws", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(raw_matches_ws).encode("utf-8")).decode("utf-8"))
 """
 """ # 电报-协议类型
@@ -1125,13 +1125,13 @@ array_hysteria_channels.append(vless_dev_sign)
 array_juicity_channels.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./channels/base64/protocols/vless", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/protocols/vless", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_vless_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/protocols/tuic", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/protocols/tuic", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tuic_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/protocols/hysteria", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/protocols/hysteria", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_hysteria_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/protocols/juicity", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/protocols/juicity", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_juicity_channels).encode("utf-8")).decode("utf-8"))
 """
 """ # 电报-加密类型
@@ -1152,13 +1152,13 @@ array_tcp_channels.append(vless_dev_sign)
 array_ws_channels.append(vless_dev_sign)
 
 # Save configurations into files splitted based on configuration type
-with open("./channels/base64/security/tls", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/security/tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tls_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/security/non-tls", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/security/non-tls", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_non_tls_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/networks/tcp", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/networks/tcp", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_tcp_channels).encode("utf-8")).decode("utf-8"))
-with open("./channels/base64/networks/ws", "w", encoding="utf-8") as file:
+with open("./script/channels/base64/networks/ws", "w", encoding="utf-8") as file:
     file.write(base64.b64encode("\n".join(array_ws_channels).encode("utf-8")).decode("utf-8"))
 """ 
 
@@ -1208,18 +1208,18 @@ The script aggregates Vless ( ws or tcp ) from Telegram public channels. It clea
 """
 # 在actions中下载
 vless_sub_url = 'https://vless-sub.n7p8ri7j.workers.dev/sub/cdn.sethost.eu.org?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge'
-with open('./base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
+with open('./script/base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
     vless_sub = requests.get(vless_sub_url, allow_redirects=True)
     vless_sub_file.write(vless_sub.text)
 
 # 遍历当前目录下所有扩展名为.txt的文件
-for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
+for b64_file in glob.glob(os.path.join(r"./script/base64/protocols/", "*")):
     print (b64_file+"开始解码")
     with open(b64_file, "rb") as b64_txt:
         raw_file = decode_base64(b64_txt.read())
         # raw_file = base64.urlsafe_b64decode(data.read())
         # 将解码后的内容写入新文件
-        raw_path = os.path.join(r"./raw/protocols/" , os.path.basename(b64_file))
+        raw_path = os.path.join(r"./script/raw/protocols/" , os.path.basename(b64_file))
         with open(raw_path, "wb") as rawf:
             rawf.write(raw_file)
             print (raw_path+"写入完成")
@@ -1227,19 +1227,19 @@ for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
 """
 # 在actions中下载
 vless_sub_url = 'https://vless-sub.n7p8ri7j.workers.dev/sub/cdn.sethost.eu.org?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge'
-with open('./base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
+with open('./script/base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
     vless_sub = requests.get(vless_sub_url, allow_redirects=True).text.encode("utf-8").decode("utf-8")
     print (vless_sub)
     vless_sub_file.write(vless_sub)       
         
 # 遍历当前目录下所有扩展名为.txt的文件
-for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
+for b64_file in glob.glob(os.path.join(r"./script/base64/protocols/", "*")):
     print (b64_file+"开始解码")
     with open(b64_file, "r", encoding="utf-8") as b64_txt:
         raw_file = base64.b64decode(b64_txt.read()).decode("utf-8")
         # raw_file = base64.urlsafe_b64decode(data.read())
         # 将解码后的内容写入新文件
-        raw_path = os.path.join(r"./raw/protocols/" , os.path.basename(b64_file))
+        raw_path = os.path.join(r"./script/raw/protocols/" , os.path.basename(b64_file))
         with open(raw_path + ".txt", "w", encoding="utf-8") as rawf:
             rawf.write(raw_file)
             print (raw_path+"写入完成")
