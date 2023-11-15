@@ -32,7 +32,7 @@ jobs:
           pip install -r ./script/requirements-script.txt
           
       - name: Execute Python Script # 节点爬取
-        run: python ./script/script.py
+        run: python ./script/script-main.py
 
       - name: Commit Files # 提交
         run: |
