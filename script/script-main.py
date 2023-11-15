@@ -433,20 +433,15 @@ for channel in removed_channel_array:
 
 print("No Config Telegram Channels Found")
 
-Traceback_time_str = current_datetime_update.strftime('%m %d %H:%M')
+Traceback_time_str = current_datetime_update.strftime('%m-%d %H:%M')
 Traceback_file_name = "./script/Traceback/"+Traceback_time_str
-with open(Traceback_file_name+'.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    
-with open(Traceback_file_name,'w') as file:
-    file.write('no-congfig-channel_user')
 
+with open(Traceback_file_name,'w') as file:
+    file.write('channels no proxy')
+    
 for channel in channel_without_config:
     with open(Traceback_file_name,'a') as file:
         file.write('\n{value}'.format(value = channel))
-    with open(Traceback_file_name+'.csv', 'a', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow('\t{value}'.format(value = channel))
     print('\t{value}'.format(value = channel))
 
 # Extend new channels into previous channels
