@@ -434,7 +434,7 @@ for channel in removed_channel_array:
 print("No Config Telegram Channels Found")
 
 Traceback_time_str = current_datetime_update.strftime('%m-%d %H:%M')
-Traceback_file_name = "./script/source/chaanels no proxy/"+Traceback_time_str
+Traceback_file_name = "./script/source/channels no proxy/"+Traceback_time_str
 
 with open(Traceback_file_name,'w') as file:
     file.write('channels no proxy')
