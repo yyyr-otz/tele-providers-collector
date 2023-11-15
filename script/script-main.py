@@ -71,7 +71,7 @@ os.rename(filename, os.path.join('./script/geoip-lite', filename))
 with open("./script/base64/splitted/no-match", "w") as no_match_file:
     no_match_file.write("#Non-Adaptive Configurations\n")
 
-"""
+
 # Load and read last date and time update
 with open('./script/last update', 'r') as file:
     last_update_datetime = file.readline()
@@ -83,7 +83,7 @@ with open('./script/last update', 'w') as file:
     file.write(f'{current_datetime_update}')
 
 print(f"Latest Update: {last_update_datetime.strftime('%a, %d %b %Y %X %Z')}\nCurrent Update: {current_datetime_update.strftime('%a, %d %b %Y %X %Z')}")
-"""
+
 
 def json_load(path):
     # Open and read the json file
