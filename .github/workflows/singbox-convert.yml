@@ -1,11 +1,12 @@
-name: Execute On Push
-
+name: singbox-convert
+run-name: ${{ github.actor }} is converting proxies
 on:
   push:
     branches:
       - only-ws
     paths:
       - '**.txt'
+      - 'protocols/**'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
