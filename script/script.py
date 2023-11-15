@@ -34,9 +34,9 @@ def decode_base64(data):
     if missing_padding != 0:
         data += b'='* (4 - missing_padding)
     return base64.b64decode(data).encode("utf-8").decode("utf-8")
-""""
+"""
 
-""""
+"""
 # 遍历当前目录下所有扩展名为.txt的文件
 for b64_file in glob.glob(os.path.join(r"./base64/protocols/", "*")):
     print (b64_file+"开始解码")
@@ -71,7 +71,7 @@ os.rename(filename, os.path.join('./geoip-lite', filename))
 with open("./base64/splitted/no-match", "w") as no_match_file:
     no_match_file.write("#Non-Adaptive Configurations\n")
 
-""""
+"""
 # Load and read last date and time update
 with open('./last update', 'r') as file:
     last_update_datetime = file.readline()
@@ -905,7 +905,7 @@ dev_sign = "\U0001F468\U0001F3FB\u200D\U0001F4BB 由YYYR收集，鸣谢代码原
 # Define develooper based on protocol type
 vless_dev_sign = create_title(dev_sign, port = 8080)
 
-""""
+"""
 # Save configurations based on splitted and chunks 全部节点
 for i in range(0, 10):
     if i < len(chunks):
@@ -917,7 +917,7 @@ for i in range(0, 10):
         with open(f"./base64/splitted/mixed-{i}", "w", encoding="utf-8") as file:
             file.write("")
 """
-""""
+"""
 # Create dictionary type of country based configuration list 全部节点-国家分类
 country_based_configs_dict = create_country(array_mixed)
 
@@ -951,7 +951,7 @@ with open("./base64/splitted/mixed", "w", encoding="utf-8") as file:
     array_mixed.append(vless_dev_sign)
     file.write(base64.b64encode("\n".join(array_mixed).encode("utf-8")).decode("utf-8"))
 
-"""" # 订阅-IP类型
+""" # 订阅-IP类型
 # Decode vmess configs to change title and remove duplicate
 all_subscription_matches = matches_vless
 all_subscription_matches = list(set(all_subscription_matches))
@@ -1205,7 +1205,7 @@ The script aggregates Vless ( ws or tcp ) from Telegram public channels. It clea
 | **Internet Protocol Version 6 (IPV6)** | [Subscription Link](https://raw.githubusercontent.com/yyyr-otz/only-ws/vless-tuic-hy2/base64/layers/ipv6) |
 
 '''
-""""
+"""
 # 在actions中下载
 vless_sub_url = 'https://vless-sub.n7p8ri7j.workers.dev/sub/cdn.sethost.eu.org?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge'
 with open('./base64/protocols/vless-sub', "w", encoding="utf-8") as vless_sub_file:
