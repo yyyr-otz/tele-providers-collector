@@ -2,12 +2,12 @@ name: proxy_script
 run-name: ${{ github.actor }} is scripting proxies
 on:
   push:
-    branches:
-      - master
-    paths:
-      - 'script/**'
-  schedule:
-    - cron: '*/200 * * * *' 
+#    branches:
+#      - master
+#    paths:
+#      - 'script/**'
+#  schedule:
+#    - cron: '*/200 * * * *' 
 
   workflow_dispatch:
 
