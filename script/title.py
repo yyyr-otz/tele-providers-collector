@@ -516,7 +516,7 @@ def check_modify_config(array_configuration, protocol_type, check_connection = T
     return modified_array, tls_array, non_tls_array, tcp_array, ws_array
 
 
-def config_sort(array_configuration, bound_ping = 25):
+def config_sort(array_configuration, bound_ping = 2):
     # Initialize list for sorted configs
     sort_init_list = list()
 
