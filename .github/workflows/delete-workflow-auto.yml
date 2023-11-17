@@ -2,7 +2,7 @@ name: 清除日志
 run-name: ${{ github.actor }} 正在按计划清除runners
 on:
   schedule:
-    - cron: '30 18 */3 * *'
+    - cron: '30 22 */3 * *' # 每三天在北京时间6:30清理runners
 
 jobs:
   del_runs:
