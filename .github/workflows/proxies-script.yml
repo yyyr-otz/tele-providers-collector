@@ -7,7 +7,7 @@ on:
 #    paths:
 #      - 'script/**'
   schedule:
-    - cron: '*/200 * * * *' 
+    - cron: '*/300 * * * *' 
 
   workflow_dispatch:
 
