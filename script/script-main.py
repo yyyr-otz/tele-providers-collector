@@ -984,7 +984,10 @@ with open("./script/raw/protocols/vless-CDN.txt", "w") as file:
 #    former_id = r'(?<=((VL-WS-TLS))).*?(?=$)|(?<=((VL-WS-NONE))).*?(?=$)'
 #    id_rewrite = re.sub(r'(?<=((TLS ))).*MS|(?<=((NONE))).*MS|(?<=((NA))).*MS', "\U0001F680 优选IP: " + rewrite_ip, ip_rewrite)
 #    print(id_rewrite)
-    file.write((ip_rewrite).encode("utf-8").decode("utf-8"))
+    # 替换加速端口
+    port_80 = re.sub(r'(?<=[0-9\]]:)8080(?=\?)|(?<=[0-9\]]:)8880(?=\?)|(?<=[0-9\]]:)2052(?=\?)|(?<=[0-9\]]:)2082(?=\?)|(?<=[0-9\]]:)2086(?=\?)|(?<=[0-9\]]:)2095(?=\?)', "80", ip_rewrite)
+    port_443 =  re.sub(r'(?<=[0-9\]]:)8443(?=\?)|(?<=[0-9\]]:)2053(?=\?)|(?<=[0-9\]]:)2083(?=\?)|(?<=[0-9\]]:)2087(?=\?)|(?<=[0-9\]]:)2096(?=\?)', "443", port_80)
+    file.write((port_443).encode("utf-8").decode("utf-8"))
     print ("节点已替换优选ip:" + rewrite_ip +",保存至./script/raw/protocols/vless-CDN.txt")
 
 # 追加vless-sub
@@ -1071,12 +1074,18 @@ def remove_duplicate_lines(file_path):
     return True
 # 优选节点去重
 if remove_duplicate_lines("./script/raw/protocols/vless-CDN.txt"):
-    print("./script/raw/protocols/vless-CDN.txt"+"去重完成")
+    print("优选节点./script/raw/protocols/vless-CDN.txt"+"去重完成")
 
 # 优选节点传递到check
 with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
     with open("./collected-proxies/row-url/all.txt", "a") as f:
         f.write(file.read())
+    print("待测节点./collected-proxies/row-url/all.txt"+"追加完成")
+
+
+# 对待测节点去重 
+if remove_duplicate_lines("./collected-proxies/row-url/all.txt"):
+    print("待测节点./collected-proxies/row-url/all.txt"+"去重完成")
         
 # 优选节点base64编码
 with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
