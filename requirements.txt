@@ -13,3 +13,13 @@ ruamel.yaml.clib==0.2.8
 smmap==5.0.0
 TgCrypto==1.2.5
 urllib3==2.0.3
+wget
+jdatetime
+requests
+tldextract
+beautifulsoup4
+geoip2
+dnspython
+pycountry_convert
+base64io
+pybase64
