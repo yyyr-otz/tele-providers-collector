@@ -22,11 +22,11 @@ jobs:
 
       - name: 迁出代码 # Checkout Repository Contents # 拉取
         uses: actions/checkout@v4
-
       - name: python环境 #Setup Python # 环境
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11' # Install latest python
+          python-version: '3.9'
+          cache: 'pip' # pip缓存
           
       - name: 设置时区
         run: sudo timedatectl set-timezone 'Asia/Shanghai'   
@@ -34,7 +34,7 @@ jobs:
       - name: 安装依赖 # Install Python Packages Requirements # 依赖
         run: |
           python -m pip install --upgrade pip
-          pip install -r ./script/requirements-script.txt
+          pip install -r requirements.txt
           
       - name: 节点索引 # Execute Python Script # 节点爬取
         run: python ./script/script-main.py
