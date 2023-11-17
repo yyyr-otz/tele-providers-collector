@@ -1,8 +1,13 @@
 name: 节点检查
 run-name: ${{ github.actor }} 正在检查节点
 on:
-  schedule:
-   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
+  workflow_run: # 在节点索引后进行
+    workflows:
+      - 节点索引
+    types:
+      - completed
+#  schedule:
+#   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
 #  push:
 #     branches:
 #       - master
