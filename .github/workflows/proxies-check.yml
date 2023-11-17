@@ -6,7 +6,8 @@ on:
       - 节点索引
     types:
       - completed
-#  schedule:
+  schedule:
+   - cron: "20 */4 * * *" # 每四个小时节点检查
 #   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
 #  push:
 #     branches:
