@@ -1,0 +1,44 @@
+name: 节点检查
+run-name: ${{ github.actor }} 正在检查节点
+on:
+  schedule:
+   - cron: "0 */1 * * *"
+#  push:
+#     branches:
+#       - master
+#     paths:
+#      - 'raw/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  proxies-check: 
+    runs-on: ubuntu-latest
+    # runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v4
+      - name: python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+        shell: bash
+        
+      - name: 检查节点
+        run: python ./check/checkProxies.py
+        shell: bash
+
+
