@@ -23,3 +23,13 @@ dnspython
 pycountry_convert
 base64io
 pybase64
+paramiko
+scp
+chardet
+PyYAML
+ruamel.yaml
+Flask==2.3.2
+inputimeout
+argparse
+importlib
+
