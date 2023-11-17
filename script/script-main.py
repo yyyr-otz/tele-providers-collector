@@ -1139,10 +1139,8 @@ The script aggregates Vless ( just ws ) from Telegram public channels. It cleans
 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collector/master?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collector/master?label=License&color=yellow)
-![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collector/master?label=Stars&color=red)
-![GitHub forks](https://img.shields.io/github/forks/yyyr-otz/tele-providers-collector/master?label=Forks&color=blue)
-[![Execute On Schedule](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/schedule.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/schedule.yml)
-[![Execute On Push](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/push.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/push.yml)
+[![节点索引](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml/badge.svg?branch=master&event=workflow_dispatch)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml)
+[![节点索引](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml/badge.svg?branch=master&event=schedule)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml)
 
 ## Protocol Type Subscription Links
 
