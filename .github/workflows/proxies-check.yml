@@ -10,8 +10,7 @@ on:
 #      - 'raw/**'
   workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: write-all
 
 jobs:
   proxies-check: 
