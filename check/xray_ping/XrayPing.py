@@ -103,7 +103,7 @@ class XrayPing:
         configFilePath = "./xray_config_ping.json"
         with open(configFilePath, 'w') as f:
             f.write(confFinalStr)
-
+        subprocess.run(['chmod', '755', 'check/xray_ping/xray'])
         runXrayThread = Thread(target=subprocess.run,
                                args=([Path("check/xray_ping/xray").resolve(), "run", "-c", configFilePath],))
         runXrayThread.daemon = True
