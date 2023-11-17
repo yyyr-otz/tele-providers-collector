@@ -2,7 +2,7 @@ name: 节点检查
 run-name: ${{ github.actor }} 正在检查节点
 on:
   schedule:
-   - cron: "0 */1 * * *"
+   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
 #  push:
 #     branches:
 #       - master
