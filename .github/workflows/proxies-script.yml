@@ -7,7 +7,7 @@ on:
 #    paths:
 #      - 'script/**'
   schedule:
-    - cron: '*/300 * * * *' 
+    - cron: '*/400 * * * *' 
 
   workflow_dispatch:
 
@@ -40,31 +40,33 @@ jobs:
 
       - name: 对比仓库 # Commit Files # 提交
         run: |
+          git rm -r -f ./script/__pycache__
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-      
+          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
           branch: master
         
-      - name: 提交更改  # Clean Up Files 
-        run: |
-          git checkout --orphan latest_branch
-          git rm -r -f ./script/__pycache__
-          git config --local user.email "932624033@qq.com"
-          git config --local user.name "yyyr-otz"
-          git add -A
-          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
-          git branch -D master
-          git branch -m master
-          git push -f origin master
+#      - name: 提交更改  # Clean Up Files 
+#        run: |
+#          git checkout --orphan latest_branch
+#          git rm -r -f ./script/__pycache__
+#          git config --local user.email "932624033@qq.com"
+#          git config --local user.name "yyyr-otz"
+#          git add -A
+#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#          git branch -D master
+#          git branch -m master
+#          git push -f origin master
 
-      - name: 推送更改 # Push Changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
-          branch: master
+#      - name: 推送更改 # Push Changes
+#        uses: ad-m/github-push-action@v0.6.0
+#        with:
+#          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+#          branch: master
