@@ -7,7 +7,7 @@ on:
 #    paths:
 #      - 'script/**'
   schedule:
-    - cron: '*/400 * * * *' 
+    - cron: '0 0,4,8,12,16,20 * * *' # 北京时间4 8 12 16 20 24 每四个小时整点运行
 
   workflow_dispatch:
 
