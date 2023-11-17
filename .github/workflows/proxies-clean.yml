@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} 正在清理节点
 
 on:
  schedule:
-   - cron: "30 23 * * *" # 每天北京时间上午七点半清理节点信息
+   - cron: '30 23 * * *' # 每天北京时间上午七点半清理节点信息
  push:
    branches:
      - test
