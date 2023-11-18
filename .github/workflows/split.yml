@@ -16,19 +16,29 @@ permissions:
   contents: write
   
 jobs:
-  split:
+  proxy_script:
     runs-on: ubuntu-latest
     steps:
-      - name: 迁出代码 # Checkout Repository Contents # 拉取
+
+      - name: 迁出代码 
         uses: actions/checkout@v4
+      - name: python环境 
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip' # pip缓存
           
       - name: 设置时区
         run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      
+      - name: 安装依赖 
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
 
       - name: 节点分割 
-        run: |
-          sudo bash ./split.sh
-          shell: bash
+        run: python ./check/split.py
 
       - name: 对比仓库 # Commit Files # 提交
         run: |
@@ -36,7 +46,7 @@ jobs:
           git config --local user.name "yyyr-otz"
           git add -u ./collected-proxies/row-url/all*
           git diff-index --quiet HEAD || (git commit -a -m " 节点分割 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#         # git commit -am "节点分割 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
           
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
