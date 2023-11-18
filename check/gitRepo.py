@@ -43,30 +43,37 @@ def resetGitUser():
         gitCnf.set_value('user', 'name', mainGitUser)
 
  """
-def getLatestRowProxies():
+def getLatestRowProxies(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
-        shutil.copytree("./repo/collected-proxies/row-url", "collected-proxies/row-url", dirs_exist_ok=True)
+        all_path = "collected-proxies/row-url/all_" + num_n
+        active_path = "collected-proxies/row-url/active_" + num_n
+        shutil.move("./repo/" + all_path, all_path)
+        shutil.move("./repo/" + active_path, active_path)
 
-
-def getLatestActiveConfigs():
+def getLatestActiveConfigs(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
-        shutil.copytree("./repo/collected-proxies/xray-json", "collected-proxies/xray-json", dirs_exist_ok=True)
-        shutil.copytree("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
+        active_configs_path = "collected-proxies/xray-json/active_now_" + num_n
+        shutil.move("./repo/" +active_configs_path, active_configs_path)
+        # shutil.move("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
 
 
-def commitPushRowProxiesFile():
+def commitPushRowProxiesFile(num_n):
     if not IS_DEBUG:
  #       now = datetime.datetime.now()
  #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
-        shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
-        repo.index.add([r'collected-proxies/row-url/*'])
+        all_path = "collected-proxies/row-url/all_" + num_n
+        active_path = "collected-proxies/row-url/active_" + num_n
+        shutil.move(all_path, "./repo/" + all_path)
+        shutil.move(active_path, "./repo/" + active_path)
+        repo.index.add([r'all_path'])
+        repo.index.add([r'active_path'])
   #      changeGitUserToBot()
   #      repo.index.commit('节点清理完成' + formatted_time)
   #      repo.remotes.origin.push()
@@ -74,17 +81,18 @@ def commitPushRowProxiesFile():
   #      print('节点清理完成' + formatted_time)
 
 
-def commitPushRActiveProxiesFile():
+def commitPushRActiveProxiesFile(num_n):
     if not IS_DEBUG:
  #       now = datetime.datetime.now()
  #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
-        shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
-        shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
+        xray_path = "collected-proxies/xray-json/active_now_" + num_n
+        shutil.move(xray_path, "./repo/" + xray_path)
+  #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
-        repo.index.add([r'collected-proxies/xray-json/*'])
+        repo.index.add([r'xray_path '])
   #      changeGitUserToBot()
   #      repo.index.commit('节点检查完成' + formatted_time)
   #      repo.remotes.origin.push()
