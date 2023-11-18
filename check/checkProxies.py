@@ -33,7 +33,7 @@ def is_buggy_in_clash_meta(config: ClashMetaDecoder):
     return config.security == "reality" and config.type == "grpc"
 """
 # 根据序号选择文件
-with open("collected-proxies/row-url/all" + args.n, 'r') as rowProxiesFile:
+with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
     configs = []
     # clash_meta_configs = []
     # for_game_proxies = []
