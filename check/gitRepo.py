@@ -4,7 +4,7 @@ from git import Repo
 from dotenv import load_dotenv
 import os
 
-import datetime
+# import datetime
 
 load_dotenv()
 
@@ -28,20 +28,21 @@ with repo.config_reader() as git_config:
         mainGitEmail = "None"
         mainGitUser = "None"
 
-
+""" 
 def changeGitUserToBot():
     with repo.config_writer() as gitConfig:
         gitConfig.set_value('user', 'email', 'bot@auto.com')
         gitConfig.set_value('user', 'name', 'Bot-auto')
 
-
+ """
+""" 
 def resetGitUser():
     global mainGitUser, mainGitEmail
     with repo.config_writer() as gitCnf:
         gitCnf.set_value('user', 'email', mainGitEmail)
         gitCnf.set_value('user', 'name', mainGitUser)
 
-
+ """
 def getLatestRowProxies():
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
@@ -57,17 +58,17 @@ def getLatestActiveConfigs():
         shutil.copytree("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
 
 
-def commitPushRowProxiesFile(chanelUsername):
+def commitPushRowProxiesFile():
     if not IS_DEBUG:
-        now = datetime.datetime.now()
-        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+ #       now = datetime.datetime.now()
+ #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
         shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
-  #      repo.index.add([r'collected-proxies/row-url/*'])
+        repo.index.add([r'collected-proxies/row-url/*'])
   #      changeGitUserToBot()
-        repo.index.commit('节点清理完成' + formatted_time)
+  #      repo.index.commit('节点清理完成' + formatted_time)
   #      repo.remotes.origin.push()
   #      resetGitUser()
   #      print('节点清理完成' + formatted_time)
@@ -75,14 +76,14 @@ def commitPushRowProxiesFile(chanelUsername):
 
 def commitPushRActiveProxiesFile():
     if not IS_DEBUG:
-        now = datetime.datetime.now()
-        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+ #       now = datetime.datetime.now()
+ #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
         shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
         shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
-        repo.index.add([r'collected-proxies/clash-meta/*'])
+  #      repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add([r'collected-proxies/xray-json/*'])
   #      changeGitUserToBot()
   #      repo.index.commit('节点检查完成' + formatted_time)
