@@ -40,6 +40,10 @@ jobs:
       - name: 节点分割 
         run: python ./check/split.py
 
+      - name: 节点合成
+        run :
+          cat ./collected-proxies/row-url/all_* >./collected-proxies/row-url/all.txt
+
       - name: 对比仓库 # Commit Files # 提交
         run: |
           git config --local user.email "932624033@qq.com"
