@@ -26,8 +26,10 @@ from title import check_modify_config, config_sort, create_internet_protocol
 #去重操作依赖
 import urllib.parse
 # 优选域名/IP
-#rewrite_domain = "cdn.sethost.eu.org"
-rewrite_domain = "globalpotplayer.cn"
+rewrite_domain_cn = "cdn.sethost.eu.org"
+rewrite_domain_80 = "cf.yumy.gay"
+rewrite_domain_443 = "globalpotplayer.cn"
+rewrite_domain = rewrite_domain_443
 """
 # Create the geoip-lite folder if it doesn't exist
 if not os.path.exists('./script/geoip-lite'):
@@ -979,7 +981,7 @@ with open("./script/raw/protocols/vless-CDN.txt", "w") as file:
 #    print(vless_former)
 #    former_ip = r'(?<=@).*?(?=:)'
 #    # 替换优选IP
-    ＃ip_rewrite = re.sub(r'(?<=[a-z0-9]{12}@).*?(?=:[0-9])', rewrite_ip, vless_former)
+    #ip_rewrite = re.sub(r'(?<=[a-z0-9]{12}@).*?(?=:[0-9])', rewrite_ip, vless_former)
 #    print(ip_rewrite)
 #    former_id = r'(?<=((VL-WS-TLS))).*?(?=$)|(?<=((VL-WS-NONE))).*?(?=$)'
 #    id_rewrite = re.sub(r'(?<=((TLS ))).*MS|(?<=((NONE))).*MS|(?<=((NA))).*MS', "\U0001F680 优选IP: " + rewrite_ip, ip_rewrite)
