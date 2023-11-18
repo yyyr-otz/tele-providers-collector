@@ -46,4 +46,18 @@ jobs:
         run: python ./check/checkProxies.py
         shell: bash
 
+      - name: 对比仓库 # Commit Files # 提交
+        run: |
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "节点检查完成 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          
+      - name: 推送更改 # Push Changes # 推送
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: master
+
 
