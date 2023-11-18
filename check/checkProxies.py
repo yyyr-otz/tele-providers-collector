@@ -1,93 +1,111 @@
-import shutil
+import json
+import sys
+from ruamel.yaml import YAML
+from gitRepo import commitPushRActiveProxiesFile, getLatestActiveConfigs
 
-from git import Repo
-from dotenv import load_dotenv
-import os
+sys.path.append('./check/xray_url_decoder/')
+sys.path.append('./check/clash_meta_url_decoder/')
+sys.path.append('./check/xray_ping/')
 
-# import datetime
+from xray_url_decoder.XrayUrlDecoder import XrayUrlDecoder
+from xray_ping.XrayPing import XrayPing
+from clash_meta_url_decoder.ClashMetaUrlDecoder import ClashMetaDecoder
 
-load_dotenv()
+import argparse # 传递参数
+import time # 控制时间
 
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-REPO = os.getenv('REPO')
-IS_DEBUG = bool(int(os.getenv('DEBUG_MODE')))
+parser = argparse.ArgumentParser(prog = "checkProxies.py")
+parser.add_argument("-n", type = str, nargs = '?', default = "", const = "")
 
 
+args = parser.parse_args() # 引入序号参数
 
-if os.path.exists("./repo/.git"):
-    repo = Repo("./repo/")
-else:
-    repo = Repo.clone_from(
-        "https://mrm:{TOKEN_GITHUB}@github.com/{REPO}".format(TOKEN_GITHUB=GITHUB_TOKEN, REPO=REPO), "./repo")
 
-with repo.config_reader() as git_config:
-    try:
-        mainGitEmail = git_config.get_value('user', 'email')
-        mainGitUser = git_config.get_value('user', 'name')
-    except:
-        mainGitEmail = "None"
-        mainGitUser = "None"
 
 """ 
-def changeGitUserToBot():
-    with repo.config_writer() as gitConfig:
-        gitConfig.set_value('user', 'email', 'bot@auto.com')
-        gitConfig.set_value('user', 'name', 'Bot-auto')
+def is_good_for_game(config: XrayUrlDecoder):
+    return (config.type in ['tcp', 'grpc']) and (config.security in [None, "tls"])
+
+"""  
+"""
+# for more info, track this issue https://github.com/MetaCubeX/Clash.Meta/issues/801
+def is_buggy_in_clash_meta(config: ClashMetaDecoder):
+    return config.security == "reality" and config.type == "grpc"
+"""
+# 根据序号选择文件
+with open("collected-proxies/row-url/all" + args.n, 'r') as rowProxiesFile:
+    configs = []
+    # clash_meta_configs = []
+    # for_game_proxies = []
+    for url in rowProxiesFile:
+        if len(url) > 10:
+            try:
+                # ############# xray ############
+                c = XrayUrlDecoder(url) # xray 节点检测 不需要传递序号
+                c_json = c.generate_json_str()
+                if c.isSupported and c.isValid:
+                    configs.append(c_json)  # 生成xray配置
+                
+                """ 
+                # ############# clash Meta ##########
+                ccm = ClashMetaDecoder(url)
+                ccm_json = ccm.generate_obj_str()
+                if c.isSupported and c.isValid and (not is_buggy_in_clash_meta(ccm)):
+                    clash_meta_configs.append(json.loads(ccm_json)) 
+                """
+
+                """ if is_good_for_game(c):
+                    for_game_proxies.append(url)
+                """
+            except:
+                print("There is error with this proxy => " + url)
+
+    # getLatestGoodForGame()
+    # with open("collected-proxies/row-url/for_game.txt", 'w') as forGameProxiesFile:
+    #     for forGame in for_game_proxies:
+    #         forGameProxiesFile.write(forGame)
+    # commitPushForGameProxiesFile()
+
+    # xrayping 不需要序号参数
+    delays = XrayPing(configs)
+
+    # 序号传给get
+    getLatestActiveConfigs(args.n)
+
+    with open("collected-proxies/xray-json/active_now_" + args.n, 'w') as activeProxiesFile:
+        for active in delays.actives:
+            activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
+    
+    """
+    yaml = YAML()
+    with open("collected-proxies/clash-meta/all.yaml", 'w') as allClashProxiesFile:
+        yaml.dump({"proxies": clash_meta_configs}, allClashProxiesFile)
+
+    """
+
+    """ with open("collected-proxies/xray-json/actives_all.txt", 'w') as activeProxiesFile:
+        for active in delays.actives:
+            activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
+
+    with open("collected-proxies/xray-json/actives_under_1000ms.txt", 'w') as active1000ProxiesFile:
+        for active in delays.realDelay_under_1000:
+            active1000ProxiesFile.write(json.dumps(active['proxy']) + "\n")
+
+    with open("collected-proxies/xray-json/actives_under_1500ms.txt", 'w') as active1500ProxiesFile:
+        for active in delays.realDelay_under_1500:
+            active1500ProxiesFile.write(json.dumps(active['proxy']) + "\n")
+
+    with open("collected-proxies/xray-json/actives_no_403_under_1000ms.txt", 'w') as active1000no403ProxiesFile:
+        for active in delays.no403_realDelay_under_1000:
+            active1000no403ProxiesFile.write(json.dumps(active['proxy']) + "\n")
+
+    with open("collected-proxies/xray-json/actives_for_ir_server_no403_u1s.txt",
+              'w') as active1000no403ForServerProxiesFile:
+        for active in delays.no403_realDelay_under_1000:
+#            if active['proxy']["streamSettings"]["network"] not in ["ws", "grpc"]:
+            active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
 
  """
-""" 
-def resetGitUser():
-    global mainGitUser, mainGitEmail
-    with repo.config_writer() as gitCnf:
-        gitCnf.set_value('user', 'email', mainGitEmail)
-        gitCnf.set_value('user', 'name', mainGitUser)
+time.sleep(int((args.n - 1) * 300))
 
- """
-def getLatestRowProxies():
-    if not IS_DEBUG:
-        repo.git.execute(["git", "fetch", "--all"])
-        repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
-        shutil.copytree("./repo/collected-proxies/row-url", "collected-proxies/row-url", dirs_exist_ok=True)
-
-
-def getLatestActiveConfigs():
-    if not IS_DEBUG:
-        repo.git.execute(["git", "fetch", "--all"])
-        repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
-        shutil.copytree("./repo/collected-proxies/xray-json", "collected-proxies/xray-json", dirs_exist_ok=True)
-        shutil.copytree("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
-
-
-def commitPushRowProxiesFile(chanelUsername):
-    if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
-        repo.git.execute(["git", "fetch", "--all"])
-        repo.git.execute(["git", "reset", "--hard", "origin/master"])
-        repo.git.execute(["git", "pull"])
-        shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
-        repo.index.add([r'collected-proxies/row-url/*'])
-  #      changeGitUserToBot()
-  #      repo.index.commit('节点清理完成' + formatted_time)
-  #      repo.remotes.origin.push()
-  #      resetGitUser()
-  #      print('节点清理完成' + formatted_time)
-
-
-def commitPushRActiveProxiesFile():
-    if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
-        repo.git.execute(["git", "fetch", "--all"])
-        repo.git.execute(["git", "reset", "--hard", "origin/master"])
-        repo.git.execute(["git", "pull"])
-        shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
-        shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
-        repo.index.add([r'collected-proxies/clash-meta/*'])
-        repo.index.add([r'collected-proxies/xray-json/*'])
-  #      changeGitUserToBot()
-  #      repo.index.commit('节点检查完成' + formatted_time)
-  #      repo.remotes.origin.push()
-  #      resetGitUser()
-  #      print('节点检查完成' + formatted_time)
-
+commitPushRActiveProxiesFile(args.n)
