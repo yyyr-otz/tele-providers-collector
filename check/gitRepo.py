@@ -4,11 +4,15 @@ from git import Repo
 from dotenv import load_dotenv
 import os
 
+import datetime
+
 load_dotenv()
 
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 REPO = os.getenv('REPO')
 IS_DEBUG = bool(int(os.getenv('DEBUG_MODE')))
+
+
 
 if os.path.exists("./repo/.git"):
     repo = Repo("./repo/")
@@ -27,8 +31,8 @@ with repo.config_reader() as git_config:
 
 def changeGitUserToBot():
     with repo.config_writer() as gitConfig:
-        gitConfig.set_value('user', 'email', '932624033@qq.com')
-        gitConfig.set_value('user', 'name', 'yyyr-otz')
+        gitConfig.set_value('user', 'email', 'bot@auto.com')
+        gitConfig.set_value('user', 'name', 'Bot-auto')
 
 
 def resetGitUser():
@@ -55,20 +59,24 @@ def getLatestActiveConfigs():
 
 def commitPushRowProxiesFile(chanelUsername):
     if not IS_DEBUG:
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
         shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
-        repo.index.add([r'collected-proxies/row-url/*'])
-      #  changeGitUserToBot()
-        repo.index.commit('update proxies from {}'.format(chanelUsername))
-        repo.remotes.origin.push()
-        resetGitUser()
-        print('pushed => update proxies from {}'.format(chanelUsername))
+  #      repo.index.add([r'collected-proxies/row-url/*'])
+  #      changeGitUserToBot()
+        repo.index.commit('节点清理完成' + formatted_time)
+  #      repo.remotes.origin.push()
+  #      resetGitUser()
+  #      print('节点清理完成' + formatted_time)
 
 
 def commitPushRActiveProxiesFile():
     if not IS_DEBUG:
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
@@ -76,8 +84,9 @@ def commitPushRActiveProxiesFile():
         shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
         repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add([r'collected-proxies/xray-json/*'])
-      #  changeGitUserToBot()
-        repo.index.commit('update active proxies')
-        repo.remotes.origin.push()
-        resetGitUser()
-        print('pushed => update active proxies')
+  #      changeGitUserToBot()
+  #      repo.index.commit('节点检查完成' + formatted_time)
+  #      repo.remotes.origin.push()
+  #      resetGitUser()
+  #      print('节点检查完成' + formatted_time)
+
