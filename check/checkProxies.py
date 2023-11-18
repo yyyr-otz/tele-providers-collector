@@ -79,5 +79,5 @@ with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
         for active in delays.no403_realDelay_under_1000:
 #            if active['proxy']["streamSettings"]["network"] not in ["ws", "grpc"]:
             active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
-
+            
 commitPushRActiveProxiesFile()
