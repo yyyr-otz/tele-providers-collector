@@ -1,7 +1,7 @@
 proxies:
 - uuid: 33962127-776d-4855-98cd-4c15a6ae7005
   server: globalpotplayer.cn
-  name: proxy_9637106_proxy_9087400_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_4884543_proxy_2825155_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -17,7 +17,7 @@ proxies:
       /Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT-Telegram:@SeyyedMT
 - uuid: a61eb3a2-1adb-48cb-ab46-ce225769de16
   server: globalpotplayer.cn
-  name: proxy_5324890_proxy_336016_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_36460_proxy_5946317_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -32,7 +32,7 @@ proxies:
     path: users?ed
 - uuid: db8248ba-7652-41bb-dbd0-6bcfe406ecb2
   server: globalpotplayer.cn
-  name: proxy_4928736_proxy_3761126_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_9289448_proxy_6280192_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -47,7 +47,7 @@ proxies:
     path: /lg582228486
 - uuid: 17828c4c-ac60-4e4b-ed89-006bfaf04695
   server: cdn.sethost.eu.org
-  name: proxy_7006524_proxy_2037322_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5167284_proxy_9173980_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -63,7 +63,7 @@ proxies:
       /hajimamadvpn.cfz-hajimmad.site/@HAJIMAMADVPN-@HAJIMAMADVPN-@HAJIMAMADVPN-@HAJIMAMADVPN-@HAJIMAMADVPN-@HAJIMAMADVPN-@HAJIMAMADVPN
 - uuid: 320e6ad4-6b2e-4290-b98c-0fa2f6eefda1
   server: cdn.sethost.eu.org
-  name: proxy_4924473_proxy_4852345_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_9956853_proxy_6042951_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -78,7 +78,7 @@ proxies:
     path: /d1gt2t8wq9r0vc.cloudfront.net/current_time
 - uuid: 228cf460-bb52-4810-b523-e4c0f51f71dd
   server: globalpotplayer.cn
-  name: proxy_617936_proxy_6028139_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2571412_proxy_1729967_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -93,7 +93,7 @@ proxies:
     path: vless-ws/?ed=2048
 - uuid: 7d3b945d-0f23-4719-9fae-50033251e2fd
   server: globalpotplayer.cn
-  name: proxy_6163349_proxy_5909621_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_4024984_proxy_726760_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -108,7 +108,7 @@ proxies:
     path: /qi79crholtc6qgd6y9n6.khodavakili.top/kos_madar_publisher
 - uuid: dc122d38-2af3-4e82-8eac-690030a207a2
   server: globalpotplayer.cn
-  name: proxy_2021493_proxy_1315612_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_6212584_proxy_8160789_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -123,7 +123,7 @@ proxies:
     path: /
 - uuid: ef598b07-05e8-40d2-b0ae-ad50c266e81a
   server: globalpotplayer.cn
-  name: proxy_8415742_proxy_493494_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_8827867_proxy_5125549_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -136,7 +136,7 @@ proxies:
       /v2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir/V2ray_vpn_ir
 - uuid: 9a37341b-5a07-432c-beea-372b0964ffeb
   server: globalpotplayer.cn
-  name: proxy_4249629_proxy_3464421_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8378421_proxy_839866_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -151,7 +151,7 @@ proxies:
     path: /
 - uuid: ea1879a4-f28d-49cc-9461-e6c4d80928db
   server: globalpotplayer.cn
-  name: proxy_4339928_proxy_8007248_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8224737_proxy_5255155_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -167,7 +167,7 @@ proxies:
       join.----------------Telegram-EiiiM----------------Telegram-EiiiM---------------.Telegram-EiiiM.
 - uuid: b37deda3-795f-4bce-bc94-f852c3d4e14a
   server: globalpotplayer.cn
-  name: proxy_8561745_proxy_9874997_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2696806_proxy_1607729_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -182,7 +182,7 @@ proxies:
     path: /metrix
 - uuid: f1e7852a-0498-497f-b8c8-3ce117222fe1
   server: globalpotplayer.cn
-  name: proxy_963865_proxy_564247_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_4171452_proxy_3564643_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -195,7 +195,7 @@ proxies:
       Telegram:@v2rayNGcloud,Telegram:@v2rayNGcloud,Telegram:@v2rayNGcloud,Telegram:@v2rayNGcloud
 - uuid: b93bce5f-ecc5-456d-e169-ee1f867f3dc7
   server: globalpotplayer.cn
-  name: proxy_7350754_proxy_1207486_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_3987130_proxy_2192592_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -207,7 +207,7 @@ proxies:
     path: /
 - uuid: 59e91ba3-2bb8-4e43-b540-5eaf4b377aa5
   server: globalpotplayer.cn
-  name: proxy_7899397_proxy_5657509_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_1674392_proxy_2254238_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -222,7 +222,7 @@ proxies:
     path: /?ed=2048
 - uuid: 18758691-ca0b-41cd-a1d0-a718ed65219a
   server: globalpotplayer.cn
-  name: proxy_3266432_proxy_3797987_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_9197187_proxy_3053020_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -237,7 +237,7 @@ proxies:
     path: /
 - uuid: ea9148b9-13b7-41cf-8911-94234e7c3fcf
   server: globalpotplayer.cn
-  name: proxy_2020894_proxy_2381893_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2143010_proxy_3408108_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -252,7 +252,7 @@ proxies:
     path: /?ed=2048
 - uuid: 8230fa43-a36c-4b8f-f3c5-3cc8e8fc1999
   server: globalpotplayer.cn
-  name: proxy_8706675_proxy_1213510_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_4371812_proxy_1079056_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -264,7 +264,7 @@ proxies:
     path: /?ed=2048
 - uuid: 1fbd7633-8800-4de0-87fb-c656017f4099
   server: globalpotplayer.cn
-  name: proxy_626061_proxy_7543986_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8028191_proxy_2553226_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -279,7 +279,7 @@ proxies:
     path: /aurora.nextgentechnews.com/nimws
 - uuid: 96aad9a4-ab3a-4db1-a70c-f789ed32c0cb
   server: cdn.sethost.eu.org
-  name: proxy_8366185_proxy_1931365_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_4724709_proxy_5008961_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -294,7 +294,7 @@ proxies:
     path: /freeat.marksmancdn14.com/at
 - uuid: c3c20db7-d32b-454a-9843-ec22d064a842
   server: cdn.sethost.eu.org
-  name: proxy_5157818_proxy_1058900_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8736235_proxy_1719258_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -310,7 +310,7 @@ proxies:
       /-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR-@UCIRANIR/Microsoft?ed=30975
 - uuid: d3723722-0f58-4728-8f7b-fb619d89bfff
   server: cdn.sethost.eu.org
-  name: proxy_9613361_proxy_9780825_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_1350009_proxy_3264924_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -325,7 +325,7 @@ proxies:
     path: /vless-ws/?ed=2048
 - uuid: 9a37341b-5a07-432c-beea-372b0964ffeb
   server: cdn.sethost.eu.org
-  name: proxy_6241942_proxy_1894924_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2152421_proxy_6541770_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -340,7 +340,7 @@ proxies:
     path: /cf-1wy.pages.dev/
 - uuid: 217a887e-f37b-4d7e-856c-78a0a6d2a9bc
   server: globalpotplayer.cn
-  name: proxy_8972160_proxy_4092010_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_7407919_proxy_1912603_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -352,7 +352,7 @@ proxies:
     path: /?ed=2048
 - uuid: 884f9b2c-f0c5-44dd-a68e-3e39ce93bb39
   server: cdn.sethost.eu.org
-  name: proxy_4559009_proxy_6816058_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_3509054_proxy_1588198_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -368,7 +368,7 @@ proxies:
       /cf-wkrs-pages-vless-aoy.pages.dev/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/@azarbayjab1/https://octohide.com/routertabrizm137.com/diamond_tm/t.me/azarbayjab1
 - uuid: b8262aa9-1f5b-4f02-a5ab-8ee2f5fb1e9e
   server: cdn.sethost.eu.org
-  name: proxy_7970607_proxy_3377005_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2821784_proxy_7107923_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -383,7 +383,7 @@ proxies:
     path: /d2tjbohll1wy3l.cloudfront.net/current_time
 - uuid: d0d52abb-c30e-4a94-9de0-7bd82a826898
   server: globalpotplayer.cn
-  name: proxy_2198783_proxy_6366707_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_390775_proxy_366267_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -398,7 +398,7 @@ proxies:
     path: /vless?ed=2048
 - uuid: fa74a245-6e4d-43a0-af8c-ea9442ea9665
   server: globalpotplayer.cn
-  name: proxy_1429412_proxy_5743238_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5494433_proxy_1899830_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -413,7 +413,7 @@ proxies:
     path: /test.moaddab.online/Kb4BrZNjs4P7qwUmsR8Sv
 - uuid: 01596265-168b-46a7-bcb7-25662c7a9546
   server: globalpotplayer.cn
-  name: proxy_256159_proxy_7747839_ 🔒 VL-GRPC-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5733120_proxy_323185_ 🔒 VL-GRPC-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: grpc
@@ -424,7 +424,7 @@ proxies:
   fingerprint: ''
 - uuid: ef47a2c2-9be2-4cf2-be67-2e8a1ba16c9c
   server: globalpotplayer.cn
-  name: proxy_5546035_proxy_3342641_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_9761316_proxy_2210587_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -439,7 +439,7 @@ proxies:
     path: /psrpxjp2.ikuai66.xyz/mp4
 - uuid: cfe451da-8484-488c-9a5e-0535821bb1db
   server: globalpotplayer.cn
-  name: proxy_3361643_proxy_897066_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_6706449_proxy_7961735_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -454,7 +454,7 @@ proxies:
     path: /ArV2ray.AbrArvan.link/
 - uuid: 8a83d650-ab58-495f-af2c-1ba623283167
   server: globalpotplayer.cn
-  name: proxy_4173889_proxy_8404723_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_3160527_proxy_8310103_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -469,7 +469,7 @@ proxies:
     path: /ac4.zxv.biz.id/?ed
 - uuid: 4faa0650-722d-4b2a-a95b-0e946a1625de
   server: cdn.sethost.eu.org
-  name: proxy_8686702_proxy_8876856_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_2301008_proxy_2842086_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -484,7 +484,7 @@ proxies:
     path: /vless-ws/?ed=2048
 - uuid: 102e76a5-0f4c-4d71-b018-a76985e4617b
   server: globalpotplayer.cn
-  name: proxy_959967_proxy_7091368_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8310038_proxy_441899_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -499,7 +499,7 @@ proxies:
     path: vless-ws/?ed=2048
 - uuid: 9654482f-e83f-4a0a-af2c-e1fef3d42926
   server: globalpotplayer.cn
-  name: proxy_7789297_proxy_4055473_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8213889_proxy_1104568_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -514,7 +514,7 @@ proxies:
     path: /api/v3/json
 - uuid: ba3b1bb0-466e-4d7d-92d7-f2eeb4c73e76
   server: globalpotplayer.cn
-  name: proxy_4594948_proxy_1721169_ 🔒 VL-WS-NA 🚀 优选IP globalpotplayer.cn
+  name: proxy_3181911_proxy_9244816_ 🔒 VL-WS-NA 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -526,7 +526,7 @@ proxies:
     path: /?ed=2048
 - uuid: 266169d9-665f-4fed-b1a8-da29794ee3cd
   server: cdn.sethost.eu.org
-  name: proxy_4083297_proxy_2896587_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5770612_proxy_9208662_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -541,7 +541,7 @@ proxies:
     path: /vless-ws/?ed=2048
 - uuid: 2b776aa8-e325-46de-be03-9cde54cd4d22
   server: cdn.sethost.eu.org
-  name: proxy_7147382_proxy_5431229_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8877961_proxy_9830545_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -556,7 +556,7 @@ proxies:
     path: /tr2-vless.sshmax.xyz/vless
 - uuid: 9b97bb00-48b8-46dd-a9f2-ecd2e16fc41c
   server: globalpotplayer.cn
-  name: proxy_6632102_proxy_4365936_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_759706_proxy_7077291_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -568,7 +568,7 @@ proxies:
     path: /?ed
 - uuid: 0b4d3ab6-d423-42d4-acea-68ed2b6aa309
   server: cdn.sethost.eu.org
-  name: proxy_9741471_proxy_2110623_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_941728_proxy_4441820_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -583,7 +583,7 @@ proxies:
     path: /ws.ArV2ray.fun/
 - uuid: 962a733d-26d7-108d-7fa6-a8102ffea8eb
   server: globalpotplayer.cn
-  name: proxy_5997695_proxy_7932362_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_6180847_proxy_7145934_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -598,7 +598,7 @@ proxies:
     path: /vowelquran18.xyz/current_time
 - uuid: 60a3c113-f235-48c3-99d0-a70be44c5947
   server: globalpotplayer.cn
-  name: proxy_2490719_proxy_9775686_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5291666_proxy_5989202_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -613,7 +613,7 @@ proxies:
     path: /
 - uuid: 1fbd7633-8800-4de0-87fb-c656017f4099
   server: cdn.sethost.eu.org
-  name: proxy_738714_proxy_4395109_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_8996308_proxy_6891182_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -628,7 +628,7 @@ proxies:
     path: /aurora.nextgentechnews.com/nimws
 - uuid: 7d3b945d-0f23-4719-9fae-50033251e2fd
   server: globalpotplayer.cn
-  name: proxy_4751571_proxy_2569069_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_7730673_proxy_9494609_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -643,7 +643,7 @@ proxies:
     path: /v6gincu0wq8d0xnxd1vd.khodavakili.top/kos_madar_publisher
 - uuid: 04de8086-f167-46dd-a391-a3d7fa09b38c
   server: globalpotplayer.cn
-  name: proxy_1094708_proxy_1048936_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
+  name: proxy_8509614_proxy_7995261_ 🔒 VL-WS-NONE 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 80
   network: ws
@@ -655,7 +655,7 @@ proxies:
     path: /
 - uuid: 8fc1a6a8-9431-485a-8648-9ce902d9938b
   server: cdn.sethost.eu.org
-  name: proxy_501289_proxy_3791644_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_3556192_proxy_8793445_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -670,7 +670,7 @@ proxies:
     path: //?ed=2048
 - uuid: 54c5f9f1-1f0d-4d61-9eb8-db65a1f62d56
   server: globalpotplayer.cn
-  name: proxy_9882002_proxy_6875475_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_5206147_proxy_3482584_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
@@ -685,7 +685,7 @@ proxies:
     path: //
 - uuid: a4b935f0-4f76-4f27-8d8b-0a04f5197c4e
   server: globalpotplayer.cn
-  name: proxy_3767297_proxy_7368231_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
+  name: proxy_691750_proxy_7558584_ 🔒 VL-WS-TLS 🚀 优选IP globalpotplayer.cn
   type: vless
   port: 443
   network: ws
