@@ -43,7 +43,7 @@ with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
                 if is_good_for_game(c):
                     for_game_proxies.append(url)
             except:
-                print("proxy with wrong => " + url)
+                print("There is error with this proxy => " + url)
 
     # getLatestGoodForGame()
     # with open("collected-proxies/row-url/for_game.txt", 'w') as forGameProxiesFile:
@@ -77,7 +77,7 @@ with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     with open("collected-proxies/xray-json/actives_for_ir_server_no403_u1s.txt",
               'w') as active1000no403ForServerProxiesFile:
         for active in delays.no403_realDelay_under_1000:
-            if active['proxy']["streamSettings"]["network"] not in ["ws", "grpc"]:
-                active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
+#            if active['proxy']["streamSettings"]["network"] not in ["ws", "grpc"]:
+            active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
 
 commitPushRActiveProxiesFile()
