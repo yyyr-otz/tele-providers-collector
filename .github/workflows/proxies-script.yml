@@ -43,7 +43,6 @@ jobs:
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git rm -r -f --cached script/__pycache__
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 #          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
