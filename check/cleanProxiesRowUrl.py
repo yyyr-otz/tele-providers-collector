@@ -3,6 +3,7 @@ import shutil
 import sys
 from urllib.parse import urlparse
 
+
 sys.path.append('./check/xray_url_decoder/')
 
 from gitRepo import getLatestActiveConfigs, getLatestRowProxies, commitPushRowProxiesFile
@@ -80,4 +81,4 @@ shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives.txt", lineNumberOfFounds)
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/all.txt", None)
 
-commitPushRowProxiesFile("------cleaning url list-------")
+commitPushRowProxiesFile()
