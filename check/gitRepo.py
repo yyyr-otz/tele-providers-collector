@@ -27,8 +27,8 @@ with repo.config_reader() as git_config:
 
 def changeGitUserToBot():
     with repo.config_writer() as gitConfig:
-        gitConfig.set_value('user', 'email', 'bot@auto.com')
-        gitConfig.set_value('user', 'name', 'Bot-auto')
+        gitConfig.set_value('user', 'email', '932624033@qq.com')
+        gitConfig.set_value('user', 'name', 'yyyr-otz')
 
 
 def resetGitUser():
