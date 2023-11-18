@@ -996,7 +996,7 @@ with open("./script/raw/protocols/vless-CDN.txt", "w") as file:
     print ("节点已替换优选ip:" + rewrite_ip +",保存至./script/raw/protocols/vless-CDN.txt")
 
 # 追加vless-sub
-vless_sub_url = 'https://vless-sub.n7p8ri7j.workers.dev/sub/cdn.sethost.eu.org?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge'
+vless_sub_url = "https://vless-sub.n7p8ri7j.workers.dev/sub/" + rewrite_domain + "?max=20000&provider=yyyr-otz&original=0&merge=1&fp=edge"
 with open('./script/raw/protocols/vless-CDN.txt', "a") as vless_sub_file:
     vless_sub_b64 = requests.get(vless_sub_url, allow_redirects=True).text.encode("utf-8").decode("utf-8")
     vless_sub_raw = base64.b64decode(vless_sub_b64).decode("utf-8")
@@ -1092,6 +1092,22 @@ with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
 if remove_duplicate_lines("./collected-proxies/row-url/all.txt"):
     print("待测节点./collected-proxies/row-url/all.txt"+"去重完成")
         
+# 待测节点分割
+with open("./collected-proxies/row-url/all.txt", "r") as file:
+    file = file.readlines()
+    num_part = 3
+    start = 0
+    num_lines = len(file)
+    part_size = ( num_lines // num_part ) + 1
+    end = part_size
+    for i in range(num_part):
+        part_name = "./collected-proxies/row-url/all" + str(i+1)
+        with open(part_name, 'w') as part_f:
+            part_f.write(''.join(file[start:end]))
+        start = start + part_size
+        end = end + part_size
+    print(os.listdir("./collected-proxies/row-url/"))
+
 # 优选节点base64编码
 with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
     with open("./script/base64/protocols/vless-CDN", "w", encoding="utf-8") as f:
