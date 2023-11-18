@@ -28,20 +28,21 @@ with repo.config_reader() as git_config:
         mainGitEmail = "None"
         mainGitUser = "None"
 
-
+""" 
 def changeGitUserToBot():
     with repo.config_writer() as gitConfig:
         gitConfig.set_value('user', 'email', 'bot@auto.com')
         gitConfig.set_value('user', 'name', 'Bot-auto')
 
-
+ """
+""" 
 def resetGitUser():
     global mainGitUser, mainGitEmail
     with repo.config_writer() as gitCnf:
         gitCnf.set_value('user', 'email', mainGitEmail)
         gitCnf.set_value('user', 'name', mainGitUser)
 
-
+ """
 def getLatestRowProxies():
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
@@ -65,7 +66,7 @@ def commitPushRowProxiesFile(chanelUsername):
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
         shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
-  #      repo.index.add([r'collected-proxies/row-url/*'])
+        repo.index.add([r'collected-proxies/row-url/*'])
   #      changeGitUserToBot()
   #      repo.index.commit('节点清理完成' + formatted_time)
   #      repo.remotes.origin.push()
@@ -82,8 +83,8 @@ def commitPushRActiveProxiesFile():
         repo.git.execute(["git", "pull"])
         shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
         shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
-  #      repo.index.add([r'collected-proxies/clash-meta/*'])
-  #      repo.index.add([r'collected-proxies/xray-json/*'])
+        repo.index.add([r'collected-proxies/clash-meta/*'])
+        repo.index.add([r'collected-proxies/xray-json/*'])
   #      changeGitUserToBot()
   #      repo.index.commit('节点检查完成' + formatted_time)
   #      repo.remotes.origin.push()
