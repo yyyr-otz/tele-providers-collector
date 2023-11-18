@@ -1,0 +1,62 @@
+name: 节点分割
+run-name: ${{ github.actor }} 正在分割节点
+on:
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - 'script/**'
+#  schedule:
+#    - cron: '0 0,4,8,12,16,20 * * *' # 北京时间4 8 12 16 20 24 每四个小时整点运行
+#    - cron: '5 10,22 * * *' # 每天抓取两次节点
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 迁出代码 # Checkout Repository Contents # 拉取
+        uses: actions/checkout@v4
+          
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+
+      - name: 节点分割 
+        run: ./split.sh
+        shell: bash
+
+      - name: 对比仓库 # Commit Files # 提交
+        run: |
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -u ./collected-proxies/row-url/all*
+          git diff-index --quiet HEAD || (git commit -a -m " 节点分割 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+#         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          
+      - name: 推送更改 # Push Changes # 推送
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: master
+        
+#      - name: 提交更改  # Clean Up Files 
+#        run: |
+#          git checkout --orphan latest_branch
+#          git rm -r -f --cached */__pycache__
+#          git config --local user.email "932624033@qq.com"
+#          git config --local user.name "yyyr-otz"
+#          git add -A
+#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#          git branch -D master
+#          git branch -m master
+#          git push -f origin master
+
+#      - name: 推送更改 # Push Changes
+#        uses: ad-m/github-push-action@v0.6.0
+#        with:
+#          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+#          branch: master
