@@ -127,10 +127,11 @@ class XrayPing:
             if r["realDelay_ms"] > 0:
                 self.actives.append(r)
 
-            if 1000 >= r['realDelay_ms'] > 0:
+"""             if 1000 >= r['realDelay_ms'] > 0:
                 self.realDelay_under_1000.append(r)
                 if not r["is403"]:
                     self.no403_realDelay_under_1000.append(r)
 
             if 1500 >= r['realDelay_ms'] > 0:
                 self.realDelay_under_1500.append(r)
+ """
