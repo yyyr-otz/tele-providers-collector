@@ -27,7 +27,7 @@ from title import check_modify_config, config_sort, create_internet_protocol
 import urllib.parse
 # 优选域名/IP
 #rewrite_domain = "cdn.sethost.eu.org"
-rewrite_domain = "al.anxray.top"
+rewrite_domain = "globalpotplayer.cn"
 """
 # Create the geoip-lite folder if it doesn't exist
 if not os.path.exists('./script/geoip-lite'):
