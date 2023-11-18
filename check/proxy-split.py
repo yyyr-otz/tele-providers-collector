@@ -39,3 +39,34 @@ with open("./collected-proxies/row-url/all.txt", "r") as file:
         start = start + part_size
         end = end + part_size
     print(os.listdir("./collected-proxies/row-url/"))
+# xray配置分割
+with open("./collected-proxies/xray-json/actives_all.txt", "r") as file:
+    file = file.readlines()
+    num_part = 3
+    start = 0
+    num_lines = len(file)
+    part_size = ( num_lines // num_part ) + 1
+    end = part_size
+    for i in range(num_part):
+        part_name = "./collected-proxies/xray-json/actives_now_" + str(i+1)
+        with open(part_name, 'w') as part_f:
+            part_f.write(''.join(file[start:end]))
+        start = start + part_size
+        end = end + part_size
+    print(os.listdir("./collected-proxies/xray-json/"))
+# 活跃节点分割
+with open("./collected-proxies/row-url/actives.txt", "r") as file:
+    file = file.readlines()
+    num_part = 3
+    start = 0
+    num_lines = len(file)
+    part_size = ( num_lines // num_part ) + 1
+    end = part_size
+    for i in range(num_part):
+        part_name = "./collected-proxies/row-url/actives_" + str(i+1)
+        with open(part_name, 'w') as part_f:
+            part_f.write(''.join(file[start:end]))
+        start = start + part_size
+        end = end + part_size
+    print(os.listdir("./collected-proxies/row-url/"))
+
