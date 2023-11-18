@@ -26,8 +26,8 @@ jobs:
         run: sudo timedatectl set-timezone 'Asia/Shanghai'   
 
       - name: 节点分割 
-        run: ./split.sh
-        shell: bash
+        run: |
+          sudo bash${{ secrets.ACTIONS_SECRETS_TOKEN }} ./split.sh
 
       - name: 对比仓库 # Commit Files # 提交
         run: |
