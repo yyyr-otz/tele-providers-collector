@@ -1,14 +1,13 @@
-## Latest Update: Fri, 17 Nov 2023 23:30:47 UTC+08:00
-## Current Update: Sat, 18 Nov 2023 00:14:36 Asia/Beijing
+## Latest Update: Sat, 18 Nov 2023 00:14:36 UTC+08:00
+## Current Update: Sat, 18 Nov 2023 17:34:44 Asia/Beijing
 ## Introduction-Just Vless-WS
 The script aggregates Vless ( just ws ) from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port.
 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/yyyr-otz/tele-providers-collector/master?label=Last%20Commit&color=%2338914b)
 ![GitHub](https://img.shields.io/github/license/yyyr-otz/tele-providers-collector/master?label=License&color=yellow)
-![GitHub Repo stars](https://img.shields.io/github/stars/yyyr-otz/tele-providers-collector/master?label=Stars&color=red)
-![GitHub forks](https://img.shields.io/github/forks/yyyr-otz/tele-providers-collector/master?label=Forks&color=blue)
-[![Execute On Schedule](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/schedule.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/schedule.yml)
-[![Execute On Push](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/push.yml/badge.svg)](https://github.com/yyyr-otz/tele-providers-collector/master/actions/workflows/push.yml)
+[![节点索引](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml/badge.svg?branch=master)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml)
+[![节点索引](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml/badge.svg?branch=master&event=workflow_dispatch)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml)
+[![节点索引](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml/badge.svg?branch=master&event=schedule)](https://github.com/yyyr-otz/tele-providers-collector/actions/workflows/proxies-script.yml)
 
 ## Protocol Type Subscription Links
 
