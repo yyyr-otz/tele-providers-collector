@@ -26,8 +26,8 @@ from title import check_modify_config, config_sort, create_internet_protocol
 #去重操作依赖
 import urllib.parse
 # 优选域名/IP
-rewrite_domain = "cdn.sethost.eu.org"
-
+#rewrite_domain = "cdn.sethost.eu.org"
+rewrite_domain = "al.anxray.top"
 """
 # Create the geoip-lite folder if it doesn't exist
 if not os.path.exists('./script/geoip-lite'):
@@ -979,15 +979,18 @@ with open("./script/raw/protocols/vless-CDN.txt", "w") as file:
 #    print(vless_former)
 #    former_ip = r'(?<=@).*?(?=:)'
 #    # 替换优选IP
-    ip_rewrite = re.sub(r'(?<=[a-z0-9]{12}@).*?(?=:[0-9])', rewrite_ip, vless_former)
+    ＃ip_rewrite = re.sub(r'(?<=[a-z0-9]{12}@).*?(?=:[0-9])', rewrite_ip, vless_former)
 #    print(ip_rewrite)
 #    former_id = r'(?<=((VL-WS-TLS))).*?(?=$)|(?<=((VL-WS-NONE))).*?(?=$)'
 #    id_rewrite = re.sub(r'(?<=((TLS ))).*MS|(?<=((NONE))).*MS|(?<=((NA))).*MS', "\U0001F680 优选IP: " + rewrite_ip, ip_rewrite)
 #    print(id_rewrite)
     # 替换加速端口
-    port_80 = re.sub(r'(?<=[0-9\]]:)8080(?=\?)|(?<=[0-9\]]:)8880(?=\?)|(?<=[0-9\]]:)2052(?=\?)|(?<=[0-9\]]:)2082(?=\?)|(?<=[0-9\]]:)2086(?=\?)|(?<=[0-9\]]:)2095(?=\?)', "80", ip_rewrite)
+    port_80 = re.sub(r'(?<=[0-9\]]:)8080(?=\?)|(?<=[0-9\]]:)8880(?=\?)|(?<=[0-9\]]:)2052(?=\?)|(?<=[0-9\]]:)2082(?=\?)|(?<=[0-9\]]:)2086(?=\?)|(?<=[0-9\]]:)2095(?=\?)', "80", former_ip)
     port_443 =  re.sub(r'(?<=[0-9\]]:)8443(?=\?)|(?<=[0-9\]]:)2053(?=\?)|(?<=[0-9\]]:)2083(?=\?)|(?<=[0-9\]]:)2087(?=\?)|(?<=[0-9\]]:)2096(?=\?)', "443", port_80)
-    file.write((port_443).encode("utf-8").decode("utf-8"))
+#    # 替换优选IP
+    ip_rewrite = re.sub(r'(?<=[a-z0-9]{12}@).*?(?=:[0-9])', rewrite_ip, port_443)
+
+    file.write((ip_rewrite).encode("utf-8").decode("utf-8"))
     print ("节点已替换优选ip:" + rewrite_ip +",保存至./script/raw/protocols/vless-CDN.txt")
 
 # 追加vless-sub
