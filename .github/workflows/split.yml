@@ -27,7 +27,8 @@ jobs:
 
       - name: 节点分割 
         run: |
-          sudo bash${{ secrets.ACTIONS_SECRETS_TOKEN }} ./split.sh
+          sudo bash ./split.sh
+          shell: bash
 
       - name: 对比仓库 # Commit Files # 提交
         run: |
