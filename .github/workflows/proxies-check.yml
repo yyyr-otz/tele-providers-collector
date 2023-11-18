@@ -42,7 +42,7 @@ jobs:
         run: pip install -r requirements.txt
         shell: bash
         
-      - name: 检查节点
+      - name: 检查节点 all1
         run: python ./check/checkProxies.py
         shell: bash
 
@@ -51,7 +51,7 @@ jobs:
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
           git add -u ./collected-proxies
-          git diff-index --quiet HEAD || (git commit -a -m "节点检查完成 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all1节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 #          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
           
       - name: 推送更改 # Push Changes # 推送
