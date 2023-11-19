@@ -2,19 +2,19 @@ name: 节点清理
 run-name: ${{ github.actor }} 正在清理节点
 
 on:
- schedule:
-   - cron: '30 23 * * *' # 每天北京时间上午七点半清理节点信息
- push:
-   branches:
-     - test
+# schedule:
+#   - cron: '30 23 * * *' # 每天北京时间上午七点半清理节点信息
+# push:
+#   branches:
+#     - test
  workflow_dispatch:
  
 jobs:
   proxies-clean:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GG_GITHUB_TOKEN }}
-      REPO: ${{github.repository}}
+      GITHUB_TOKEN: ${{ secretsACTIONS_SECRETS_TOKEN }}
+      REPO: ${{ secrets.REPO }}
       DEBUG_MODE: 0
     steps:
       - name: 迁出代码
