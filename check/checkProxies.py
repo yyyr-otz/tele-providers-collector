@@ -1,5 +1,6 @@
 import json
 import sys
+import uuid
 from ruamel.yaml import YAML
 from gitRepo import commitPushRActiveProxiesFile, getLatestActiveConfigs
 
@@ -33,33 +34,31 @@ def is_buggy_in_clash_meta(config: ClashMetaDecoder):
     return config.security == "reality" and config.type == "grpc"
 """
 # 根据序号选择文件
-with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
+with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesFile:
     configs = []
-    # clash_meta_configs = []
-    # for_game_proxies = []
+#    clash_meta_configs = []
+#    for_game_proxies = []
     for url in rowProxiesFile:
         if len(url) > 10:
             try:
+                cusTag = uuid.uuid4().hex
+
                 # ############# xray ############
-                c = XrayUrlDecoder(url) # xray 节点检测 不需要传递序号
+                c = XrayUrlDecoder(url, cusTag)
                 c_json = c.generate_json_str()
                 if c.isSupported and c.isValid:
-                    configs.append(c_json)  # 生成xray配置
-                
+                    configs.append(c_json)
                 """ 
                 # ############# clash Meta ##########
-                ccm = ClashMetaDecoder(url)
+                ccm = ClashMetaDecoder(url, cusTag)
                 ccm_json = ccm.generate_obj_str()
                 if c.isSupported and c.isValid and (not is_buggy_in_clash_meta(ccm)):
-                    clash_meta_configs.append(json.loads(ccm_json)) 
-                """
+                    clash_meta_configs.append(json.loads(ccm_json))
 
-                """ if is_good_for_game(c):
-                    for_game_proxies.append(url)
-                """
+                if is_good_for_game(c):
+                    for_game_proxies.append(url) """
             except:
                 print("There is error with this proxy => " + url)
-
     # getLatestGoodForGame()
     # with open("collected-proxies/row-url/for_game.txt", 'w') as forGameProxiesFile:
     #     for forGame in for_game_proxies:
@@ -72,7 +71,7 @@ with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
     # 序号传给get
     # getLatestActiveConfigs(args.n)
 
-    with open("collected-proxies/xray-json/active_now_" + args.n, 'w') as activeProxiesFile:
+    with open("collected-proxies/xray-json/active_all" + args.n + ".txt", 'w') as activeProxiesFile:
         for active in delays.actives:
             activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
     
