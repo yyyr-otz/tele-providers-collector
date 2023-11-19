@@ -1,6 +1,7 @@
 import ipaddress
 import json
 import base64
+import uuid
 from urllib.parse import parse_qs, ParseResult, urlencode, urlparse, urlunparse
 from xray_url_decoder.IsValid import isValid_tls, isValid_reality, isValid_userVless, isValid_vnextVless, isValid_link
 from xray_url_decoder.XraySetting import GrpcSettings, TCPSettings, WsSettingsVless, RealitySettings, TLSSettings, Mux
@@ -58,14 +59,17 @@ class XrayUrlDecoder:
     type: str
     security: str
 
-    def __init__(self, link):
+    def __init__(self, link, tagUUID=None):
         match link[:5]:
             case "vmess":
                 link = convertVmessLinkToStandardLink(link)
 
+        if tagUUID is None:
+            tagUUID = uuid.uuid4().hex
+
         self.link = link
         self.url = urlparse(self.link)
-        self.name = self.url.fragment if len(self.url.fragment) > 0 else ""
+        self.name = tagUUID + "_@_" + (self.url.fragment if len(self.url.fragment) > 0 else "")
         q = parse_qs(self.url.query)
         self.queries = {key: value[0] for key, value in q.items()}
         self.isSupported = True
@@ -119,10 +123,40 @@ class XrayUrlDecoder:
                 headers = {}
                 if self.getQuery("sni") is not None:
                     headers["Host"] = self.getQuery("sni")
+                if self.getQuery("host"):
+                    headers["Host"] = self.getQuery("host")
                 wsSetting = WsSettingsVless(self.getQuery("path"), headers)
 
             case "tcp":
-                tcpSettings = TCPSettings()
+                if self.getQuery("headerType") == "http":
+                    header = {
+                        "type": "http",
+                        "request": {
+                            "version": "1.1",
+                            "method": "GET",
+                            "path": [
+                                (self.getQuery("path") if self.getQuery("path") is not None else "/")
+                            ],
+                            "headers": {
+                                "Host": [
+                                    self.getQuery("host")
+                                ],
+                                "User-Agent": [
+                                    ""
+                                ],
+                                "Accept-Encoding": [
+                                    "gzip, deflate"
+                                ],
+                                "Connection": [
+                                    "keep-alive"
+                                ],
+                                "Pragma": "no-cache"
+                            }
+                        }
+                    }
+
+                tcpSettings = TCPSettings(None, header)
+
             case _:
                 self.isSupported = False
                 print("type '{}' is not supported yet".format(self.type))
