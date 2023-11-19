@@ -105,7 +105,7 @@ class XrayPing:
             f.write(confFinalStr)
         subprocess.run(['chmod', '755', 'check/xray_ping/xray'])
         runXrayThread = Thread(target=subprocess.run,
-                               args=([Path("check/xray_ping/xray").resolve(), "run", "-c", configFilePath],))
+                               args=([Path("/check/xray_ping/xray").resolve(), "run", "-c", configFilePath],))
         runXrayThread.daemon = True
         runXrayThread.start()
         # runXrayThread.join()
@@ -115,6 +115,7 @@ class XrayPing:
         if real_delay(3080, "bypass_mode")["realDelay_ms"] < 0:
             # print(confFinalStr)
             print ("无效节点生成")
+
             # raise Exception("Created config is incorrect! it's printed above")
 
         proxiesSorted = []
