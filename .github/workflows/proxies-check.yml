@@ -74,7 +74,7 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
         shell: bash
-      - name: 检查节点 all1
+      - name: 检查节点 all_1
         run: python ./check/checkProxies.py -n 1
         shell: bash
       - name: 对比仓库 # Commit Files # 提交
@@ -110,7 +110,7 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
         shell: bash
-      - name: 检查节点 all1
+      - name: 检查节点 all_2
         run: python ./check/checkProxies.py -n 2
         shell: bash
       - name: 对比仓库 # Commit Files # 提交
@@ -146,7 +146,7 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
         shell: bash
-      - name: 检查节点 all1
+      - name: 检查节点 all_3
         run: python ./check/checkProxies.py -n 3
         shell: bash
       - name: 对比仓库 # Commit Files # 提交
