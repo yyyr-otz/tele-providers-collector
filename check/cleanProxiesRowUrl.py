@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 sys.path.append('./check/xray_url_decoder/')
 
-from gitRepo import getLatestActiveConfigs, getLatestRowProxies, commitPushRowProxiesFile
+from gitRepo import getLatestActiveConfigs_all, getLatestRowProxies_all, commitPushRowProxiesFile_all
 from xray_url_decoder.XrayUrlDecoder import XrayUrlDecoder
 
 
@@ -56,8 +56,8 @@ def keep_only_lines_and_remove_duplicates(file_path, lines_to_keep):
         file.write(new_content)
 
 
-getLatestActiveConfigs()
-getLatestRowProxies()
+getLatestActiveConfigs_all()
+getLatestRowProxies_all()
 
 lineNumberOfFounds = []
 with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFile:
@@ -81,4 +81,4 @@ shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives.txt", lineNumberOfFounds)
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/all.txt", None)
 
-commitPushRowProxiesFile()
+commitPushRowProxiesFile_all()
