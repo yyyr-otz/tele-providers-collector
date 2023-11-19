@@ -46,7 +46,6 @@ jobs:
           git add -u ./collected-proxies/row-url/all.txt ./collected-proxies/row-url/actives.txt ./collected-proxies/xray-json/actives_all.txt
           git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
           # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
-          shell: bash
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
         with:
