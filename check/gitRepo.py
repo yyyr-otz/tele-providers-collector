@@ -30,21 +30,20 @@ with repo.config_reader() as git_config:
         mainGitEmail = "None"
         mainGitUser = "None"
 
-""" 
+
 def changeGitUserToBot():
     with repo.config_writer() as gitConfig:
         gitConfig.set_value('user', 'email', 'bot@auto.com')
         gitConfig.set_value('user', 'name', 'Bot-auto')
 
- """
-""" 
+
+
 def resetGitUser():
     global mainGitUser, mainGitEmail
     with repo.config_writer() as gitCnf:
         gitCnf.set_value('user', 'email', mainGitEmail)
         gitCnf.set_value('user', 'name', mainGitUser)
 
- """
 def getLatestRowProxies(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
@@ -76,11 +75,11 @@ def commitPushRowProxiesFile(num_n):
         shutil.copy(active_path, "./repo/" + active_path)
         repo.index.add(Path(all_path))
         repo.index.add(Path(active_path))
-  #      changeGitUserToBot()
+        changeGitUserToBot()
         repo.index.commit('节点清理完成' + formatted_time)
         remote = repo.remote()
         remote.push()
-  #      resetGitUser()
+        resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
 
@@ -96,11 +95,11 @@ def commitPushRActiveProxiesFile(num_n):
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add(Path(xray_path))
-  #      changeGitUserToBot()
+        changeGitUserToBot()
         repo.index.commit('节点检查完成' + formatted_time)
         remote = repo.remote()
         remote.push()
-  #      resetGitUser()
+        resetGitUser()
   #      print('节点检查完成' + formatted_time)
 
 
@@ -135,16 +134,17 @@ def commitPushRowProxiesFile_all():
         shutil.copy(active_path, "./repo/" + active_path)
         repo.index.add(Path(all_path))
         repo.index.add(Path(active_path))
-  #      changeGitUserToBot()
+        changeGitUserToBot()
         repo.index.commit('节点清理完成' + formatted_time)
         remote = repo.remote()
         remote.push()
-  #      resetGitUser()
+        resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
 
 def commitPushRActiveProxiesFile_all():
     if not IS_DEBUG:
+        
         now = datetime.datetime.now()
         formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
@@ -155,9 +155,9 @@ def commitPushRActiveProxiesFile_all():
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add(Path(xray_path))
-  #      changeGitUserToBot()
+        changeGitUserToBot()
         repo.index.commit('节点检查完成' + formatted_time)
         remote = repo.remote()
         remote.push()
-  #      resetGitUser()
+        resetGitUser()
   #      print('节点检查完成' + formatted_time)
