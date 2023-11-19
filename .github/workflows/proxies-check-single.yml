@@ -37,7 +37,7 @@ jobs:
         run: pip install -r requirements.txt
         shell: bash
       - name: 检查节点 all
-        run: python ./check/checkProxies.py -n
+        run: python ./check/checkProxies-single.py -n
         shell: bash
       - name: 对比仓库 # Commit Files # 提交
         run: |
