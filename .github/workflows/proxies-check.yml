@@ -45,7 +45,7 @@ jobs:
             git config --local user.name "yyyr-otz"
             git add -A ./collected-proxies/row-url/all* ./collected-proxies/row-url/actives* ./collected-proxies/xray-json/actives*
             git diff-index --quiet HEAD || (git commit -a -m " 节点检查-分割完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#         # git commit -am "节点检查-分割完成 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+            # git commit -a -m " 节点检查-分割完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty
         - name: 推送更改 # Push Changes # 推送
           uses: ad-m/github-push-action@v0.6.0
           with:
@@ -79,9 +79,9 @@ jobs:
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git add -u ./collected-proxies/row-url/all_1 ./collected-proxies/row-url/actives_1 ./collected-proxies/xray-json/actives_now_1
-          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all1节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          # git add -u ./collected-proxies/row-url/all_1 ./collected-proxies/row-url/actives_1 ./collected-proxies/xray-json/actives_now_1
+          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_1节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
         with:
@@ -114,9 +114,9 @@ jobs:
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git add -u ./collected-proxies/row-url/all_2 ./collected-proxies/row-url/actives_2 ./collected-proxies/xray-json/actives_now_2
-          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all2节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          # git add -u ./collected-proxies/row-url/all_2 ./collected-proxies/row-url/actives_2 ./collected-proxies/xray-json/actives_now_2
+          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_2节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
         with:
@@ -149,9 +149,9 @@ jobs:
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git add -u ./collected-proxies/row-url/all_3 ./collected-proxies/row-url/actives_3 ./collected-proxies/xray-json/actives_now_3
-          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all3节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#          git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          # git add -u ./collected-proxies/row-url/all_3 ./collected-proxies/row-url/actives_3 ./collected-proxies/xray-json/actives_now_3
+          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_3节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
       - name: 推送更改 # Push Changes # 推送
         uses: ad-m/github-push-action@v0.6.0
         with:
@@ -187,7 +187,7 @@ jobs:
             git config --local user.name "yyyr-otz"
             git add -A ./collected-proxies/row-url/all.txt ./collected-proxies/row-url/actives.txt ./collected-proxies/xray-json/actives_all.txt
             git diff-index --quiet HEAD || (git commit -a -m " 节点检查-合并完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#         # git commit -am "节点分割 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+            # git commit -am "节点分割 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
         - name: 推送更改 # Push Changes # 推送
           uses: ad-m/github-push-action@v0.6.0
           with:
