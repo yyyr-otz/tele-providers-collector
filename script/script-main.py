@@ -1091,7 +1091,7 @@ with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
 # 对待测节点去重 
 if remove_duplicate_lines("./collected-proxies/row-url/all.txt"):
     print("待测节点./collected-proxies/row-url/all.txt"+"去重完成")
-        
+"""        
 # 待测节点分割
 with open("./collected-proxies/row-url/all.txt", "r") as file:
     file = file.readlines()
@@ -1107,7 +1107,7 @@ with open("./collected-proxies/row-url/all.txt", "r") as file:
         start = start + part_size
         end = end + part_size
     print(os.listdir("./collected-proxies/row-url/"))
-
+"""
 # 优选节点base64编码
 with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
     with open("./script/base64/protocols/vless-CDN", "w", encoding="utf-8") as f:
