@@ -1,5 +1,5 @@
-name: 节点索引
-run-name: ${{ github.actor }} 正在索引节点
+name: 清理无效节点&索引最新节点
+run-name: ${{ github.actor }} 正在清理并索引节点
 on:
 #  push:
 #    branches:
@@ -16,7 +16,7 @@ permissions:
   contents: write
   
 jobs:
-  proxy_script:
+  clean_and_script:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git add -u ./collected-proxiest/row-url
+          git add -u ./collected-proxies/row-url
           git diff-index --quiet HEAD || (git commit -a -m "🛒 节点清理完成 🕕 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 #         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
           
