@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 
 sys.path.append('./check/xray_url_decoder/')
 
-from gitRepo import getLatestActiveConfigs, getLatestRowProxies, commitPushRowProxiesFile
+# from gitRepo import getLatestActiveConfigs, getLatestRowProxies, commitPushRowProxiesFile
 from xray_url_decoder.XrayUrlDecoder import XrayUrlDecoder
 
 
