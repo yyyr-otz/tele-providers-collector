@@ -78,7 +78,7 @@ def commitPushRowProxiesFile(num_n):
         #changeGitUserToBot()
         repo.index.commit('节点清理完成' + formatted_time)
         remote = repo.remote()
-        remote.push('master')
+  #      remote.push('master')
         #resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
@@ -98,7 +98,7 @@ def commitPushRActiveProxiesFile(num_n):
         #changeGitUserToBot()
         repo.index.commit('节点检查完成' + formatted_time)
         remote = repo.remote()
-        remote.push('master')
+  #      remote.push('master')
         #resetGitUser()
   #      print('节点检查完成' + formatted_time)
 
@@ -137,7 +137,7 @@ def commitPushRowProxiesFile_all():
         #changeGitUserToBot()
         repo.index.commit('节点清理完成' + formatted_time)
         remote = repo.remote()
-        remote.push('master')
+  #      remote.push('master')
         #resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
@@ -158,6 +158,6 @@ def commitPushRActiveProxiesFile_all():
         #changeGitUserToBot()
         repo.index.commit('节点检查完成' + formatted_time)
         remote = repo.remote()
-        remote.push('master')
+  #      remote.push('master')
         #resetGitUser()
   #      print('节点检查完成' + formatted_time)
