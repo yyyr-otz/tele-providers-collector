@@ -1,0 +1,195 @@
+name: 节点检查
+run-name: ${{ github.actor }} 正在检查节点
+on:
+#  workflow_run: # 在节点索引后进行
+#    workflows:
+#      - 节点索引
+#    types:
+#      - completed
+#  schedule:
+#   - cron: "20 */4 * * *" # 每四个小时节点检查
+#   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
+#  push:
+#     branches:
+#       - master
+#     paths:
+#      - 'raw/**'
+  workflow_dispatch:
+permissions: write-all
+jobs:
+  proxies_split:
+      runs-on: ubuntu-latest
+      steps:
+
+        - name: 迁出代码 
+          uses: actions/checkout@v4
+        - name: python环境 
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.11'
+            cache: 'pip' # pip缓存
+        - name: 设置时区
+          run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+        - name: 安装依赖 
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+        - name: 节点分割 
+          run: python ./check/proxies-split.py
+        #- name: 节点合成
+        #  run :
+        #    cat ./collected-proxies/row-url/all_* >./collected-proxies/row-url/all.txt
+        - name: 对比仓库 # Commit Files # 提交
+          run: |
+            git config --local user.email "932624033@qq.com"
+            git config --local user.name "yyyr-otz"
+            git add -A ./collected-proxies/row-url/all* ./collected-proxies/row-url/actives* ./collected-proxies/xray-json/actives*
+            git diff-index --quiet HEAD || (git commit -a -m " 节点检查-分割完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+            # git commit -a -m " 节点检查-分割完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty
+        - name: 推送更改 # Push Changes # 推送
+          uses: ad-m/github-push-action@v0.6.0
+          with:
+            github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+            branch: master
+            
+  proxies-check_1: 
+    needs: [proxies_split]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v4
+      - name: python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: 检查节点 all_1
+        run: python ./check/checkProxies.py -n 1
+        shell: bash
+#      - name: 对比仓库 # Commit Files # 提交
+#        run: |
+#          git config --local user.email "932624033@qq.com"
+#          git config --local user.name "yyyr-otz"
+          # git add -u ./collected-proxies/row-url/all_3 ./collected-proxies/row-url/actives_3 ./collected-proxies/xray-json/actives_now_3
+#          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_3节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#      - name: 推送更改 # Push Changes # 推送
+#        uses: ad-m/github-push-action@v0.6.0
+#        with:
+#          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+#          branch: master
+  proxies-check_2: 
+    needs: [proxies_split]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v4
+      - name: python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: 检查节点 all_2
+        run: python ./check/checkProxies.py -n 2
+        shell: bash
+#      - name: 对比仓库 # Commit Files # 提交
+#        run: |
+#          git config --local user.email "932624033@qq.com"
+#          git config --local user.name "yyyr-otz"
+          # git add -u ./collected-proxies/row-url/all_3 ./collected-proxies/row-url/actives_3 ./collected-proxies/xray-json/actives_now_3
+#          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_3节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#      - name: 推送更改 # Push Changes # 推送
+#        uses: ad-m/github-push-action@v0.6.0
+#        with:
+#          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+#          branch: master
+  proxies-check_3: 
+    needs: [proxies_split]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v4
+      - name: python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: 检查节点 all_3
+        run: python ./check/checkProxies.py -n 3
+        shell: bash
+#      - name: 对比仓库 # Commit Files # 提交
+#        run: |
+#          git config --local user.email "932624033@qq.com"
+#          git config --local user.name "yyyr-otz"
+          # git add -u ./collected-proxies/row-url/all_3 ./collected-proxies/row-url/actives_3 ./collected-proxies/xray-json/actives_now_3
+#          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all_3节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+#      - name: 推送更改 # Push Changes # 推送
+#        uses: ad-m/github-push-action@v0.6.0
+#        with:
+#          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+#          branch: master
+  proxies_cat:
+      needs: [proxies_split, proxies-check_1, proxies-check_2, proxies-check_3]
+      runs-on: ubuntu-latest
+      steps:
+        - name: 迁出代码 
+          uses: actions/checkout@v4
+        - name: python环境 
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.11'
+            cache: 'pip' # pip缓存
+        - name: 设置时区
+          run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+       # - name: 安装依赖 
+       #   run: |
+       #     python -m pip install --upgrade pip
+       #     pip install -r requirements.txt
+       # - name: 节点分割 
+       #   run: python ./check/split.py
+        - name: 节点合成
+          run :
+           cat ./collected-proxies/row-url/all_* >./collected-proxies/row-url/all.txt
+           cat ./collected-proxies/row-url/actives_* >./collected-proxies/row-url/actives.txt
+           cat ./collected-proxies/xray-json/actives_now_* >./collected-proxies/xray-json/actives_all.txt
+        - name: 对比仓库 # Commit Files # 提交
+          run: |
+            git config --local user.email "932624033@qq.com"
+            git config --local user.name "yyyr-otz"
+            git add -A ./collected-proxies/row-url/all.txt ./collected-proxies/row-url/actives.txt ./collected-proxies/xray-json/actives_all.txt
+            git diff-index --quiet HEAD || (git commit -a -m " 节点检查-合并完成 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+            # git commit -am "节点分割 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+        - name: 推送更改 # Push Changes # 推送
+          uses: ad-m/github-push-action@v0.6.0
+          with:
+            github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+            branch: master
