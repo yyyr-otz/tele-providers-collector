@@ -19,14 +19,8 @@ jobs:
   proxy_script:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GG_GITHUB_TOKEN }}
-      REPO: ${{github.repository}}
-      DEBUG_MODE: 0
-    steps:
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GG_GITHUB_TOKEN }}
-      REPO: ${{github.repository}}
+      GITHUB_TOKEN: ${{ secretsACTIONS_SECRETS_TOKEN }}
+      REPO: ${{ secrets.REPO }}
       DEBUG_MODE: 0
     steps:
       - name: 迁出代码
