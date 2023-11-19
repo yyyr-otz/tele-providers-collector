@@ -113,8 +113,9 @@ class XrayPing:
         time.sleep(5)
 
         if real_delay(3080, "bypass_mode")["realDelay_ms"] < 0:
-            print(confFinalStr)
-            raise Exception("Created config is incorrect! it's printed above")
+            # print(confFinalStr)
+            print ("无效节点生成")
+            # raise Exception("Created config is incorrect! it's printed above")
 
         proxiesSorted = []
         for index, s in enumerate(socks):
