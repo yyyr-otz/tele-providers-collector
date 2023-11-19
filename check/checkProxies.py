@@ -106,6 +106,7 @@ with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
             active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
 
  """
-time.sleep(((int(args.n)) - 1) * 300)
+time_n = int(args.n) - 1
+time.sleep(time_n * 200)
 
 commitPushRActiveProxiesFile(args.n)
