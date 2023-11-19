@@ -23,23 +23,27 @@ jobs:
       REPO: ${{github.repository}}
       DEBUG_MODE: 0
     steps:
-      - name: 迁出代码 
-        uses: actions/checkout@v4
-      - name: python环境 
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GG_GITHUB_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v3
+      - name: 安装python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-          cache: 'pip' # pip缓存
+          python-version: '3.11'
+          cache: 'pip'
       - name: 设置时区
         run: sudo timedatectl set-timezone 'Asia/Shanghai'   
-      
       - name: 安装依赖
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: 节点清理
-        run: python ./check/cleanProxiesRowUrl.py
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: 清理节点
+        run: python check/cleanProxiesRowUrl.py
+        shell: bash
       - name: 对比仓库
         run: |
           git config --local user.email "932624033@qq.com"
