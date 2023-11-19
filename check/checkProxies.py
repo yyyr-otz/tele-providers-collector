@@ -14,7 +14,7 @@ from clash_meta_url_decoder.ClashMetaUrlDecoder import ClashMetaDecoder
 
 import argparse # 传递参数
 import time # 控制时间
-
+""" 
 parser = argparse.ArgumentParser(prog = "checkProxies.py")
 parser.add_argument("-n", type = str, nargs = '?', default = "", const = "")
 
@@ -22,7 +22,7 @@ parser.add_argument("-n", type = str, nargs = '?', default = "", const = "")
 args = parser.parse_args() # 引入序号参数
 
 
-
+ """
 """ 
 def is_good_for_game(config: XrayUrlDecoder):
     return (config.type in ['tcp', 'grpc']) and (config.security in [None, "tls"])
@@ -34,7 +34,8 @@ def is_buggy_in_clash_meta(config: ClashMetaDecoder):
     return config.security == "reality" and config.type == "grpc"
 """
 # 根据序号选择文件
-with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesFile:
+#with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesFile:
+with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     configs = []
 #    clash_meta_configs = []
 #    for_game_proxies = []
@@ -71,7 +72,8 @@ with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesF
     # 序号传给get
     # getLatestActiveConfigs(args.n)
 
-    with open("collected-proxies/xray-json/active_all" + args.n + ".txt", 'w') as activeProxiesFile:
+#    with open("collected-proxies/xray-json/active_all" + args.n + ".txt", 'w') as activeProxiesFile:
+    with open("collected-proxies/xray-json/active_all.txt", 'w') as activeProxiesFile:
         for active in delays.actives:
             activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
     
