@@ -4,6 +4,8 @@ from git import Repo
 from dotenv import load_dotenv
 import os
 
+from pathlib import Path
+
 # import datetime
 
 load_dotenv()
@@ -72,8 +74,8 @@ def commitPushRowProxiesFile(num_n):
         active_path = "collected-proxies/row-url/actives_" + num_n
         shutil.copy(all_path, "./repo/" + all_path)
         shutil.copy(active_path, "./repo/" + active_path)
-        repo.index.add([r'all_path'])
-        repo.index.add([r'active_path'])
+        repo.index.add(Path(all_path))
+        repo.index.add(Path(active_path))
   #      changeGitUserToBot()
   #      repo.index.commit('节点清理完成' + formatted_time)
   #      repo.remotes.origin.push()
@@ -92,7 +94,7 @@ def commitPushRActiveProxiesFile(num_n):
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
-        repo.index.add([r'xray_path'])
+        repo.index.add(Path(xray_path))
   #      changeGitUserToBot()
   #      repo.index.commit('节点检查完成' + formatted_time)
   #      repo.remotes.origin.push()
@@ -129,8 +131,8 @@ def commitPushRowProxiesFile_all():
         active_path = "collected-proxies/row-url/actives.txt"
         shutil.copy(all_path, "./repo/" + all_path)
         shutil.copy(active_path, "./repo/" + active_path)
-        repo.index.add([r'all_path'])
-        repo.index.add([r'active_path'])
+        repo.index.add(Path(all_path))
+        repo.index.add(Path(active_path))
   #      changeGitUserToBot()
   #      repo.index.commit('节点清理完成' + formatted_time)
   #      repo.remotes.origin.push()
@@ -149,7 +151,7 @@ def commitPushRActiveProxiesFile_all():
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
-        repo.index.add([r'xray_path'])
+        repo.index.add(Path(xray_path))
   #      changeGitUserToBot()
   #      repo.index.commit('节点检查完成' + formatted_time)
   #      repo.remotes.origin.push()
