@@ -6,7 +6,7 @@ import os
 
 from pathlib import Path
 
-# import datetime
+import datetime
 
 load_dotenv()
 
@@ -65,8 +65,8 @@ def getLatestActiveConfigs(num_n):
 
 def commitPushRowProxiesFile(num_n):
     if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
@@ -77,16 +77,16 @@ def commitPushRowProxiesFile(num_n):
         repo.index.add(Path(all_path))
         repo.index.add(Path(active_path))
   #      changeGitUserToBot()
-  #      repo.index.commit('节点清理完成' + formatted_time)
-  #      repo.remotes.origin.push()
+        repo.index.commit('节点清理完成' + formatted_time)
+        repo.remotes.origin.push()
   #      resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
 
 def commitPushRActiveProxiesFile(num_n):
     if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
@@ -96,8 +96,8 @@ def commitPushRActiveProxiesFile(num_n):
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add(Path(xray_path))
   #      changeGitUserToBot()
-  #      repo.index.commit('节点检查完成' + formatted_time)
-  #      repo.remotes.origin.push()
+        repo.index.commit('节点检查完成' + formatted_time)
+        repo.remotes.origin.push()
   #      resetGitUser()
   #      print('节点检查完成' + formatted_time)
 
@@ -122,8 +122,8 @@ def getLatestActiveConfigs_all():
 
 def commitPushRowProxiesFile_all():
     if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
@@ -134,16 +134,16 @@ def commitPushRowProxiesFile_all():
         repo.index.add(Path(all_path))
         repo.index.add(Path(active_path))
   #      changeGitUserToBot()
-  #      repo.index.commit('节点清理完成' + formatted_time)
-  #      repo.remotes.origin.push()
+        repo.index.commit('节点清理完成' + formatted_time)
+        repo.remotes.origin.push()
   #      resetGitUser()
   #      print('节点清理完成' + formatted_time)
 
 
 def commitPushRActiveProxiesFile_all():
     if not IS_DEBUG:
- #       now = datetime.datetime.now()
- #       formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
+        now = datetime.datetime.now()
+        formatted_time = now.strftime('%Y-%m-%d %H:%M %Z')
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
@@ -153,7 +153,7 @@ def commitPushRActiveProxiesFile_all():
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
         repo.index.add(Path(xray_path))
   #      changeGitUserToBot()
-  #      repo.index.commit('节点检查完成' + formatted_time)
-  #      repo.remotes.origin.push()
+        repo.index.commit('节点检查完成' + formatted_time)
+        repo.remotes.origin.push()
   #      resetGitUser()
   #      print('节点检查完成' + formatted_time)
