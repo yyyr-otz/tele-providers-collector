@@ -19,7 +19,7 @@ jobs:
   proxy_script:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secretsACTIONS_SECRETS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
       REPO: ${{ secrets.REPO }}
       DEBUG_MODE: 0
     steps:
