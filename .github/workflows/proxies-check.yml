@@ -23,19 +23,21 @@ jobs:
       runs-on: ubuntu-latest
       steps:
 
-        - name: 迁出代码 
-          uses: actions/checkout@v4
-        - name: python环境 
-          uses: actions/setup-python@v4
+        - name: 搭建环境 
+        - uses: actions/checkout@v4
+        - uses: actions/setup-python@v4
           with:
             python-version: '3.11'
             cache: 'pip' # pip缓存
-        - name: 设置时区
-          run: sudo timedatectl set-timezone 'Asia/Shanghai'   
-        - name: 安装依赖 
-          run: |
+        - uses: actions/setup-node@v4
+          with:
+            node-version: latest
+            cache: 'npm'   
+        - run: |
+            sudo timedatectl set-timezone 'Asia/Shanghai' 
             python -m pip install --upgrade pip
             pip install -r requirements.txt
+            shell: bash
         - name: 节点分割 
           run: python ./check/proxies-split.py
         #- name: 节点合成
@@ -62,18 +64,21 @@ jobs:
       REPO: ${{github.repository}}
       DEBUG_MODE: 0
     steps:
-      - name: 迁出代码
-        uses: actions/checkout@v4
-      - name: python环境
-        uses: actions/setup-python@v4
+      - name: 搭建环境 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
-      - name: 设置时区
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
-      - name: 安装依赖
-        run: pip install -r requirements.txt
-        shell: bash
+          cache: 'pip' # pip缓存
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: 'npm'
+      - run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'  
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          shell: bash
       - name: 检查节点 all_1
         run: python ./check/checkProxies.py -n 1
         shell: bash
@@ -98,18 +103,21 @@ jobs:
       REPO: ${{github.repository}}
       DEBUG_MODE: 0
     steps:
-      - name: 迁出代码
-        uses: actions/checkout@v4
-      - name: python环境
-        uses: actions/setup-python@v4
+      - name: 搭建环境 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
-      - name: 设置时区
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
-      - name: 安装依赖
-        run: pip install -r requirements.txt
-        shell: bash
+          cache: 'pip' # pip缓存
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: 'npm'
+      - run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'  
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          shell: bash
       - name: 检查节点 all_2
         run: python ./check/checkProxies.py -n 2
         shell: bash
@@ -134,18 +142,21 @@ jobs:
       REPO: ${{github.repository}}
       DEBUG_MODE: 0
     steps:
-      - name: 迁出代码
-        uses: actions/checkout@v4
-      - name: python环境
-        uses: actions/setup-python@v4
+      - name: 搭建环境 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
-      - name: 设置时区
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
-      - name: 安装依赖
-        run: pip install -r requirements.txt
-        shell: bash
+          cache: 'pip' # pip缓存
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          cache: 'npm'
+      - run: |
+          sudo timedatectl set-timezone 'Asia/Shanghai'  
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          shell: bash
       - name: 检查节点 all_3
         run: python ./check/checkProxies.py -n 3
         shell: bash
@@ -166,15 +177,17 @@ jobs:
       needs: [proxies_split, proxies-check_1, proxies-check_2, proxies-check_3]
       runs-on: ubuntu-latest
       steps:
-        - name: 迁出代码 
-          uses: actions/checkout@v4
-        - name: python环境 
-          uses: actions/setup-python@v4
+        - name: 搭建环境 
+        - uses: actions/checkout@v4
+        - uses: actions/setup-python@v4
           with:
             python-version: '3.11'
             cache: 'pip' # pip缓存
-        - name: 设置时区
-          run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+        - uses: actions/setup-node@v4
+          with:
+            node-version: latest
+            cache: 'npm'
+        - run: sudo timedatectl set-timezone 'Asia/Shanghai'   
        # - name: 安装依赖 
        #   run: |
        #     python -m pip install --upgrade pip
