@@ -63,7 +63,7 @@ with open("./collected-proxies/row-url/actives.txt", "r") as file:
     part_size = ( num_lines // num_part ) + 1
     end = part_size
     for i in range(num_part):
-        part_name = "./collected-proxies/row-url/actives_now_" + str(i+1)
+        part_name = "./collected-proxies/row-url/actives_" + str(i+1)
         with open(part_name, 'w') as part_f:
             part_f.write(''.join(file[start:end]))
         start = start + part_size
