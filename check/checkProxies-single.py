@@ -33,7 +33,7 @@ def is_buggy_in_clash_meta(config: ClashMetaDecoder):
     return config.security == "reality" and config.type == "grpc"
 """
 # 根据序号选择文件
-with open("collected-proxies/row-url/all" + args.n, 'r') as rowProxiesFile:
+with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesFile:
     configs = []
     # clash_meta_configs = []
     # for_game_proxies = []
@@ -72,7 +72,7 @@ with open("collected-proxies/row-url/all" + args.n, 'r') as rowProxiesFile:
     # 序号传给get
     # getLatestActiveConfigs(args.n)
 
-    with open("collected-proxies/xray-json/active_all" + args.n, 'w') as activeProxiesFile:
+    with open("collected-proxies/xray-json/active_all" + args.n + ".txt", 'w') as activeProxiesFile:
         for active in delays.actives:
             activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
     
