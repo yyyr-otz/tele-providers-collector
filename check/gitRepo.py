@@ -88,7 +88,7 @@ def commitPushRActiveProxiesFile(num_n):
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
-        xray_path = "collected-proxies/xray-json/activies_now_" + num_n
+        xray_path = "collected-proxies/xray-json/actives_now_" + num_n
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
@@ -145,7 +145,7 @@ def commitPushRActiveProxiesFile_all():
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
-        xray_path = "collected-proxies/xray-json/activies_all.txt"
+        xray_path = "collected-proxies/xray-json/actives_all.txt"
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
