@@ -48,6 +48,7 @@ def getLatestRowProxies(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
+        shutil.copytree("./repo/collected-proxies/row-url", "collected-proxies/row-url", dirs_exist_ok=True)
         all_path = "collected-proxies/row-url/all_" + num_n
         active_path = "collected-proxies/row-url/actives_" + num_n
         shutil.copy("./repo/" + all_path, all_path)
@@ -57,6 +58,7 @@ def getLatestActiveConfigs(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
+        shutil.copytree("./repo/collected-proxies/xray-json", "collected-proxies/xray-json", dirs_exist_ok=True)
         active_configs_path = "collected-proxies/xray-json/actives_now_" + num_n
         shutil.copy("./repo/" +active_configs_path, active_configs_path)
         # shutil.copy("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
@@ -69,6 +71,7 @@ def commitPushRowProxiesFile(num_n):
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
+        shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
         all_path = "collected-proxies/row-url/all_" + num_n
         active_path = "collected-proxies/row-url/actives_" + num_n
         shutil.copy(all_path, "./repo/" + all_path)
@@ -90,6 +93,7 @@ def commitPushRActiveProxiesFile(num_n):
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
+        shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
         xray_path = "collected-proxies/xray-json/actives_now_" + num_n
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
@@ -107,6 +111,7 @@ def getLatestRowProxies_all():
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
+        shutil.copytree("./repo/collected-proxies/row-url", "collected-proxies/row-url", dirs_exist_ok=True)
         all_path = "collected-proxies/row-url/all.txt"
         active_path = "collected-proxies/row-url/actives.txt"
         shutil.copy("./repo/" + all_path, all_path)
@@ -116,6 +121,7 @@ def getLatestActiveConfigs_all():
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
+        shutil.copytree("./repo/collected-proxies/xray-json", "collected-proxies/xray-json", dirs_exist_ok=True)
         active_configs_path = "collected-proxies/xray-json/actives_all.txt"
         shutil.copy("./repo/" +active_configs_path, active_configs_path)
         # shutil.copy("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
@@ -128,6 +134,7 @@ def commitPushRowProxiesFile_all():
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
+        shutil.copytree("collected-proxies/row-url", "./repo/collected-proxies/row-url", dirs_exist_ok=True)
         all_path = "collected-proxies/row-url/all.txt"
         active_path = "collected-proxies/row-url/actives.txt"
         shutil.copy(all_path, "./repo/" + all_path)
@@ -150,6 +157,7 @@ def commitPushRActiveProxiesFile_all():
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
+        shutil.copytree("collected-proxies/xray-json", "./repo/collected-proxies/xray-json", dirs_exist_ok=True)
         xray_path = "collected-proxies/xray-json/actives_all.txt"
         shutil.copy(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
