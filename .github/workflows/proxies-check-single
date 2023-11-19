@@ -1,0 +1,55 @@
+name: 单线程节点检查
+run-name: ${{ github.actor }} 正在检查节点-single
+on:
+#  workflow_run: # 在节点索引后进行
+#    workflows:
+#      - 节点索引
+#    types:
+#      - completed
+#  schedule:
+#   - cron: "20 */4 * * *" # 每四个小时节点检查
+#   - cron: "20 0,4,8,12,16,20 * * *" # 避开节点索引时间
+#  push:
+#     branches:
+#       - master
+#     paths:
+#      - 'raw/**'
+  workflow_dispatch:
+permissions: write-all
+jobs:
+  proxies-check: 
+    needs: [proxies_split]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v4
+      - name: python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: 设置时区
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'   
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: 检查节点 all
+        run: python ./check/checkProxies.py -n
+        shell: bash
+      - name: 对比仓库 # Commit Files # 提交
+        run: |
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -u ./collected-proxies/row-url/all.tx ./collected-proxies/row-url/actives.txt ./collected-proxies/xray-json/actives_all.txt
+          git diff-index --quiet HEAD || (git commit -a -m "👁️‍🗨️ all节点检查完成 🕒 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+          # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          shell: bash
+      - name: 推送更改 # Push Changes # 推送
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: master
