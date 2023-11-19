@@ -29,17 +29,17 @@ def is_good_for_game(config: XrayUrlDecoder):
     return (config.type in ['tcp', 'grpc']) and (config.security in [None, "tls"])
 
 """  
-"""
+
 # for more info, track this issue https://github.com/MetaCubeX/Clash.Meta/issues/801
 def is_buggy_in_clash_meta(config: ClashMetaDecoder):
     return config.security == "reality" and config.type == "grpc"
-"""
+
 # 根据序号选择文件
 #with open("collected-proxies/row-url/all" + args.n + ".txt", 'r') as rowProxiesFile:
 with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     configs = []
-#    clash_meta_configs = []
-#    for_game_proxies = []
+    clash_meta_configs = []
+    for_game_proxies = []
     for url in rowProxiesFile:
         if len(url) > 10:
             try:
@@ -50,13 +50,13 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
                 c_json = c.generate_json_str()
                 if c.isSupported and c.isValid:
                     configs.append(c_json)
-                """ 
+
                 # ############# clash Meta ##########
                 ccm = ClashMetaDecoder(url, cusTag)
                 ccm_json = ccm.generate_obj_str()
                 if c.isSupported and c.isValid and (not is_buggy_in_clash_meta(ccm)):
                     clash_meta_configs.append(json.loads(ccm_json))
-
+                """ 
                 if is_good_for_game(c):
                     for_game_proxies.append(url) """
             except:
@@ -78,12 +78,11 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
         for active in delays.actives:
             activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
     
-    """
+
     yaml = YAML()
-    with open("collected-proxies/clash-meta/all.yaml", 'w') as allClashProxiesFile:
+    with open("collected-proxies/clash-meta/actives_all.yaml", 'w') as allClashProxiesFile:
         yaml.dump({"proxies": clash_meta_configs}, allClashProxiesFile)
 
-    """
 
     """ with open("collected-proxies/xray-json/actives_all.txt", 'w') as activeProxiesFile:
         for active in delays.actives:
