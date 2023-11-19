@@ -70,7 +70,7 @@ with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
     delays = XrayPing(configs)
 
     # 序号传给get
-    getLatestActiveConfigs(args.n)
+    # getLatestActiveConfigs(args.n)
 
     with open("collected-proxies/xray-json/active_now_" + args.n, 'w') as activeProxiesFile:
         for active in delays.actives:
@@ -106,7 +106,7 @@ with open("collected-proxies/row-url/all_" + args.n, 'r') as rowProxiesFile:
             active1000no403ForServerProxiesFile.write(json.dumps(active['proxy']) + "\n")
 
  """
-time_n = int(args.n) - 1
-time.sleep(time_n * 200)
+#time_n = int(args.n) - 1
+#time.sleep(time_n * 200)
 
-commitPushRActiveProxiesFile(args.n)
+# commitPushRActiveProxiesFile(args.n)
