@@ -18,28 +18,46 @@ permissions:
 jobs:
   proxy_script:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GG_GITHUB_TOKEN }}
+      REPO: ${{github.repository}}
+      DEBUG_MODE: 0
     steps:
-
-      - name: 迁出代码 # Checkout Repository Contents # 拉取
+      - name: 迁出代码 
         uses: actions/checkout@v4
-      - name: python环境 #Setup Python # 环境
+      - name: python环境 
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: 'pip' # pip缓存
-          
       - name: 设置时区
         run: sudo timedatectl set-timezone 'Asia/Shanghai'   
       
-      - name: 安装依赖 # Install Python Packages Requirements # 依赖
+      - name: 安装依赖
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: 节点清理
+        run: python ./check/cleanProxiesRowUrl.py.py
+      - name: 对比仓库
+        run: |
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -u ./collected-proxiest/row-url
+          git diff-index --quiet HEAD || (git commit -a -m "🛒 节点清理完成 🕕 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+#         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
           
-      - name: 节点索引 # Execute Python Script # 节点爬取
+      - name: 推送更改
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: master
+          
+      - name: 节点索引
         run: python ./script/script-main.py
 
-      - name: 对比仓库 # Commit Files # 提交
+      - name: 对比仓库
         run: |
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
@@ -47,7 +65,7 @@ jobs:
           git diff-index --quiet HEAD || (git commit -a -m "🚀 节点资源更新 🕐 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
 #         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
           
-      - name: 推送更改 # Push Changes # 推送
+      - name: 推送更改
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
