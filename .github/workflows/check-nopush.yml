@@ -1,4 +1,4 @@
-name: 节点检查
+name: 节点检查-无推送
 run-name: ${{ github.actor }} 正在检查节点
 on:
 #  workflow_run: # 在节点索引后进行
