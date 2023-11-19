@@ -39,7 +39,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: 节点清理
-        run: python ./check/cleanProxiesRowUrl.py.py
+        run: python ./check/cleanProxiesRowUrl.py
       - name: 对比仓库
         run: |
           git config --local user.email "932624033@qq.com"
