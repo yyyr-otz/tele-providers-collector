@@ -48,7 +48,7 @@ def getLatestRowProxies(num_n):
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
         all_path = "collected-proxies/row-url/all_" + num_n
-        active_path = "collected-proxies/row-url/active_" + num_n
+        active_path = "collected-proxies/row-url/actives_" + num_n
         shutil.move("./repo/" + all_path, all_path)
         shutil.move("./repo/" + active_path, active_path)
 
@@ -56,7 +56,7 @@ def getLatestActiveConfigs(num_n):
     if not IS_DEBUG:
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "checkout", "remotes/origin/master", "collected-proxies"])
-        active_configs_path = "collected-proxies/xray-json/active_now_" + num_n
+        active_configs_path = "collected-proxies/xray-json/actives_now_" + num_n
         shutil.move("./repo/" +active_configs_path, active_configs_path)
         # shutil.move("./repo/collected-proxies/clash-meta", "collected-proxies/clash-meta", dirs_exist_ok=True)
 
@@ -69,7 +69,7 @@ def commitPushRowProxiesFile(num_n):
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
         all_path = "collected-proxies/row-url/all_" + num_n
-        active_path = "collected-proxies/row-url/active_" + num_n
+        active_path = "collected-proxies/row-url/actives_" + num_n
         shutil.move(all_path, "./repo/" + all_path)
         shutil.move(active_path, "./repo/" + active_path)
         repo.index.add([r'all_path'])
@@ -88,7 +88,7 @@ def commitPushRActiveProxiesFile(num_n):
         repo.git.execute(["git", "fetch", "--all"])
         repo.git.execute(["git", "reset", "--hard", "origin/master"])
         repo.git.execute(["git", "pull"])
-        xray_path = "collected-proxies/xray-json/active_now_" + num_n
+        xray_path = "collected-proxies/xray-json/activies_now_" + num_n
         shutil.move(xray_path, "./repo/" + xray_path)
   #      shutil.copytree("collected-proxies/clash-meta", "./repo/collected-proxies/clash-meta", dirs_exist_ok=True)
   #      repo.index.add([r'collected-proxies/clash-meta/*'])
