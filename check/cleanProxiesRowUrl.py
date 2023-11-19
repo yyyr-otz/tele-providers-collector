@@ -56,8 +56,8 @@ def keep_only_lines_and_remove_duplicates(file_path, lines_to_keep):
         file.write(new_content)
 
 
-getLatestActiveConfigs_all()
-getLatestRowProxies_all()
+# getLatestActiveConfigs_all()
+# getLatestRowProxies_all()
 
 lineNumberOfFounds = []
 with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFile:
@@ -81,4 +81,4 @@ shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives.txt", lineNumberOfFounds)
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/all.txt", None)
 
-commitPushRowProxiesFile_all()
+# commitPushRowProxiesFile_all()
