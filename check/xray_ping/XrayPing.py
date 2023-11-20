@@ -14,16 +14,16 @@ from XrayConfig import XrayConfigSimple
 
 def real_delay(port: int, proxy_name: str):
     test_url = 'http://detectportal.firefox.com/success.txt'
-    err_403_url = 'https://open.spotify.com/'
+    err_403_url = 'http://captive.apple.com'
     proxy = "socks5://127.0.0.1:{}".format(port)
     delay = -1
     statusCode = -1
     try:
         start_time = time.time()
-        requests.get(test_url, timeout=10, proxies=dict(http=proxy, https=proxy))
+        requests.get(test_url, timeout=4, proxies=dict(http=proxy, https=proxy))
         end_time = time.time()
         delay = end_time - start_time
-        err_403_res = requests.get(err_403_url, timeout=10, proxies=dict(http=proxy, https=proxy))
+        err_403_res = requests.get(err_403_url, timeout=4, proxies=dict(http=proxy, https=proxy))
         statusCode = err_403_res.status_code
     except:
         pass
@@ -60,10 +60,11 @@ def appendBypassMode(config: XrayConfigSimple) -> XrayConfigSimple:
 class XrayPing:
     result: list[dict] = []
     actives: list[dict] = []
-    realDelay_under_1000: list[dict] = []
+
+    """     realDelay_under_1000: list[dict] = []
     realDelay_under_1500: list[dict] = []
     no403_realDelay_under_1000: list[dict] = []
-
+     """
     def __init__(self, configs: list[str]) -> None:
         confs: list[dict] = [json.loads(c) for c in configs]
 
@@ -110,7 +111,7 @@ class XrayPing:
         runXrayThread.start()
         # runXrayThread.join()
 
-        time.sleep(3)
+        time.sleep(4)
 
         if real_delay(3080, "bypass_mode")["realDelay_ms"] < 0:
             # print(confFinalStr)
@@ -122,6 +123,8 @@ class XrayPing:
         for index, s in enumerate(socks):
             proxiesSorted.append(real_delay(s.port, s.tag.split("__")[1]))
         proxiesSorted = sorted(proxiesSorted, key=lambda d: d['realDelay_ms'])
+        print("这是proxiesSorted")
+        print(proxiesSorted)
 
         for index, r in enumerate(proxiesSorted):
             r["proxy"] = confs[index]
@@ -129,6 +132,11 @@ class XrayPing:
             if r["realDelay_ms"] > 0:
                 self.actives.append(r)
 
+    print("这是result")
+    print(result)
+    print("这是actives")
+    print(actives)
+            
 """             if 1000 >= r['realDelay_ms'] > 0:
                 self.realDelay_under_1000.append(r)
                 if not r["is403"]:
