@@ -200,4 +200,5 @@ with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFi
 
 shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/actives_now.txt")
 
+keep_only_lines_and_remove_duplicates("collected-proxies/row-url/result_actives_now.txt", lineNumberOfFounds_ALL)
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives_now.txt", lineNumberOfFounds)
