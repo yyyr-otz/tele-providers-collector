@@ -1,7 +1,7 @@
 name: 单线程节点检查
 run-name: ${{ github.actor }} 正在检查节点-single
 on:
-  workflow_run: # 在节点索引后进行
+#  workflow_run: # 在节点索引后进行
 #    workflows:
 #      - 清理无效节点&索引最新节点
 #    types:
