@@ -1084,7 +1084,7 @@ if remove_duplicate_lines("./script/raw/protocols/vless-CDN.txt"):
 # 优选节点传递到check
 with open("./script/raw/protocols/vless-CDN.txt", "r") as file:
     with open("./collected-proxies/row-url/all.txt", "a") as f:
-        f.write(file.read())
+        f.write("\n" + file.read())
     print("待测节点./collected-proxies/row-url/all.txt"+"追加完成")
 
 
