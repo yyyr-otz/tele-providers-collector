@@ -71,7 +71,7 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     print("这是configs")
     print(configs)
     delays = XrayPing(configs)
-    print("这是configs")
+    print("这是delays")
     print(delays)
     # 序号传给get
     # getLatestActiveConfigs(args.n)
@@ -168,7 +168,7 @@ with open("collected-proxies/xray-json/result_actives_all.txt", 'r') as activePr
     for activeConfig in activeProxiesFile:
         if len(activeConfig) < 10: continue
 
-        with open("collected-proxies/row-url/result_all.txt", 'r') as rowProxiesFile:
+        with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
             # remove if it's not in active proxies
             for (index, rowProxyUrl) in enumerate(rowProxiesFile):
                 if len(rowProxyUrl) < 10: continue
@@ -179,7 +179,9 @@ with open("collected-proxies/xray-json/result_actives_all.txt", 'r') as activePr
                         lineNumberOfFounds_ALL .append(index + 1)
                 except:
                     pass
-shutil.copyfile("collected-proxies/row-url/result_all.txt", "collected-proxies/row-url/result_actives_now.txt")
+shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/result_actives_now.txt")
+
+keep_only_lines_and_remove_duplicates("collected-proxies/row-url/result_actives_now.txt", lineNumberOfFounds_ALL)
 
 lineNumberOfFounds = []
 with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFile:
@@ -200,5 +202,5 @@ with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFi
 
 shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/actives_now.txt")
 
-keep_only_lines_and_remove_duplicates("collected-proxies/row-url/result_actives_now.txt", lineNumberOfFounds_ALL)
+
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives_now.txt", lineNumberOfFounds)
