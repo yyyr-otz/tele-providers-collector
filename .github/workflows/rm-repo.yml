@@ -27,12 +27,12 @@ jobs:
         uses: actions/checkout@v3
       - name: 对比仓库
         run: |
-          git rm -f -r /repo
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "🛒 节点清理完成 🕕 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
-#         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+          git rm --cached repo
+          git add .
+          git commit -m "rm-repo"
+          git push origin master
       - name: 推送更改
         uses: ad-m/github-push-action@v0.6.0
         with:
