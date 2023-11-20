@@ -71,7 +71,7 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     print("这是configs")
     print(configs)
     delays = XrayPing(configs)
-    print("这是delays")
+    print("这是configs")
     print(delays)
     # 序号传给get
     # getLatestActiveConfigs(args.n)
@@ -80,12 +80,13 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     with open("./collected-proxies/xray-json/actives_all.txt", 'w') as activeProxiesFile:
         for active in delays.actives:
             activeProxiesFile.write(json.dumps(active['proxy']) + "\n")
-    
+    with open("./collected-proxies/xray-json/result_actives_all.txt", 'w') as activeProxiesFile:
+        for result in delays.result:
+            activeProxiesFile.write(json.dumps(result['proxy']) + "\n")   
 
     yaml = YAML()
     with open("collected-proxies/clash-meta/actives_all.yaml", 'w') as allClashProxiesFile:
         yaml.dump({"proxies": clash_meta_configs}, allClashProxiesFile)
-
 
     """ with open("collected-proxies/xray-json/actives_all.txt", 'w') as activeProxiesFile:
         for active in delays.actives:
@@ -162,6 +163,25 @@ def keep_only_lines_and_remove_duplicates(file_path, lines_to_keep):
 
 # getLatestActiveConfigs()
 # getLatestRowProxies()
+lineNumberOfFounds_ALL = []
+with open("collected-proxies/xray-json/result_actives_all.txt", 'r') as activeProxiesFile:
+    for activeConfig in activeProxiesFile:
+        if len(activeConfig) < 10: continue
+
+        with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
+            # remove if it's not in active proxies
+            for (index, rowProxyUrl) in enumerate(rowProxiesFile):
+                if len(rowProxyUrl) < 10: continue
+
+                try:
+                    config = XrayUrlDecoder(rowProxyUrl)
+                    if config.isSupported and config.isValid and config.is_equal_to_config(activeConfig):
+                        lineNumberOfFounds_ALL .append(index + 1)
+                except:
+                    pass
+shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/result_actives_now.txt")
+
+keep_only_lines_and_remove_duplicates("collected-proxies/row-url/result_actives_now.txt", lineNumberOfFounds_ALL)
 
 lineNumberOfFounds = []
 with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFile:
@@ -181,5 +201,6 @@ with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFi
                     pass
 
 shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/actives_now.txt")
+
 
 keep_only_lines_and_remove_duplicates("collected-proxies/row-url/actives_now.txt", lineNumberOfFounds)
