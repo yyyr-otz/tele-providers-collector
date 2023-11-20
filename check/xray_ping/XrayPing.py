@@ -129,8 +129,12 @@ class XrayPing:
         for index, r in enumerate(proxiesSorted):
             r["proxy"] = confs[index]
             self.result.append(r)
+            print("这是self.result")
+            print(self.result)
             if r["realDelay_ms"] > 0:
                 self.actives.append(r)
+                print("这是self.actives")
+                print(self.actives)
 
     print("这是result")
     print(result)
