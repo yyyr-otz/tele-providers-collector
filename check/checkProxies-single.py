@@ -68,8 +68,11 @@ with open("./collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
     # commitPushForGameProxiesFile()
 
     # xrayping 不需要序号参数
+    print("这是configs")
+    print(configs)
     delays = XrayPing(configs)
-
+    print("这是delays")
+    print(delays)
     # 序号传给get
     # getLatestActiveConfigs(args.n)
 
