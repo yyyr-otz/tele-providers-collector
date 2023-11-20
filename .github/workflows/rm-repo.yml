@@ -1,0 +1,40 @@
+name: 删除.git
+run-name: ${{ github.actor }} 正在清理无效文件
+on:
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - 'script/**'
+#  schedule:
+#    - cron: '0 0,4,8,12,16,20 * * *' # 北京时间4 8 12 16 20 24 每四个小时整点运行
+#    - cron: '5 23 * * *' # 北京时间七点抓取节点
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  
+jobs:
+  clean_and_script:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+      REPO: ${{ secrets.REPO }}
+      DEBUG_MODE: 0
+    steps:
+      - name: 迁出代码
+        uses: actions/checkout@v3
+      - name: 对比仓库
+        run: |
+          git rm -f -r /repo **/.git
+          git config --local user.email "932624033@qq.com"
+          git config --local user.name "yyyr-otz"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "🛒 节点清理完成 🕕 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')" --allow-empty)
+#         # git commit -am "节点资源更新 $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M %Z')"
+      - name: 推送更改
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.ACTIONS_SECRETS_TOKEN }}
+          branch: master
