@@ -1002,7 +1002,7 @@ with open('./script/raw/protocols/vless-CDN.txt', "a") as vless_sub_file:
     vless_sub_raw = base64.b64decode(vless_sub_b64).decode("utf-8")
     vless_sub_unurl = urllib.parse.unquote(vless_sub_raw,  'utf-8')
 #    print (vless_sub_unurl )
-    vless_sub_file.write(vless_sub_unurl.encode("utf-8").decode("utf-8"))
+    vless_sub_file.write("\n" + vless_sub_unurl.encode("utf-8").decode("utf-8"))
     print ("vless-sub已下载……")
 """ #定义url解码字典
 url_table = {
