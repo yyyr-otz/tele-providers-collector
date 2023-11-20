@@ -123,24 +123,25 @@ class XrayPing:
         for index, s in enumerate(socks):
             proxiesSorted.append(real_delay(s.port, s.tag.split("__")[1]))
         proxiesSorted = sorted(proxiesSorted, key=lambda d: d['realDelay_ms'])
-        print("这是proxiesSorted")
-        print(proxiesSorted)
+    #    print("这是proxiesSorted")
+    #    print(proxiesSorted)
 
         for index, r in enumerate(proxiesSorted):
             r["proxy"] = confs[index]
             self.result.append(r)
-            print("这是self.result")
-            print(self.result)
+        #    print("这是self.result")
+        #    print(self.result)
             if r["realDelay_ms"] > 0:
                 self.actives.append(r)
-                print("这是self.actives")
-                print(self.actives)
+            #    print("这是self.actives")
+            #    print(self.actives)
 
-    print("这是result")
+
+"""     print("这是result")
     print(result)
     print("这是actives")
     print(actives)
-            
+             """
 """             if 1000 >= r['realDelay_ms'] > 0:
                 self.realDelay_under_1000.append(r)
                 if not r["is403"]:
