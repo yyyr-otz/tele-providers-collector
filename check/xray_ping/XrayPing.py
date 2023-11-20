@@ -110,7 +110,7 @@ class XrayPing:
         runXrayThread.start()
         # runXrayThread.join()
 
-        time.sleep(5)
+        time.sleep(3)
 
         if real_delay(3080, "bypass_mode")["realDelay_ms"] < 0:
             # print(confFinalStr)
