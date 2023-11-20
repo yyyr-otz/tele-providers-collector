@@ -57,6 +57,25 @@ def keep_only_lines_and_remove_duplicates(file_path, lines_to_keep):
 
 # getLatestActiveConfigs()
 # getLatestRowProxies()
+lineNumberOfFounds_ALL = []
+with open("collected-proxies/xray-json/result_actives_all.txt", 'r') as activeProxiesFile:
+    for activeConfig in activeProxiesFile:
+        if len(activeConfig) < 10: continue
+
+        with open("collected-proxies/row-url/all.txt", 'r') as rowProxiesFile:
+            # remove if it's not in active proxies
+            for (index, rowProxyUrl) in enumerate(rowProxiesFile):
+                if len(rowProxyUrl) < 10: continue
+
+                try:
+                    config = XrayUrlDecoder(rowProxyUrl)
+                    if config.isSupported and config.isValid and config.is_equal_to_config(activeConfig):
+                        lineNumberOfFounds_ALL .append(index + 1)
+                except:
+                    pass
+shutil.copyfile("collected-proxies/row-url/all.txt", "collected-proxies/row-url/result_actives.txt")
+
+keep_only_lines_and_remove_duplicates("collected-proxies/row-url/result_actives.txt", lineNumberOfFounds_ALL)
 
 lineNumberOfFounds = []
 with open("collected-proxies/xray-json/actives_all.txt", 'r') as activeProxiesFile:
