@@ -1,4 +1,4 @@
-name: 删除.git
+name: 删除repo
 run-name: ${{ github.actor }} 正在清理无效文件
 on:
 #  push:
@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v3
       - name: 对比仓库
         run: |
-          git rm -f -r /repo **/.git
+          git rm -f -r /repo
           git config --local user.email "932624033@qq.com"
           git config --local user.name "yyyr-otz"
           git add -A
