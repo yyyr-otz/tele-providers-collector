@@ -54,7 +54,6 @@ vless://65489d81-02fd-42aa-a9ef-6629bb21b9ae@globalpotplayer.cn:443?security=tls
 vless://06d9503e-6b12-4abb-90cd-7eb0ce58180f@globalpotplayer.cn:443?security=tls&type=ws&path=//?ed=2048&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://9e67f15c-178f-494c-a843-f371e3b3fa5d@globalpotplayer.cn:80?security=none&type=ws&path=%2F%3Fed# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
 vless://edf12778-fbeb-48d9-85e4-6530370b47cc@globalpotplayer.cn:443?security=tls&type=ws&path=/bv01.wang66.homes/?ed=2048&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
-vless://0a207386-011e-45dd-aaf1-7bb863019967@globalpotplayer.cn:80?security=none&type=ws&host=sg24.vlessx.us&path=%2F%3Fed%3D2048# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
 vless://0fcfc9b7-3af0-4ab8-81c9-9f8358e85685@globalpotplayer.cn:843?security=tls&sni=sweden.bolbolteam.shop&type=ws&host=sweden.bolbolteam.shop&path=%2F&alpn=http%2F1.1# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://12c16749-fe0b-4120-d670-101f6f091f65@globalpotplayer.cn:843?security=tls&sni=V2ray.SvnReallity.Online&type=grpc&alpn=http%2F1.1%2Ch2# 🔒 VL-GRPC-TLS 🚀 优选IP: globalpotplayer.cn
 vless://dc00f1f8-05b2-4bc0-b851-d4dfe5089329@globalpotplayer.cn:80?security=none&type=ws&host=workerr.aasihmin.workers.dev&path=%2F%3Fed%3D2048# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
