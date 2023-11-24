@@ -70,7 +70,6 @@ vless://636b1684-b26c-4a9c-bc6e-8e1197a36d74@globalpotplayer.cn:80?security=none
 vless://9e67f15c-178f-494c-a843-f371e3b3fa5d@globalpotplayer.cn:80?security=none&type=ws&path=%2F%3Fed# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
 vless://edf12778-fbeb-48d9-85e4-6530370b47cc@globalpotplayer.cn:443?security=tls&type=ws&path=/bv01.wang66.homes/?ed=2048&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://f2af9704-a26b-498a-9eb3-85e4ab8653cf@globalpotplayer.cn:443?security=tls&type=ws&path=/teo.history-paint.art/wss13169?ed=2048&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
-vless://9f333654-7d59-47ed-8108-e38f8dd7739e@globalpotplayer.cn:843?security=tls&sni=nl24.vlessx.us&type=ws&host=nl24.vlessx.us&path=%2F%3Fed%3D2048&fp=randomized# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://a6d05f96-e50f-40d1-a294-e8171d24884f@globalpotplayer.cn:843?security=tls&sni=usa.waky-melo.site&type=ws&path=%2Fmelov2ray&fp=chrome# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://d9474576-21d5-4e15-8653-90afae2c85c4@globalpotplayer.cn:23012?type=tcp&host=internet.life.com.by&headerType=http# 🔒 VL-TCP-NA 🚀 优选IP: globalpotplayer.cn
 vless://ce0d86f0-a6de-411e-a3f9-687c32f5314a@globalpotplayer.cn:80?security=none&type=ws&host=nl11.vlessx.us&path=%2F%3Fed%3D2048# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
