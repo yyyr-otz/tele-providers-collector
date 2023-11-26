@@ -49,7 +49,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
-        cache: true
+        # cache: true
         
     - name: 设置时区
       run: sudo timedatectl set-timezone 'Asia/Shanghai' 
