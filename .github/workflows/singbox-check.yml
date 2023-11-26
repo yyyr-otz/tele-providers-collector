@@ -1,0 +1,67 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+name: 通过singbox检查节点
+run-name: ${{ github.actor }} 正在使用singbox检查节点
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: '0 0 */1 * *'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      GithubApiToken: ${{secrets.ACTIONS_SECRETS_TOKEN}}
+      GithubUser: yyyr-otz
+      GithubRepo: tele-providers-collector
+      Timeout: 3000
+      MaxThreadCount: 128
+      SingboxPath: sing-box
+      V2rayFormatResultPath: sub/proxies.txt
+      SingboxFormatResultPath: sub/singbox.txt
+      Sources: |
+       https://raw.githubusercontent.com/yyyr-otz/tele-providers-collector/master/script/raw/protocols/vless-CDN.txt
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription1
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription2
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription3
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription4
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription5
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription6
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription7
+#        https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription8
+#        https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt
+#        https://raw.githubusercontent.com/freefq/free/master/v2
+#        https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray
+#        https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt
+#        https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2
+#        https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub
+#        https://raw.githubusercontent.com/yebekhe/TelegramV2rayCollector/main/sub/normal/mix
+#        https://raw.githubusercontent.com/yebekhe/ConfigCollector/main/sub/mix
+#        https://raw.githubusercontent.com/LonUp/NodeList/main/V2RAY/Latest.txt
+#        https://raw.githubusercontent.com/freev2rayconfig/V2RAY_SUB/main/v2ray.txt
+#        https://api.yebekhe.link/shervin
+      
+    steps:
+    - name: 迁出代码 
+      uses: actions/checkout@v4
+      
+    - name: 安装.net
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+        cache: true
+        
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai' 
+      
+    - name: 安装 sing-box
+      run: |
+        wget https://github.com/SagerNet/sing-box/releases/download/v1.7.0-rc.2/sing-box_1.7.0-rc.2_linux_amd64.deb
+        sudo dpkg -i sing-box_1.7.0-rc.2_linux_amd64.deb
+        sudo apt-get install -f
+        
+    - name: 重置依赖
+      run: dotnet restore
+
+    - name: 运行singbox
+      run: dotnet run --configuration Release --project ProxyCollector
