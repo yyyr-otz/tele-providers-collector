@@ -77,7 +77,6 @@ vless://5a5d9654-2f1e-4537-b3ca-e76168b2e03f@globalpotplayer.cn:443?security=tls
 vless://d2a89988-8833-435f-b8d1-aed588b80594@globalpotplayer.cn:443?security=tls&sni=watashi.free.uk.mnhacker.eu.org&type=ws&path=%2F%3Fed&fp=chrome# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://ce400f3c-2ca5-4d4d-8deb-43ac02d5868f@globalpotplayer.cn:443?security=tls&type=ws&path=/cdn.v-mizban.info/vqkubV5xX0Tulg7tx5HRa&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
 vless://9f333654-7d59-47ed-8108-e38f8dd7739e@globalpotplayer.cn:80?security=none&type=ws&host=nl24.vlessx.us&path=%2F%3Fed%3D2048# 🔒 VL-WS-NONE 🚀 优选IP: globalpotplayer.cn
-vless://cc876e84-66c4-4bd8-ac67-7d2efc9daac8@globalpotplayer.cn:443?type=tcp&host=ghbi.ir&headerType=http# 🔒 VL-TCP-NA 🚀 优选IP: globalpotplayer.cn
 vless://3780bbfc-63d4-46bb-a4ea-73a61344ce83@globalpotplayer.cn:443?security=tls&sni=pishmabia.outlineiran.online&type=grpc&serviceName=@Outlinev2rayNG,@Outlinev2rayNG# 🔒 VL-GRPC-TLS 🚀 优选IP: globalpotplayer.cn
 vless://21fda37a-10c5-4b6d-85e1-05c5c4601736@globalpotplayer.cn:443?security=tls&type=grpc&path=/V2ray.SvnReallity.Online&host=vless-sub.n7p8ri7j.workers.dev&tls=tls&sni=vless-sub.n7p8ri7j.workers.dev# 🔒 VL-GRPC-TLS 🚀 优选IP: globalpotplayer.cn
 vless://313c8a0a-28f0-48df-b0ad-1bea4db010eb@globalpotplayer.cn:843?security=tls&sni=cert.waky-melo.site&type=ws&path=%2F&fp=random# 🔒 VL-WS-TLS 🚀 优选IP: globalpotplayer.cn
