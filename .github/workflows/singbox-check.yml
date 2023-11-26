@@ -64,4 +64,4 @@ jobs:
       run: dotnet restore
 
     - name: 运行singbox
-      run: dotnet run --configuration Release --project ProxyCollector
+      run: dotnet run --configuration Release --api-key ${{secrets.ACTIONS_SECRETS_TOKEN}} --project ProxyCollector
