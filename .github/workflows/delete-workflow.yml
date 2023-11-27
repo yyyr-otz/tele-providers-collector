@@ -10,7 +10,7 @@ on:
       minimum_runs:
         description: 'Minimum runs to keep for each workflow'
         required: true
-        default: '6'
+        default: '3'
       delete_workflow_pattern:
         description: 'Name or filename of the workflow (if not set, all workflows are targeted)'
         required: false
