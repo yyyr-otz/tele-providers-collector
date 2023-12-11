@@ -1,6 +1,6 @@
-vless://cacabab-caba-abca-cabd-cbaaabccbbac@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 MON 09月20日 🕑 07:27
-juicity://c749c4df-150b-4e46-9df7-f92a542aa9e3:GiaBm55X@172.232.42.32:17779?congestion_control=bbr&pinned_certchain_sha256=HFfUUfYQpl_K85MDWSq4mDo6RvWeGz0w7JDJ1u2PgrE%3D&sni=www.speedtest.net#JUICITY
-juicity://0db5df08-5b34-467e-b385-1e31a7f129c9:azadi_az_inja_migzare@45.145.4.226:27015?congestion_control=bbr&pinned_certchain_sha256=fjn54zBTGnAcpjEdHEPNhHC7gOsWJtQELfSiUXCYAMI%3D&sni=ubuntu.com#JUICITY
+vless://abaabcc-acab-baac-cadb-baacacbccbab@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 TUE 09月21日 🕑 07:29
 juicity://8710f671-69bc-4aa9-a215-b767ce1f4dc8:pi2FEjd8@172.232.121.86:34557?congestion_control=bbr&pinned_certchain_sha256=XGl8-5O3en3dSDkI07fClpJnBdDNQD9Iq6HwM5Ae_vY%3D&sni=www.speedtest.net#JUICITY
+juicity://0db5df08-5b34-467e-b385-1e31a7f129c9:azadi_az_inja_migzare@45.145.4.226:27015?congestion_control=bbr&pinned_certchain_sha256=fjn54zBTGnAcpjEdHEPNhHC7gOsWJtQELfSiUXCYAMI%3D&sni=ubuntu.com#JUICITY
 juicity://c001e339-6fae-4cc4-9e35-67c58b6b109c:mmdslmhkobi@172.234.42.77:40306?congestion_control=bbr&pinned_certchain_sha256=v5p2PWVSA1OXRrrRmAbTC0nQMkR3DudRv7TfrZD7sis%3D&sni=www.speedtest.net#JUICITY
-vless://cabbaca-baca-caab-cdab-acbacbbcbaca@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
+juicity://c749c4df-150b-4e46-9df7-f92a542aa9e3:GiaBm55X@172.232.42.32:17779?congestion_control=bbr&pinned_certchain_sha256=HFfUUfYQpl_K85MDWSq4mDo6RvWeGz0w7JDJ1u2PgrE%3D&sni=www.speedtest.net#JUICITY
+vless://bbcacaa-cbaa-acab-dcba-aacabbcccbab@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
