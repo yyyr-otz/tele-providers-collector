@@ -1,5 +1,5 @@
-## Latest Update: Thu, 04 Jan 2024 07:43:28 UTC+08:00
-## Current Update: Fri, 05 Jan 2024 07:41:30 Asia/Beijing
+## Latest Update: Fri, 05 Jan 2024 07:41:30 UTC+08:00
+## Current Update: Sat, 06 Jan 2024 07:40:20 Asia/Beijing
 ## Introduction-Just Vless-WS
 The script aggregates Vless ( just ws ) from Telegram public channels. It cleans up the configurations based on the open and closed ports, removes duplicate configurations, resolves configurations addresses based on IP address, and redefines configuration titles based on server and protocol type properties such as network and security type, IP address and port.
 
