@@ -1,25 +1,59 @@
-vless://abaabcc-baca-baca-cadb-acaabbbcacbc@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 TUE 01月14日 🕑 08:52
-vless://abaabcc-baca-baca-cadb-acaabbbcacbc@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 TUE 01月14日 🕑 08:52
-tuic://6313c68a-472b-4999-ba33-094a55ea7549:FRebRlCrO+huXaprEwr6@70.34.198.64:443?congestion_control=bbr&udp_relay_mode=native&sni=www.apple.com&alpn=h3%2Cspdy%2F3.1&allow_insecure=1#🔒 TUIC-UDP 70.34.198.64:443 📡 PING-00.0-MS
-tuic://0347eba2-eb71-46b0-b7f6-229e98085d80:0347eba2-eb71-46b0-b7f6-229e98085d80@45.82.244.50:11163?congestion_control=bbr&udp_relay_mode=quic&sni=poke.rushshop.club&alpn=h3&disable_sni=1#🔒 TUIC-UDP 45.82.244.50:11163 📡 PING-00.0-MS
-tuic://6313c68a-472b-4999-ba33-094a55ea7549:FRebRlCrO+huXaprEwr6@70.34.214.160:443?congestion_control=bbr&udp_relay_mode=native&alpn=h3%2Cspdy%2F3.1&allow_insecure=1#🔒 TUIC-UDP 70.34.214.160:443 📡 PING-00.0-MS
+vless://bbaacac-aabc-baac-cdba-bbabaacccacb@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 TUE 01月28日 🕑 08:55
+vless://bbaacac-aabc-baac-cdba-bbabaacccacb@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 TUE 01月28日 🕑 08:55
 tuic://38e38f61-b1dd-4b34-90d0-f6222fd7393f:e7b1c11f0d40cc95@209.250.254.198:443?congestion_control=bbr&udp_relay_mode=native&sni=www.apple.com&alpn=h3&allow_insecure=1#🔒 TUIC-UDP 209.250.254.198:443 📡 PING-00.0-MS
-hy2://3bffc5f5836e914a@91.107.206.98:6060?insecure=1&obfs=salamander&obfs-password=ff181c1e#🔒 HYSTERIA-UDP 91.107.206.98:6060 📡 PING-00.0-MS
-hy2://fokaS4id3bretay-7rit@78.141.216.41:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=fokaS4id3bretay-7rit#🔒 HYSTERIA-UDP 78.141.216.41:443 📡 PING-00.0-MS
-hy2://4d3e7a56-7129-49c9-a1bc-068efde4728a@111.251.169.206:8882?sni=ty16.twty.dynu.net#🔒 HYSTERIA-UDP 111.251.169.206:8882 📡 PING-00.0-MS
-hy2://4d3e7a56-7129-49c9-a1bc-068efde4728a@118.166.206.75:8886?sni=b26.ntbq.dynu.net#🔒 HYSTERIA-UDP 118.166.206.75:8886 📡 PING-00.0-MS
-hy2://651aaeae-ebeb-4118-a34d-3afbe8f14903@128.140.90.79:24647?sni=downloads.segaro.tech&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP 128.140.90.79:24647 📡 PING-00.0-MS
-hy2://651aaeae-ebeb-4118-a34d-3afbe8f14903@[2a01:4f8:c012:5a39::1]:24647?sni=downloads.segaro.tech&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP [2a01:4f8:c012:5a39::1]:24647 📡 PING-00.0-MS
-hy2://fokaS4id3bretay-7rit@[2a05:f480:1400:2ddc:5400:4ff:fec6:11a]:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=fokaS4id3bretay-7rit#🔒 HYSTERIA-UDP [2a05:f480:1400:2ddc:5400:4ff:fec6:11a]:443 📡 PING-00.0-MS
-hy2://dongtaiwang.com@51.159.77.153:33390?insecure=1&sni=bing.com#🔒 HYSTERIA-UDP 51.159.77.153:33390 📡 PING-00.0-MS
-hysteria://167.160.91.115:41189?insecure=1&peer=www.amazon.cn&auth=bWAwIqINo7XDm1fUlXQGBifVIXoYs1ylgVKqWFKzK1XyDKuwNF&upmbps=11&downmbps=55&alpn=h3#🔒 HYSTERIA-UDP 167.160.91.115:41189 📡 PING-00.0-MS
-hysteria://51.158.54.46:55396?insecure=1&peer=youku.com&auth=dongtaiwang.com&upmbps=11&downmbps=55&alpn=h3#🔒 HYSTERIA-UDP 51.158.54.46:55396 📡 PING-00.0-MS
-hy2://dongtaiwang.com@62.210.103.0:22483?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 62.210.103.0:22483 📡 PING-00.0-MS
-hy2://AQgZnO0x97F7@45.131.108.215:1443?insecure=1#🔒 HYSTERIA-UDP 45.131.108.215:1443 📡 PING-00.0-MS
+tuic://38e38f61-b1dd-4b34-90d0-f6222fd7393f:e7b1c11f0d40cc95@136.244.88.153:443?congestion_control=bbr&alpn=h3&sni=www.apple.com&udp_relay_mode=native&allow_insecure=1#🔒 TUIC-UDP 136.244.88.153:443 📡 PING-00.0-MS
+tuic://f6893810-5165-4d9a-95fb-a582fd82d004:f6893810-5165-4d9a-95fb-a582fd82d004@[2a01:4f8:c012:5a39::1]:49892?congestion_control=cubic&udp_relay_mode=native&sni=bivojoud.seyedalikhameneibinamous.site&alpn=h3#🔒 TUIC-UDP [2a01:4f8:c012:5a39::1]:49892 📡 PING-00.0-MS
+tuic://0347eba2-eb71-46b0-b7f6-229e98085d80:0347eba2-eb71-46b0-b7f6-229e98085d80@45.82.244.50:11163?congestion_control=bbr&udp_relay_mode=quic&sni=poke.rushshop.club&alpn=h3&disable_sni=1#🔒 TUIC-UDP 45.82.244.50:11163 📡 PING-00.0-MS
+tuic://6313c68a-472b-4999-ba33-094a55ea7549:FRebRlCrO+huXaprEwr6@70.34.198.64:443?congestion_control=bbr&udp_relay_mode=native&sni=www.apple.com&alpn=h3%2Cspdy%2F3.1&allow_insecure=1#🔒 TUIC-UDP 70.34.198.64:443 📡 PING-00.0-MS
+tuic://dacd2765-2332-4817-83c4-273df586c8c5:dacd2765-2332-4817-83c4-273df586c8c5@154.44.17.136:24147?congestion_control=bbr&udp_relay_mode=native&alpn=h3#🔒 TUIC-UDP 154.44.17.136:24147 📡 PING-00.0-MS
+tuic://d1bb3aae-ace9-4b0f-9ae5-85ab73acbb43:Mahsaamini@64.176.186.193:443?congestion_control=bbr&udp_relay_mode=native&alpn=h3%2Cspdy%2F3.1&allow_insecure=1#🔒 TUIC-UDP 64.176.186.193:443 📡 PING-00.0-MS
+tuic://6313c68a-472b-4999-ba33-094a55ea7549:FRebRlCrO+huXaprEwr6@70.34.214.160:443?congestion_control=bbr&udp_relay_mode=native&alpn=h3%2Cspdy%2F3.1&allow_insecure=1#🔒 TUIC-UDP 70.34.214.160:443 📡 PING-00.0-MS
+hy2://f6e4b19a3110d19d@66.135.28.59:443?insecure=1&sni=ELiV2RAY.eliv2.top%0A&obfs=salamander&obfs-password=8c3ce17b#🔒 HYSTERIA-UDP 66.135.28.59:443 📡 PING-99.0-MS
 hy2://miaoge110.@170.64.183.54:33939?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 170.64.183.54:33939 📡 PING-00.0-MS
-hy2://sTeki1$re5!8swohopro@[2001:19f0:5001:b0e:5400:4ff:fec6:11b]:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=sTeki1%24re5%218swohopro#🔒 HYSTERIA-UDP [2001:19f0:5001:b0e:5400:4ff:fec6:11b]:443 📡 PING-00.0-MS
-hy2://3bffc5f5836e914a@[2a01:4f8:c17:aefb::1]:6060?insecure=1&obfs=salamander&obfs-password=ff181c1e#🔒 HYSTERIA-UDP [2a01:4f8:c17:aefb::1]:6060 📡 PING-00.0-MS
-hy2://dongtaiwang.com@51.158.54.46:44550?insecure=1&sni=bing.com#🔒 HYSTERIA-UDP 51.158.54.46:44550 📡 PING-00.0-MS
+hy2://400dbfaa-15d4-4654-983c-72eb769a76f0@154.16.10.123:8883?insecure=1#🔒 HYSTERIA-UDP 154.16.10.123:8883 📡 PING-00.0-MS
+hy2://dongtaiwang.com@62.210.103.0:22483?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 62.210.103.0:22483 📡 PING-00.0-MS
+hy2://dongtaiwang.com@51.159.77.153:33390?insecure=1&sni=wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc#🔒 HYSTERIA-UDP 51.159.77.153:33390 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20003?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20003 📡 PING-00.0-MS
+hy2://dongtaiwang.com@51.159.103.141:33390?insecure=1&sni=wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc#🔒 HYSTERIA-UDP 51.159.103.141:33390 📡 PING-00.0-MS
+hy2://629add44-33c3-417c-8e7d-e06ac1cec2cf@107.189.10.156:20003?sni=go.lu1.1101001000.xyz#🔒 HYSTERIA-UDP 107.189.10.156:20003 📡 PING-00.0-MS
 hy2://sTeki1$re5!8swohopro@78.141.215.68:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=sTeki1%24re5%218swohopro#🔒 HYSTERIA-UDP 78.141.215.68:443 📡 PING-00.0-MS
-vless://accbbaa-aabc-acab-dcab-baccabbcbaac@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
-vless://accbbaa-aabc-acab-dcab-baccabbcbaac@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
+hy2://sTeki1$re5!8swohopro@[2001:19f0:5001:b0e:5400:4ff:fec6:11b]:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=sTeki1%24re5%218swohopro#🔒 HYSTERIA-UDP [2001:19f0:5001:b0e:5400:4ff:fec6:11b]:443 📡 PING-00.0-MS
+hy2://651aaeae-ebeb-4118-a34d-3afbe8f14903@[2a01:4f8:c012:5a39::1]:24647?obfs=salamander&obfs-password=wSvgfh8Gl0&sni=downloads.segaro.tech#🔒 HYSTERIA-UDP [2a01:4f8:c012:5a39::1]:24647 📡 PING-00.0-MS
+hy2://dongtaiwang.com@74.63.233.74:33445?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 74.63.233.74:33445 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20005?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20005 📡 PING-00.0-MS
+hy2://ec4a39403fe3b7d8@23.94.255.112:8443?insecure=1&sni=bing.com#🔒 HYSTERIA-UDP 23.94.255.112:8443 📡 PING-00.0-MS
+hy2://6cae5bc7-8832-45bd-809c-02ced9ce6172@154.16.248.155:22206?insecure=1#🔒 HYSTERIA-UDP 154.16.248.155:22206 📡 PING-00.0-MS
+hy2://e1276a3f@172.67.166.63:59129?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 172.67.166.63:59129 📡 PING-00.0-MS
+hysteria://51.158.54.46:55396?insecure=1&peer=wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc&auth=dongtaiwang.com&upmbps=50&downmbps=100&alpn=h3#🔒 HYSTERIA-UDP 51.158.54.46:55396 📡 PING-00.0-MS
+hy2://f6893810-5165-4d9a-95fb-a582fd82d004@[2a01:4f8:c012:5a39::1]:24667?sni=bivojoud.seyedalikhameneibinamous.site&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP [2a01:4f8:c012:5a39::1]:24667 📡 PING-00.0-MS
+hy2://fokaS4id3bretay-7rit@78.141.216.41:443?insecure=1&sni=google.com&obfs=salamander&obfs-password=fokaS4id3bretay-7rit#🔒 HYSTERIA-UDP 78.141.216.41:443 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20001?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20001 📡 PING-00.0-MS
+hy2://e1276a3f@[2606:4700:3033::ac43:a63f]:59129?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP [2606:4700:3033::ac43:a63f]:59129 📡 PING-00.0-MS
+hy2://a3d7c6a6-4b4c-468e-8c35-7184d3b68259@23.88.44.206:24662?sni=peraw.zagros.top&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP 23.88.44.206:24662 📡 PING-00.0-MS
+hy2://vpnxw@217.196.106.70:33003?insecure=1&sni=www.speedtest.net&obfs=salamander&obfs-password=vpnxw#🔒 HYSTERIA-UDP 217.196.106.70:33003 📡 PING-00.0-MS
+hysteria://51.159.213.39:18702?insecure=1&peer=wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc&auth=dongtaiwang.com&upmbps=80&downmbps=100&alpn=h3#🔒 HYSTERIA-UDP 51.159.213.39:18702 📡 PING-00.0-MS
+hy2://b217b5b1-514d-4c56-b04a-789fc7bcf9d6@[2a01:4f8:c012:5a39:c9::1]:24675?sni=fesharbekhorfilterchi.segaro.tech&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP [2a01:4f8:c012:5a39:c9::1]:24675 📡 PING-00.0-MS
+hy2://e1276a3f@107.189.4.161:59129?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 107.189.4.161:59129 📡 PING-00.0-MS
+hy2://dongtaiwang.com@51.158.54.46:44550?insecure=1&sni=bing.com#🔒 HYSTERIA-UDP 51.158.54.46:44550 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20006?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20006 📡 PING-00.0-MS
+hysteria://109.104.152.194:58510?insecure=1&peer=bing.com&auth=dongtaiwang.com&upmbps=80&downmbps=100&alpn=h3#🔒 HYSTERIA-UDP 109.104.152.194:58510 📡 PING-00.0-MS
+hysteria://141.145.194.153:443?upmbps=30&downmbps=70&auth=483f8ef7-8480-490d-92fb-1fc392fb34b6&mport=6000-21000&insecure=1&alpn=h3#🔒 HYSTERIA-UDP 141.145.194.153:443 📡 PING-00.0-MS
+hy2://fokaS4id3bretay-7rit@[2a05:f480:1400:2ddc:5400:4ff:fec6:11a]:443?obfs=salamander&obfs-password=fokaS4id3bretay-7rit&insecure=1&sni=google.com#🔒 HYSTERIA-UDP [2a05:f480:1400:2ddc:5400:4ff:fec6:11a]:443 📡 PING-00.0-MS
+hysteria://108.181.5.133:26022?insecure=1&peer=bing.com&auth=dongtaiwang.com&upmbps=80&downmbps=100&alpn=h3#🔒 HYSTERIA-UDP 108.181.5.133:26022 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20004?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20004 📡 PING-00.0-MS
+hy2://01b2b30f-636f-45c6-bca6-47fdc01da7ab@212.192.13.14:20002?sni=hy-hk-l4ehusajhz18.fly64jfgwhale.xyz#🔒 HYSTERIA-UDP 212.192.13.14:20002 📡 PING-00.0-MS
+hy2://651aaeae-ebeb-4118-a34d-3afbe8f14903@128.140.90.79:24647?sni=downloads.segaro.tech&obfs=salamander&obfs-password=wSvgfh8Gl0#🔒 HYSTERIA-UDP 128.140.90.79:24647 📡 PING-00.0-MS
+hy2://e1276a3f@104.21.75.10:59129?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 104.21.75.10:59129 📡 PING-00.0-MS
+hy2://8c4bd1ec-377e-4914-87a3-0e2c6b618bc2@185.225.201.228:18488?sni=direct-nl.snowguard-cloud-vpn-01.link&obfs=salamander&obfs-password=S0lPELawhd#🔒 HYSTERIA-UDP 185.225.201.228:18488 📡 PING-00.0-MS
+hy2://629add44-33c3-417c-8e7d-e06ac1cec2cf@38.207.152.14:20004?sni=jp.1101001000.xyz#🔒 HYSTERIA-UDP 38.207.152.14:20004 📡 PING-00.0-MS
+hy2://af9e1b9f-3ee6-4184-a330-bb110419687a@172.234.84.91:20000?sni=sg.555199.xyz#🔒 HYSTERIA-UDP 172.234.84.91:20000 📡 PING-00.0-MS
+hy2://629add44-33c3-417c-8e7d-e06ac1cec2cf@104.234.4.63:20002?sni=go.us2.1101001000.xyz#🔒 HYSTERIA-UDP 104.234.4.63:20002 📡 PING-00.0-MS
+hysteria://130.61.24.219:443?mport=6000-21000&insecure=1&auth=483f8ef7-8480-490d-92fb-1fc392fb34b6&upmbps=30&downmbps=70&alpn=h3#🔒 HYSTERIA-UDP 130.61.24.219:443 📡 PING-00.0-MS
+hysteria://62.210.243.131:18702?insecure=1&peer=wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc&auth=dongtaiwang.com&upmbps=80&downmbps=100&alpn=h3#🔒 HYSTERIA-UDP 62.210.243.131:18702 📡 PING-00.0-MS
+hy2://af9e1b9f-3ee6-4184-a330-bb110419687a@172.233.128.28:5000?sni=sg.555199.xyz#🔒 HYSTERIA-UDP 172.233.128.28:5000 📡 PING-00.0-MS
+hy2://dongtaiwang.com@109.104.152.89:22441?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP 109.104.152.89:22441 📡 PING-00.0-MS
+hysteria://158.179.182.107:443?mport=6000-21000&insecure=1&auth=483f8ef7-8480-490d-92fb-1fc392fb34b6&upmbps=30&downmbps=70&alpn=h3#🔒 HYSTERIA-UDP 158.179.182.107:443 📡 PING-00.0-MS
+hy2://629add44-33c3-417c-8e7d-e06ac1cec2cf@154.9.249.142:20000?sni=technovm.1101001000.xyz#🔒 HYSTERIA-UDP 154.9.249.142:20000 📡 PING-00.0-MS
+hy2://e1276a3f@[2606:4700:3034::6815:4b0a]:59129?insecure=1&sni=www.bing.com#🔒 HYSTERIA-UDP [2606:4700:3034::6815:4b0a]:59129 📡 PING-00.0-MS
+vless://accabba-baca-baac-dacb-cbbcbaaccaba@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
+vless://accabba-baca-baac-dacb-cbbcbaaccaba@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
