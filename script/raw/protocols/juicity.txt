@@ -1,2 +1,2 @@
-vless://acbbcaa-acab-caba-bcad-bcbbaccaaabc@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 SUN 03月13日 🕑 09:54
-vless://abccaba-cbaa-baac-cabd-bcbabcaccaba@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
+vless://ccbaaab-acba-caba-bdac-bbaacacbcbca@127.0.0.1:1080?security=tls&type=tcp#🔄 更新时间 📅 SUN 03月27日 🕑 10:22
+vless://babacac-abca-abac-cabd-cacabaaccbbb@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻 由YYYR收集,鸣谢代码原作者,请勿用于违法用途 🥰
